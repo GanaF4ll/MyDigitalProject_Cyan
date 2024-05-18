@@ -5,7 +5,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import Home from "./components/Home";
 import Settings from "./components/Settings";
 import Search from "./components/Search";
-import Formation from "./components/Formation";
+import PageFormation from "./components/PageFormation";
 
 const Tab = createBottomTabNavigator();
 
@@ -35,7 +35,7 @@ function AppNavigator() {
       >
         <Tab.Screen name="Accueil" component={Home} />
         <Tab.Screen name="Rechercher" component={Search} />
-        <Tab.Screen name="Formations" component={Formation} />
+        <Tab.Screen name="Formations" component={PageFormation} />
         <Tab.Screen name="Profil" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
