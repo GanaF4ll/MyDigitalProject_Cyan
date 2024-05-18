@@ -15,16 +15,16 @@ function AppNavigator() {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size }) => {
-            let iconName: "home" | "search" | "book" | "cog";
+            let iconName: "home" | "search" | "book" | "user-circle";
 
-            if (route.name === "Home") {
+            if (route.name === "Accueil") {
               iconName = "home";
-            } else if (route.name === "Search") {
+            } else if (route.name === "Rechercher") {
               iconName = "search";
-            } else if (route.name === "Formation") {
+            } else if (route.name === "Formations") {
               iconName = "book";
-            } else if (route.name === "Settings") {
-              iconName = "cog";
+            } else if (route.name === "Profil") {
+              iconName = "user-circle";
             } else {
               return null;
             }
@@ -33,10 +33,10 @@ function AppNavigator() {
           },
         })}
       >
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Search" component={Search} />
-        <Tab.Screen name="Formation" component={Formation} />
-        <Tab.Screen name="Settings" component={Settings} />
+        <Tab.Screen name="Accueil" component={Home} />
+        <Tab.Screen name="Rechercher" component={Search} />
+        <Tab.Screen name="Formations" component={Formation} />
+        <Tab.Screen name="Profil" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
   );
