@@ -9,7 +9,7 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "../assets/images/mock1.jpg",
+    coverImage: require("../assets/images/mock1.jpg"),
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "../assets/images/mock2.jpg",
+    coverImage: require("../assets/images/mock2.png"),
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "../assets/images/mock3.jpg",
+    coverImage: require("../assets/images/mock3.jpg"),
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "../assets/images/mock4.jpg",
+    coverImage: require("../assets/images/mock3.jpg"),
   },
   {
     id: 5,
@@ -57,6 +57,6 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "../assets/images/mock1.jpg",
+    coverImage: require("../assets/images/mock1.jpg"),
   },
 ];

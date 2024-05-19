@@ -28,20 +28,33 @@ export default StyleSheet.create({
     minWidth: 300,
     borderRadius: 10,
     margin: 5,
+    padding: 15,
   },
   test: {
     color: orange_primary,
   },
   title_blue: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "bold",
     color: blue_primary,
     fontFamily: "Montserrat-semibold",
   },
   title_white: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "bold",
     color: "#E5E5E5",
     fontFamily: "Montserrat-semibold",
+  },
+  image_container: {
+    height: "100%",
+    width: "30%",
+    borderRadius: 10,
+    alignItems: "center",
+    marginRight: 10,
+  },
+  formation_content: {
+    flexDirection: "column",
+    height: "100%",
+    width: "70%",
   },
 });
