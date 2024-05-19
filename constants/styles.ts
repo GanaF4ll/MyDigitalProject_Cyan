@@ -1,8 +1,13 @@
 import { StyleSheet } from "react-native";
+import * as Font from "expo-font";
 
 const blue_primary = "#193762";
 const orange_primary = "#DB8B34";
 const green_primary = "#A3EDBF";
+
+Font.loadAsync({
+  "Montserrat-semibold": require("../assets/fonts/Montserrat-SemiBold.ttf"),
+});
 
 export default StyleSheet.create({
   container: {
@@ -13,15 +18,30 @@ export default StyleSheet.create({
   },
   formation: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#E5E5E5",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    borderColor: green_primary,
+    borderColor: orange_primary,
     borderWidth: 2,
     color: blue_primary,
+    minWidth: 300,
+    borderRadius: 10,
+    margin: 5,
   },
   test: {
     color: orange_primary,
+  },
+  title_blue: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: blue_primary,
+    fontFamily: "Montserrat-semibold",
+  },
+  title_white: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#E5E5E5",
+    fontFamily: "Montserrat-semibold",
   },
 });

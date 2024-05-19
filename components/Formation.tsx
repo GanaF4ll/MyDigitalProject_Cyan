@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
 import styles from "../constants/styles";
 import { FORMATIONS } from "../constants";
@@ -19,7 +19,13 @@ interface FormationProps {
 export const Formation: React.FC<FormationProps> = (props) => {
   return (
     <View style={styles.formation}>
-      <Text key={props.id}>{props.title}</Text>
+      <Image
+        source={{ uri: props.coverImage }}
+        style={{ width: 100, height: 100 }}
+      />
+      <Text key={props.id} style={styles.title_blue}>
+        {props.title}
+      </Text>
     </View>
   );
 };
