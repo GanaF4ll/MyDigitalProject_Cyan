@@ -9,7 +9,7 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "https://example.com/test-image",
+    coverImage: "../assets/images/mock1.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "https://assets/test-image",
+    coverImage: "../assets/images/mock2.jpg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "https://example.com/test-image",
+    coverImage: "../assets/images/mock3.jpg",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "https://example.com/test-image",
+    coverImage: "../assets/images/mock4.jpg",
   },
   {
     id: 5,
@@ -57,6 +57,6 @@ export const FORMATIONS = [
     difficulty: "easy",
     completionTime: "2023-01-01T00:00:00.000Z",
     qualityRating: 5,
-    coverImage: "https://example.com/test-image",
+    coverImage: "../assets/images/mock1.jpg",
   },
 ];

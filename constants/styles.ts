@@ -13,7 +13,15 @@ export default StyleSheet.create({
   },
   formation: {
     flex: 1,
-    backgroundColor: blue_primary,
+    backgroundColor: "white",
     flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: green_primary,
+    borderWidth: 2,
+    color: blue_primary,
+  },
+  test: {
+    color: orange_primary,
   },
 });
