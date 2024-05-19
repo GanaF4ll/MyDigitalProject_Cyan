@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
 
+const blue_primary = "#193762";
+const orange_primary = "#DB8B34";
+const green_primary = "#A3EDBF";
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -7,22 +11,9 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  text_blue_primary: {
-    color: "#193762",
-  },
-  text_orange_primary: {
-    color: "#DB8B34",
-  },
-  text_green_primary: {
-    color: "#A3EDBF",
-  },
-  bg_blue_primary: {
-    backgroundColor: "#193762",
-  },
-  bg_orange_primary: {
-    backgroundColor: "#DB8B34",
-  },
-  bg_green_primary: {
-    backgroundColor: "#A3EDBF",
+  formation: {
+    flex: 1,
+    backgroundColor: blue_primary,
+    flexDirection: "row",
   },
 });
