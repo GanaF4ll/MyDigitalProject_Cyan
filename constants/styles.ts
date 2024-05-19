@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import * as Font from "expo-font";
 
 const blue_primary = "#193762";
-const orange_primary = "#DB8B34";
+const orange_primary = "#FCA311";
 const green_primary = "#A3EDBF";
 
 Font.loadAsync({
@@ -43,6 +43,12 @@ export default StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: "#E5E5E5",
+    fontFamily: "Montserrat-semibold",
+  },
+  title_orange: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: orange_primary,
     fontFamily: "Montserrat-semibold",
   },
   image_container: {

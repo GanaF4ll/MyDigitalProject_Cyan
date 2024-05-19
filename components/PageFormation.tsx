@@ -11,11 +11,11 @@ export default function PageFormation() {
         <Formation
           key={formation.id}
           id={formation.id}
-          author_id={formation.author_id}
+          author={formation.author}
           title={formation.title}
           description={formation.description}
           video={formation.video}
-          category_id={formation.category_id}
+          category={formation.category}
           difficulty={formation.difficulty}
           qualityRating={formation.qualityRating}
           coverImage={formation.coverImage}

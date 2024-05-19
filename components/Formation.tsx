@@ -3,14 +3,13 @@ import React from "react";
 import styles from "../constants/styles";
 import { FORMATIONS } from "../constants";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { FormationType } from "../constants/types";
 
-interface FormationProps {
+interface FormationProps extends FormationType {
   id: number;
-  author_id: number;
   title: string;
   description: string;
   video: string;
-  category_id: number;
   difficulty: string;
   qualityRating: number;
   coverImage: string;
@@ -27,6 +26,7 @@ export const Formation: React.FC<FormationProps> = (props) => {
       </View>
 
       <View style={styles.formation_content}>
+        <Text style={styles.title_orange}>{props.category}</Text>
         <Text key={props.id} style={styles.title_blue}>
           {props.title}
         </Text>
