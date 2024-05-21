@@ -2,10 +2,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome } from "@expo/vector-icons";
 
-import Home from "./components/Home";
-import Settings from "./components/Settings";
-import Search from "./components/Search";
-import PageFormation from "./components/PageFormation";
+import Home from "./app/screens/Home";
+import Settings from "./app/screens/Settings";
+import Search from "./app/screens/Search";
+import PageFormation from "./app/screens/PageFormation";
 
 const Tab = createBottomTabNavigator();
 
