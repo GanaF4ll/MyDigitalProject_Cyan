@@ -6,6 +6,7 @@ import Home from "./app/screens/Home";
 import Settings from "./app/screens/Settings";
 import Search from "./app/screens/Search";
 import PageFormation from "./app/screens/PageFormation";
+import { AuthProvider } from "./app/context/AuthContext";
 
 const Tab = createBottomTabNavigator();
 
