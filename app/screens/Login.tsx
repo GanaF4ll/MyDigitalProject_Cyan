@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <Image
         source={require("../../assets/images/Logotype 4.png")}
         style={styles.logo}
