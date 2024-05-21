@@ -1,4 +1,13 @@
 import { StyleSheet } from "react-native";
+import * as Font from "expo-font";
+
+const blue_primary = "#193762";
+const orange_primary = "#FCA311";
+const green_primary = "#A3EDBF";
+
+Font.loadAsync({
+  "Montserrat-semibold": require("../assets/fonts/Montserrat-SemiBold.ttf"),
+});
 
 export default StyleSheet.create({
   container: {
@@ -7,22 +16,56 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  text_blue_primary: {
-    color: "#193762",
+  formation: {
+    flex: 1,
+    backgroundColor: "#E5E5E5",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: orange_primary,
+    borderWidth: 2,
+    color: blue_primary,
+    minWidth: 300,
+    borderRadius: 10,
+    margin: 5,
+    padding: 15,
   },
-  text_orange_primary: {
-    color: "#DB8B34",
+  test: {
+    color: orange_primary,
   },
-  text_green_primary: {
-    color: "#A3EDBF",
+  title_blue: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: blue_primary,
+    fontFamily: "Montserrat-semibold",
   },
-  bg_blue_primary: {
-    backgroundColor: "#193762",
+  title_white: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#E5E5E5",
+    fontFamily: "Montserrat-semibold",
   },
-  bg_orange_primary: {
-    backgroundColor: "#DB8B34",
+  title_orange: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: orange_primary,
+    fontFamily: "Montserrat-semibold",
   },
-  bg_green_primary: {
-    backgroundColor: "#A3EDBF",
+  image_container: {
+    height: "100%",
+    width: "30%",
+    borderRadius: 10,
+    alignItems: "center",
+    marginRight: 10,
+  },
+  formation_content: {
+    flexDirection: "column",
+    height: "100%",
+    width: "70%",
+  },
+  logo: {
+    width: "50%",
+    height: "50%",
+    resizeMode: "contain",
   },
 });

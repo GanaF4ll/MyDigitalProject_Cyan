@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput } from "react-native";
+import { View, Text, Image, TextInput, Button } from "react-native";
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import styles from "../../constants/styles";
@@ -36,24 +36,25 @@ const Login = () => {
   return (
     <View>
       <Image
-        source={require("../../assets/images/Logotype4.png")}
+        source={require("../../assets/images/Logotype 4.png")}
         style={styles.logo}
       />
-      <View style={styles.form}>
+      <View>
         <TextInput
-          style={styles.input}
+          //   style={styles.input}
           placeholder="Email"
           onChangeText={(text: string) => setEmail(text)}
           value={email}
         ></TextInput>
 
         <TextInput
-          style={styles.input}
+          //   style={styles.input}
           placeholder="Mot de passe"
           secureTextEntry={true}
           onChangeText={(text: string) => setPassword}
           value={password}
         ></TextInput>
+        <Button onPress={login} title="Connexion"></Button>
       </View>
     </View>
   );
