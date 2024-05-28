@@ -1,7 +1,18 @@
-import { View, Text, Image, TextInput, Button } from "react-native";
-import React, { useState } from "react";
-import { useAuth } from "../context/AuthContext";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  Button,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
+import React, { useEffect, useState } from "react";
+import { API_URL, useAuth } from "../context/AuthContext";
 import styles from "../../constants/styles";
+import { colors } from "../../constants/styles";
+import axios from "axios";
 
 const Login = () => {
   const [firstName, setFirstName] = useState("");
@@ -17,6 +28,14 @@ const Login = () => {
       alert(result.msg);
     }
   };
+
+  useEffect(() => {
+    const testCall = async () => {
+      const result = await axios.get(`${API_URL}/test`);
+      console.log(result.data);
+    };
+    testCall();
+  }, []);
 
   const register = async () => {
     const result = await onRegister!(
@@ -34,29 +53,68 @@ const Login = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/Logotype 4.png")}
-        style={styles.logo}
-      />
-      <View>
-        <TextInput
-          //   style={styles.input}
-          placeholder="Email"
-          onChangeText={(text: string) => setEmail(text)}
-          value={email}
-        ></TextInput>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <View
+        style={[styles.container, { backgroundColor: colors.blue_primary }]}
+      >
+        <Image
+          source={require("../../assets/images/Logotype 4.png")}
+          style={styles.logo}
+        />
+        <View
+          style={{
+            flexDirection: "column",
+            alignItems: "flex-start",
+            marginBottom: 20,
+          }}
+        >
+          <Text
+            style={styles.label}
+            aria-label="Label for Email"
+            nativeID="labelMail"
+          >
+            Email
+          </Text>
+          <TextInput
+            style={[styles.input, { marginTop: 5 }]}
+            placeholder="Email"
+            onChangeText={(text: string) => setEmail(text)}
+            value={email}
+            aria-labelledby="labelMail"
+          />
+        </View>
 
-        <TextInput
-          //   style={styles.input}
-          placeholder="Mot de passe"
-          secureTextEntry={true}
-          onChangeText={(text: string) => setPassword}
-          value={password}
-        ></TextInput>
-        <Button onPress={login} title="Connexion"></Button>
+        <View
+          style={{
+            flexDirection: "column",
+            alignItems: "flex-start",
+            marginBottom: 20,
+          }}
+        >
+          <Text
+            style={styles.label}
+            aria-label="Label for Password"
+            nativeID="labelPassword"
+          >
+            Mot de passe
+          </Text>
+          <TextInput
+            style={[styles.input, { marginTop: 5 }]}
+            placeholder="Mot de passe"
+            secureTextEntry={true}
+            onChangeText={(text: string) => setPassword(text)}
+            value={password}
+            aria-labelledby="labelPassword"
+          />
+        </View>
+        <TouchableOpacity onPress={login} style={styles.button}>
+          <Text style={styles.title_blue}>Connexion</Text>
+        </TouchableOpacity>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

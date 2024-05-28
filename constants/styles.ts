@@ -5,6 +5,12 @@ const blue_primary = "#193762";
 const orange_primary = "#FCA311";
 const green_primary = "#A3EDBF";
 
+export const colors = {
+  blue_primary,
+  orange_primary,
+  green_primary,
+};
+
 Font.loadAsync({
   "Montserrat-semibold": require("../assets/fonts/Montserrat-SemiBold.ttf"),
 });
@@ -67,5 +73,30 @@ export default StyleSheet.create({
     width: "50%",
     height: "50%",
     resizeMode: "contain",
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    width: 350,
+    borderRadius: 10,
+    borderColor: blue_primary,
+    borderWidth: 1,
+    backgroundColor: "white",
+    color: blue_primary,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "white",
+    fontFamily: "Montserrat-semibold",
+    marginBottom: 5,
+    paddingLeft: 15,
+  },
+  button: {
+    backgroundColor: orange_primary,
+    padding: 10,
+    borderRadius: 10,
+    width: 350,
+    alignItems: "center",
   },
 });
