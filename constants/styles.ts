@@ -99,4 +99,11 @@ export default StyleSheet.create({
     width: 350,
     alignItems: "center",
   },
+  btn_logout: {
+    backgroundColor: blue_primary,
+    padding: 10,
+    borderRadius: 8,
+    width: 30,
+    alignItems: "center",
+  },
 });

@@ -1,16 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import style from "./constants/styles";
 import AppNavigator from "./navigation";
 import { AuthProvider, useAuth } from "./app/context/AuthContext";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FontAwesome } from "@expo/vector-icons";
 
 import Home from "./app/screens/Home";
 import Login from "./app/screens/Login";
 import PageFormation from "./app/screens/PageFormation";
 import Search from "./app/screens/Search";
+import React from "react";
+import Settings from "./app/screens/Settings";
+import styles from "./constants/styles";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -22,40 +26,84 @@ export default function App() {
     </AuthProvider>
   );
 }
+
 export const Layout = () => {
   const { authState, onLogout } = useAuth();
 
   return (
     <NavigationContainer>
       {authState?.authenticated ? (
-        <Tab.Navigator>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ color, size }) => {
+              let iconName: keyof typeof FontAwesome.glyphMap;
+
+              switch (route.name) {
+                case "Accueil":
+                  iconName = "home";
+                  break;
+                case "Rechercher":
+                  iconName = "search";
+                  break;
+                case "Formations":
+                  iconName = "book";
+                  break;
+                case "Profil":
+                  iconName = "user-circle";
+                  break;
+                default:
+                  return null;
+              }
+
+              return <FontAwesome name={iconName} size={size} color={color} />;
+            },
+          })}
+        >
           <Tab.Screen
-            name="Home"
+            name="Accueil"
             component={Home}
             options={{
-              tabBarLabel: "Home",
+              tabBarLabel: "Accueil",
               headerRight: () => (
-                <Button onPress={onLogout} title="Déconnexion" />
+                <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
+                  <FontAwesome name="home" size={10} color="white" />
+                </TouchableOpacity>
               ),
             }}
           />
           <Tab.Screen
-            name="PageFormation"
+            name="Formations"
             component={PageFormation}
             options={{
-              tabBarLabel: "Formation",
+              tabBarLabel: "Formations",
               headerRight: () => (
-                <Button onPress={onLogout} title="Déconnexion" />
+                <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
+                  <FontAwesome name="home" size={10} color="white" />
+                </TouchableOpacity>
               ),
             }}
           />
           <Tab.Screen
-            name="Search"
+            name="Rechercher"
             component={Search}
             options={{
-              tabBarLabel: "Search",
+              tabBarLabel: "Rechercher",
               headerRight: () => (
-                <Button onPress={onLogout} title="Déconnexion" />
+                <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
+                  <FontAwesome name="home" size={10} color="white" />
+                </TouchableOpacity>
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Profil"
+            component={Settings}
+            options={{
+              tabBarLabel: "Profil",
+              headerRight: () => (
+                <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
+                  <FontAwesome name="home" size={10} color="white" />
+                </TouchableOpacity>
               ),
             }}
           />
