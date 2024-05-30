@@ -1,8 +1,7 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
-import { FORMATIONS } from "../constants";
 import { API_URL } from "../constants/index";
 import { FormationType } from "../constants/types";
 import axios from "axios";
@@ -22,19 +21,23 @@ export default function PageFormation() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        {FORMATIONS.map((formation) => (
-          <Formation
+        {formations.map((formation) => (
+          <TouchableOpacity
             key={formation.id}
-            id={formation.id}
-            author={formation.author}
-            title={formation.title}
-            description={formation.description}
-            video={formation.video}
-            category={formation.category}
-            difficulty={formation.difficulty}
-            qualityRating={formation.qualityRating}
-            coverImage={formation.coverImage}
-          />
+            onPress={() => console.log(formation)}
+          >
+            <Formation
+              id={formation.id}
+              author={formation.author}
+              title={formation.title}
+              description={formation.description}
+              video={formation.video}
+              category={formation.category}
+              difficulty={formation.difficulty}
+              qualityRating={formation.qualityRating}
+              coverImage={formation.coverImage}
+            />
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
