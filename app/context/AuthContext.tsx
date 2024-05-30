@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../constants/index";
 
 interface AuthProps {
   authState?: { authenticated: boolean | null };
@@ -14,7 +15,7 @@ interface AuthProps {
   onLogout?: () => Promise<any>;
 }
 
-export const API_URL = "https://virtual-sentinel-5db263dece23.herokuapp.com";
+// export const API_URL = "https://virtual-sentinel-5db263dece23.herokuapp.com";
 const AuthContext = createContext<AuthProps>({});
 
 export const useAuth = () => {

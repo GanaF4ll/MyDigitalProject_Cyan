@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import style from "./constants/styles";
+import style from "./app/constants/styles";
 import AppNavigator from "./navigation";
 import { AuthProvider, useAuth } from "./app/context/AuthContext";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -14,7 +14,7 @@ import PageFormation from "./app/screens/PageFormation";
 import Search from "./app/screens/Search";
 import React from "react";
 import Settings from "./app/screens/Settings";
-import styles from "./constants/styles";
+import styles from "./app/constants/styles";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
