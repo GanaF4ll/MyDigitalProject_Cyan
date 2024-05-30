@@ -14,7 +14,7 @@ interface AuthProps {
   onLogout?: () => Promise<any>;
 }
 
-const API_URL = "https://virtual-sentinel-5db263dece23.herokuapp.com";
+export const API_URL = "https://virtual-sentinel-5db263dece23.herokuapp.com";
 const AuthContext = createContext<AuthProps>({});
 
 export const useAuth = () => {

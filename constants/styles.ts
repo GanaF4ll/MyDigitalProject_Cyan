@@ -83,6 +83,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "white",
     color: blue_primary,
+    padding: 10,
   },
   label: {
     fontSize: 16,
