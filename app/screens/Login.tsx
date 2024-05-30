@@ -80,8 +80,9 @@ const Login = () => {
             Email
           </Text>
           <TextInput
+            autoCapitalize="none"
             style={[styles.input, { marginTop: 5 }]}
-            placeholder="Email"
+            placeholder="virtualsentinel@exemple.com"
             onChangeText={(text: string) => setEmail(text)}
             value={email}
             aria-labelledby="labelMail"
@@ -104,7 +105,7 @@ const Login = () => {
           </Text>
           <TextInput
             style={[styles.input, { marginTop: 5 }]}
-            placeholder="Mot de passe"
+            placeholder="**********"
             secureTextEntry={true}
             onChangeText={(text: string) => setPassword(text)}
             value={password}
@@ -114,6 +115,10 @@ const Login = () => {
         <TouchableOpacity onPress={login} style={styles.button}>
           <Text style={styles.title_blue}>Connexion</Text>
         </TouchableOpacity>
+        <Text style={{ color: colors.orange_primary, marginTop: 10 }}>
+          Pas de compte ?{" "}
+          <Text style={{ textDecorationLine: "underline" }}>Créez-en un</Text>
+        </Text>
       </View>
     </KeyboardAvoidingView>
   );

@@ -107,4 +107,19 @@ export default StyleSheet.create({
     width: 30,
     alignItems: "center",
   },
+  header_container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    padding: 10,
+    backgroundColor: blue_primary,
+  },
+  header_button: {
+    backgroundColor: "#E5E5E5",
+    // padding: 10,
+    borderRadius: 10,
+    width: 100,
+    alignItems: "center",
+  },
 });

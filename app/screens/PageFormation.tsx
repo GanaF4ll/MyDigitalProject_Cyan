@@ -4,6 +4,8 @@ import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
 import { API_URL } from "../constants/index";
 import { FormationType } from "../constants/types";
+import { colors } from "../constants/styles";
+
 import axios from "axios";
 
 export default function PageFormation() {
@@ -19,7 +21,36 @@ export default function PageFormation() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.blue_primary }]}>
+      <View style={styles.header_container}>
+        <TouchableOpacity
+          onPress={() => console.log("pressed")}
+          style={styles.header_button}
+        >
+          <Text style={[{ color: colors.blue_primary }]}>Formations</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => console.log("pressed")}
+          style={styles.header_button}
+        >
+          <Text style={[{ color: colors.blue_primary }]}>En cours</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => console.log("pressed")}
+          style={styles.header_button}
+        >
+          <Text
+            style={[
+              {
+                color: colors.blue_primary,
+                fontFamily: 'fontFamily: "Montserrat-semibold"',
+              },
+            ]}
+          >
+            Terminées{" "}
+          </Text>
+        </TouchableOpacity>
+      </View>
       <ScrollView>
         {formations.map((formation) => (
           <TouchableOpacity
