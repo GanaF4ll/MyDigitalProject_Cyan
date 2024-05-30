@@ -1,10 +1,28 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React from "react";
+import { Formation } from "../components/Formation";
+import styles from "../constants/styles";
+import { FORMATIONS } from "../constants";
 
 export default function PageFormation() {
   return (
-    <View>
-      <Text>PageFormation</Text>
+    <View style={styles.container}>
+      <ScrollView>
+        {FORMATIONS.map((formation) => (
+          <Formation
+            key={formation.id}
+            id={formation.id}
+            author={formation.author}
+            title={formation.title}
+            description={formation.description}
+            video={formation.video}
+            category={formation.category}
+            difficulty={formation.difficulty}
+            qualityRating={formation.qualityRating}
+            coverImage={formation.coverImage}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }

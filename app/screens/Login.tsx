@@ -9,7 +9,8 @@ import {
   Platform,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { API_URL, useAuth } from "../context/AuthContext";
+import { API_URL } from "../constants";
+import { useAuth } from "../context/AuthContext";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import axios from "axios";
@@ -61,7 +62,7 @@ const Login = () => {
         style={[styles.container, { backgroundColor: colors.blue_primary }]}
       >
         <Image
-          source={require("../../assets/images/Logotype 4.png")}
+          source={require("../assets/images/Logotype 4.png")}
           style={styles.logo}
         />
         <View
