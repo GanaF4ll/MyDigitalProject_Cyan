@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
+  ImageBackground,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -55,73 +56,76 @@ const Login = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
-    >
-      <View
-        style={[styles.container, { backgroundColor: colors.blue_primary }]}
+    <View style={{ width: "100%", height: "100%" }}>
+      <ImageBackground
+        source={require("../assets/images/background.png")}
+        style={styles.container}
       >
-        <Image
-          source={require("../assets/images/Logotype 4.png")}
-          style={styles.logo}
-        />
-        <View
-          style={{
-            flexDirection: "column",
-            alignItems: "flex-start",
-            marginBottom: 20,
-          }}
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={{ flex: 1 }}
         >
-          <Text
-            style={styles.label}
-            aria-label="Label for Email"
-            nativeID="labelMail"
-          >
-            Email
-          </Text>
-          <TextInput
-            autoCapitalize="none"
-            style={[styles.input, { marginTop: 5 }]}
-            placeholder="virtualsentinel@exemple.com"
-            onChangeText={(text: string) => setEmail(text)}
-            value={email}
-            aria-labelledby="labelMail"
+          <Image
+            source={require("../assets/images/LogoWhite.png")}
+            // style={styles.logo}
           />
-        </View>
+          <View
+            style={{
+              flexDirection: "column",
+              alignItems: "flex-start",
+              marginBottom: 20,
+            }}
+          >
+            <Text
+              style={styles.label}
+              aria-label="Label for Email"
+              nativeID="labelMail"
+            >
+              Email
+            </Text>
+            <TextInput
+              autoCapitalize="none"
+              style={[styles.input, { marginTop: 5 }]}
+              placeholder="virtualsentinel@exemple.com"
+              onChangeText={(text) => setEmail(text)}
+              value={email}
+              aria-labelledby="labelMail"
+            />
+          </View>
 
-        <View
-          style={{
-            flexDirection: "column",
-            alignItems: "flex-start",
-            marginBottom: 20,
-          }}
-        >
-          <Text
-            style={styles.label}
-            aria-label="Label for Password"
-            nativeID="labelPassword"
+          <View
+            style={{
+              flexDirection: "column",
+              alignItems: "flex-start",
+              marginBottom: 20,
+            }}
           >
-            Mot de passe
+            <Text
+              style={styles.label}
+              aria-label="Label for Password"
+              nativeID="labelPassword"
+            >
+              Mot de passe
+            </Text>
+            <TextInput
+              style={[styles.input, { marginTop: 5 }]}
+              placeholder="**********"
+              secureTextEntry={true}
+              onChangeText={(text) => setPassword(text)}
+              value={password}
+              aria-labelledby="labelPassword"
+            />
+          </View>
+          <TouchableOpacity onPress={login} style={styles.button}>
+            <Text style={styles.title_blue}>Connexion</Text>
+          </TouchableOpacity>
+          <Text style={{ color: colors.orange_primary, marginTop: 10 }}>
+            Pas de compte ?{" "}
+            <Text style={{ textDecorationLine: "underline" }}>Créez-en un</Text>
           </Text>
-          <TextInput
-            style={[styles.input, { marginTop: 5 }]}
-            placeholder="**********"
-            secureTextEntry={true}
-            onChangeText={(text: string) => setPassword(text)}
-            value={password}
-            aria-labelledby="labelPassword"
-          />
-        </View>
-        <TouchableOpacity onPress={login} style={styles.button}>
-          <Text style={styles.title_blue}>Connexion</Text>
-        </TouchableOpacity>
-        <Text style={{ color: colors.orange_primary, marginTop: 10 }}>
-          Pas de compte ?{" "}
-          <Text style={{ textDecorationLine: "underline" }}>Créez-en un</Text>
-        </Text>
-      </View>
-    </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      </ImageBackground>
+    </View>
   );
 };
 

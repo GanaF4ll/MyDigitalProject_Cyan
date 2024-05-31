@@ -23,6 +23,7 @@ export default StyleSheet.create({
     justifyContent: "center",
     padding: 10,
   },
+
   formation: {
     flex: 1,
     backgroundColor: "#E5E5E5",
