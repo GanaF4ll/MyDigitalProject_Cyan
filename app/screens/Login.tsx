@@ -63,12 +63,9 @@ const Login = () => {
       >
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={{ flex: 1 }}
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
-          <Image
-            source={require("../assets/images/LogoWhite.png")}
-            // style={styles.logo}
-          />
+          <Image source={require("../assets/images/LogoWhite.png")} />
           <View
             style={{
               flexDirection: "column",
@@ -116,7 +113,7 @@ const Login = () => {
               aria-labelledby="labelPassword"
             />
           </View>
-          <TouchableOpacity onPress={login} style={styles.button}>
+          <TouchableOpacity onPress={login} style={[styles.button]}>
             <Text style={styles.title_blue}>Connexion</Text>
           </TouchableOpacity>
           <Text style={{ color: colors.orange_primary, marginTop: 10 }}>
