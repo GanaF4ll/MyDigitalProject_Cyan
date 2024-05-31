@@ -9,11 +9,12 @@ import {
   Platform,
 } from "react-native";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 import { API_URL } from "../constants";
 import { useAuth } from "../context/AuthContext";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
-import axios from "axios";
 
 const Login = () => {
   const [firstName, setFirstName] = useState("");

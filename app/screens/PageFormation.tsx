@@ -1,10 +1,11 @@
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
+
 import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
+import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
 import { FormationType } from "../constants/types";
-import { colors } from "../constants/styles";
 
 import axios from "axios";
 
@@ -47,11 +48,11 @@ export default function PageFormation() {
               },
             ]}
           >
-            Terminées{" "}
+            Terminées
           </Text>
         </TouchableOpacity>
       </View>
-      <ScrollView>
+      <ScrollView horizontal={false}>
         {formations.map((formation) => (
           <TouchableOpacity
             key={formation.id}

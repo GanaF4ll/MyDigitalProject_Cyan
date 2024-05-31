@@ -21,6 +21,7 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    padding: 10,
   },
   formation: {
     flex: 1,

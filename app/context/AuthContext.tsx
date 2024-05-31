@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+
 import { API_URL } from "../constants/index";
 
 interface AuthProps {
@@ -15,7 +17,6 @@ interface AuthProps {
   onLogout?: () => Promise<any>;
 }
 
-// export const API_URL = "https://virtual-sentinel-5db263dece23.herokuapp.com";
 const AuthContext = createContext<AuthProps>({});
 
 export const useAuth = () => {
@@ -57,7 +58,9 @@ export const AuthProvider = ({ children }: any) => {
         mail,
         password,
       });
-      console.log(result.data);
+
+      // Enregistrez le token dans le secure storage
+      await AsyncStorage.setItem("token", result.data.token);
 
       setAuthState({ authenticated: true });
     } catch (error) {
