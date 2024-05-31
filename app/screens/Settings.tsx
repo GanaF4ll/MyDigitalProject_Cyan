@@ -2,10 +2,12 @@ import { View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import * as SecureStore from "expo-secure-store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { jwtDecode } from "jwt-decode";
 
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
+import axios from "axios";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -20,6 +22,12 @@ export default function Settings() {
       if (token) {
         setToken(token);
         console.log("Token retrieved:", token);
+        const decodedToken = jwtDecode(token);
+        console.log("Decoded token:", decodedToken);
+        const { id, mail, role } = decodedToken;
+
+        const result = await axios.get(`${API_URL}/users/${id}`);
+        console.log("User data:", result.data);
       }
     } catch (error) {
       console.log("Error retrieving token:", error);
