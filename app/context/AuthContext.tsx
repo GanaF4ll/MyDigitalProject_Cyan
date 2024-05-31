@@ -30,7 +30,16 @@ export const AuthProvider = ({ children }: any) => {
     authenticated: null,
   });
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const checkToken = async () => {
+      const token = await AsyncStorage.getItem("token");
+      if (token) {
+        setAuthState({ authenticated: true });
+      }
+    };
+
+    checkToken();
+  }, []);
 
   const register = async (
     firstName: string,
@@ -71,7 +80,7 @@ export const AuthProvider = ({ children }: any) => {
 
   const logout = async () => {
     // reset le state
-
+    await AsyncStorage.removeItem("token");
     setAuthState({ authenticated: false });
   };
 

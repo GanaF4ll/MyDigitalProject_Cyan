@@ -20,7 +20,7 @@ export const Formation: React.FC<FormationProps> = (props) => {
     <View style={styles.formation}>
       <View style={styles.image_container}>
         <Image
-          source={props.coverImage}
+          source={{ uri: props.coverImage }}
           style={{ width: "100%", height: "100%", borderRadius: 10 }}
         />
       </View>
