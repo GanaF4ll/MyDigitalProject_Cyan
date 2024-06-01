@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { LinearGradient } from "expo-linear-gradient";
 
 import { API_URL } from "../constants";
 import { useAuth } from "../context/AuthContext";
@@ -113,11 +114,19 @@ const Login = () => {
               aria-labelledby="labelPassword"
             />
           </View>
-          <TouchableOpacity onPress={login} style={[styles.button]}>
-            <Text style={styles.title_blue}>Connexion</Text>
+
+          <TouchableOpacity onPress={login}>
+            <LinearGradient
+              colors={["#2F284A", "#0F55E8"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0, y: 1 }}
+              style={styles.button}
+            >
+              <Text style={styles.title_white}>Connexion</Text>
+            </LinearGradient>
           </TouchableOpacity>
-          <Text style={{ color: colors.orange_primary, marginTop: 10 }}>
-            Pas de compte ?{" "}
+          <Text style={{ color: "white", marginTop: 10 }}>
+            Pas de compte ?
             <Text style={{ textDecorationLine: "underline" }}>Créez-en un</Text>
           </Text>
         </KeyboardAvoidingView>
