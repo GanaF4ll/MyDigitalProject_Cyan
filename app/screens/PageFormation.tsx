@@ -14,6 +14,7 @@ import { API_URL } from "../constants/index";
 import { FormationType } from "../constants/types";
 
 import axios from "axios";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function PageFormation() {
   const [formations, setFormations] = useState<FormationType[]>([]);
@@ -68,17 +69,24 @@ export default function PageFormation() {
               key={formation.id}
               onPress={() => console.log(formation)}
             >
-              <Formation
-                id={formation.id}
-                author={formation.author}
-                title={formation.title}
-                description={formation.description}
-                video={formation.video}
-                category={formation.category}
-                difficulty={formation.difficulty}
-                qualityRating={formation.qualityRating}
-                coverImage={formation.coverImage}
-              />
+              <LinearGradient
+                colors={["#370475", "#0B111A99"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={{ borderRadius: 10, margin: 10 }}
+              >
+                <Formation
+                  id={formation.id}
+                  author={formation.author}
+                  title={formation.title}
+                  description={formation.description}
+                  video={formation.video}
+                  category={formation.category}
+                  difficulty={formation.difficulty}
+                  qualityRating={formation.qualityRating}
+                  coverImage={formation.coverImage}
+                />
+              </LinearGradient>
             </TouchableOpacity>
           ))}
         </ScrollView>

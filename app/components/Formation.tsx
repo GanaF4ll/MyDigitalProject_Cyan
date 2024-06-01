@@ -26,11 +26,11 @@ export const Formation: React.FC<FormationProps> = (props) => {
       </View>
 
       <View style={styles.formation_content}>
-        <Text style={styles.title_orange}>{props.category}</Text>
-        <Text key={props.id} style={styles.title_blue}>
+        <Text style={styles.title_white}>{props.category}</Text>
+        <Text key={props.id} style={styles.title_white}>
           {props.title}
         </Text>
-        <Text>{props.description}</Text>
+        <Text style={{ color: "white" }}>{props.description}</Text>
       </View>
     </View>
   );

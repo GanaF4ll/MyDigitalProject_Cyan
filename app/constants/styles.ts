@@ -26,13 +26,10 @@ export default StyleSheet.create({
 
   formation: {
     flex: 1,
-    backgroundColor: "#E5E5E5",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    borderColor: orange_primary,
-    borderWidth: 2,
-    color: blue_primary,
+
     minWidth: 300,
     borderRadius: 10,
     margin: 5,
@@ -70,6 +67,7 @@ export default StyleSheet.create({
     flexDirection: "column",
     height: "100%",
     width: "70%",
+    color: "white",
   },
   logo: {
     width: "50%",
