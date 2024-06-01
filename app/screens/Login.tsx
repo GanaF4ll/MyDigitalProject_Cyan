@@ -17,6 +17,7 @@ import { API_URL } from "../constants";
 import { useAuth } from "../context/AuthContext";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
+import Gradient from "../components/Gradient";
 
 const Login = () => {
   const [firstName, setFirstName] = useState("");
@@ -114,17 +115,10 @@ const Login = () => {
               aria-labelledby="labelPassword"
             />
           </View>
+          <Gradient onPress={login}>
+            <Text style={styles.title_white}>Connexion</Text>
+          </Gradient>
 
-          <TouchableOpacity onPress={login}>
-            <LinearGradient
-              colors={["#2F284A", "#0F55E8"]}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 0, y: 1 }}
-              style={styles.button}
-            >
-              <Text style={styles.title_white}>Connexion</Text>
-            </LinearGradient>
-          </TouchableOpacity>
           <Text style={{ color: "white", marginTop: 10 }}>
             Pas de compte ?
             <Text style={{ textDecorationLine: "underline" }}>Créez-en un</Text>

@@ -1,4 +1,10 @@
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
 
 import { Formation } from "../components/Formation";
@@ -22,56 +28,61 @@ export default function PageFormation() {
   }, []);
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.blue_primary }]}>
-      <View style={styles.header_container}>
-        <TouchableOpacity
-          onPress={() => console.log("pressed")}
-          style={styles.header_button}
-        >
-          <Text style={[{ color: colors.blue_primary }]}>Formations</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => console.log("pressed")}
-          style={styles.header_button}
-        >
-          <Text style={[{ color: colors.blue_primary }]}>En cours</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => console.log("pressed")}
-          style={styles.header_button}
-        >
-          <Text
-            style={[
-              {
-                color: colors.blue_primary,
-                fontFamily: 'fontFamily: "Montserrat-semibold"',
-              },
-            ]}
-          >
-            Terminées
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <ScrollView horizontal={false}>
-        {formations.map((formation) => (
+    <View style={{ width: "100%", height: "100%" }}>
+      <ImageBackground
+        source={require("../assets/images/background.png")}
+        style={styles.container}
+      >
+        <View style={styles.header_container}>
           <TouchableOpacity
-            key={formation.id}
-            onPress={() => console.log(formation)}
+            onPress={() => console.log("pressed")}
+            style={styles.header_button}
           >
-            <Formation
-              id={formation.id}
-              author={formation.author}
-              title={formation.title}
-              description={formation.description}
-              video={formation.video}
-              category={formation.category}
-              difficulty={formation.difficulty}
-              qualityRating={formation.qualityRating}
-              coverImage={formation.coverImage}
-            />
+            <Text style={[{ color: colors.blue_primary }]}>Formations</Text>
           </TouchableOpacity>
-        ))}
-      </ScrollView>
+          <TouchableOpacity
+            onPress={() => console.log("pressed")}
+            style={styles.header_button}
+          >
+            <Text style={[{ color: colors.blue_primary }]}>En cours</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => console.log("pressed")}
+            style={styles.header_button}
+          >
+            <Text
+              style={[
+                {
+                  color: colors.blue_primary,
+                  fontFamily: 'fontFamily: "Montserrat-semibold"',
+                },
+              ]}
+            >
+              Terminées
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <ScrollView horizontal={false}>
+          {formations.map((formation) => (
+            <TouchableOpacity
+              key={formation.id}
+              onPress={() => console.log(formation)}
+            >
+              <Formation
+                id={formation.id}
+                author={formation.author}
+                title={formation.title}
+                description={formation.description}
+                video={formation.video}
+                category={formation.category}
+                difficulty={formation.difficulty}
+                qualityRating={formation.qualityRating}
+                coverImage={formation.coverImage}
+              />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </ImageBackground>
     </View>
   );
 }
