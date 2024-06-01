@@ -15,6 +15,7 @@ import Search from "./app/screens/Search";
 import React from "react";
 import Settings from "./app/screens/Settings";
 import styles from "./app/constants/styles";
+import Register from "./app/screens/Register";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -111,6 +112,7 @@ export const Layout = () => {
       ) : (
         <Stack.Navigator>
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Register" component={Register} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

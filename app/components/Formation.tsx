@@ -1,8 +1,6 @@
-import { View, Text, Image, ImageSourcePropType } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
 import styles from "../constants/styles";
-// import { FORMATIONS } from "../constants";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import { FormationType } from "../constants/types";
 
 interface FormationProps extends FormationType {
@@ -13,14 +11,21 @@ interface FormationProps extends FormationType {
   difficulty: string;
   qualityRating: number;
   coverImage: string;
+  category?: number;
 }
 
 export const Formation: React.FC<FormationProps> = (props) => {
+  let image_url;
+
+  if (props.category === 1) {
+    image_url = require("../assets/images/mock1.jpg");
+  }
+
   return (
     <View style={styles.formation}>
       <View style={styles.image_container}>
         <Image
-          source={{ uri: props.coverImage }}
+          source={image_url}
           style={{ width: "100%", height: "100%", borderRadius: 10 }}
         />
       </View>

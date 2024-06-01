@@ -5,7 +5,7 @@ export type FormationType = {
   title: string;
   description: string;
   video: string;
-  category?: string;
+  category?: number;
   difficulty: string;
   qualityRating: number;
   coverImage: string;

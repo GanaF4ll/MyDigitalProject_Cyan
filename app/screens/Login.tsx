@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
 import { API_URL } from "../constants";
 import { useAuth } from "../context/AuthContext";
@@ -26,6 +26,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { onLogin, onRegister } = useAuth();
+
+  const navigation = useNavigation();
 
   const login = async () => {
     const result = await onLogin!(email, password);
@@ -121,7 +123,12 @@ const Login = () => {
 
           <Text style={{ color: "white", marginTop: 10 }}>
             Pas de compte ?
-            <Text style={{ textDecorationLine: "underline" }}>Créez-en un</Text>
+            <Text
+              style={{ textDecorationLine: "underline" }}
+              onPress={() => navigation.navigate({ name: "Register" })}
+            >
+              Créez-en un
+            </Text>
           </Text>
         </KeyboardAvoidingView>
       </ImageBackground>
