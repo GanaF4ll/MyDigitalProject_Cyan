@@ -10,7 +10,6 @@ import {
   ImageBackground,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 
 import { API_URL } from "../constants";
@@ -23,39 +22,16 @@ const Login = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [birthdate, setBirthdate] = useState("");
-  const [email, setEmail] = useState("");
+  const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
-  const { onLogin, onRegister } = useAuth();
+  const { onLogin } = useAuth();
 
   const navigation = useNavigation();
 
   const login = async () => {
-    const result = await onLogin!(email, password);
+    const result = await onLogin!(mail, password);
     if (result && result.error) {
       alert(result.msg);
-    }
-  };
-
-  useEffect(() => {
-    const testCall = async () => {
-      const result = await axios.get(`${API_URL}/test`);
-      console.log(result.data);
-    };
-    testCall();
-  }, []);
-
-  const register = async () => {
-    const result = await onRegister!(
-      firstName,
-      lastName,
-      new Date(birthdate),
-      email,
-      password
-    );
-    if (result && result.error) {
-      alert(result.msg);
-    } else {
-      login();
     }
   };
 
@@ -88,8 +64,8 @@ const Login = () => {
               autoCapitalize="none"
               style={[styles.input, { marginTop: 5 }]}
               placeholder="virtualsentinel@exemple.com"
-              onChangeText={(text) => setEmail(text)}
-              value={email}
+              onChangeText={(text) => setMail(text)}
+              value={mail}
               aria-labelledby="labelMail"
             />
           </View>
