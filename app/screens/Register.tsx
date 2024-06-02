@@ -24,26 +24,44 @@ export default function Register() {
   };
 
   const register = async () => {
-    const result = await onRegister!(
-      firstName,
-      lastName,
-      new Date(birthdate),
-      mail,
-      password
-    );
-    if (result && result.error) {
-      alert(result.msg);
+    if (onRegister) {
+      try {
+        // const result = { firstName, lastName, birthdate, mail, password };
+        const result = await onRegister!(
+          firstName,
+          lastName,
+          birthdate,
+          mail,
+          password
+        );
+
+        console.log(result);
+
+        if (result.error) {
+          alert("Une erreur est survenue lors de l'inscription.");
+          console.log(firstName, lastName, birthdate, mail, password);
+        } else {
+          console.log("Inscription réussie");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Une erreur inattendue est survenue.");
+      }
     } else {
-      login();
+      console.log("onRegister is undefined");
     }
   };
 
-  const login = async () => {
-    const result = await onLogin!(mail, password);
-    if (result && result.error) {
-      alert(result.msg);
-    }
-  };
+  // const login = async () => {
+  //   if (onLogin) {
+  //     const result = await onLogin(mail, password);
+  //     if (result && result.error) {
+  //       alert(result.msg);
+  //     }
+  //   } else {
+  //     console.log("onLogin is undefined");
+  //   }
+  // };
 
   return (
     <View style={{ width: "100%", height: "100%" }}>

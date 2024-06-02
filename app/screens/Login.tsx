@@ -101,7 +101,7 @@ const Login = () => {
             Pas de compte ?
             <Text
               style={{ textDecorationLine: "underline" }}
-              onPress={() => navigation.navigate({ name: "Register" })}
+              onPress={() => navigation.navigate({ name: "Créer un compte" })}
             >
               Créez-en un
             </Text>
