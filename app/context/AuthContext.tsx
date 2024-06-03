@@ -11,7 +11,8 @@ interface AuthProps {
     lastName: string,
     birthdate: Date,
     mail: string,
-    password: string
+    password: string,
+    gender: string
   ) => Promise<any>;
   onLogin?: (mail: string, password: string) => Promise<any>;
   onLogout?: () => Promise<any>;
@@ -46,7 +47,8 @@ export const AuthProvider = ({ children }: any) => {
     lastName: string,
     birthdate: Date,
     mail: string,
-    password: string
+    password: string,
+    gender: string
   ) => {
     try {
       return await axios.post(`${API_URL}/users/signup`, {
@@ -55,6 +57,7 @@ export const AuthProvider = ({ children }: any) => {
         birthdate,
         mail,
         password,
+        gender,
       });
     } catch (error) {
       return { error: true, msg: (error as any).response.data.msg };

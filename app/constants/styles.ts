@@ -121,4 +121,11 @@ export default StyleSheet.create({
     width: 100,
     alignItems: "center",
   },
+  picker: {
+    width: 350,
+    height: 200,
+    borderWidth: 2,
+    borderRadius: 18,
+    backgroundColor: "white",
+  },
 });

@@ -3,6 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import RNDateTimePicker from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker";
 
 import { API_URL } from "../constants";
 import { useAuth } from "../context/AuthContext";
@@ -16,6 +17,7 @@ export default function Register() {
   const [birthdate, setBirthdate] = useState(new Date());
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
+  const [gender, setGender] = useState("male");
   const { onRegister, onLogin } = useAuth();
 
   const updateBirthdate = (event, selectedDate) => {
@@ -32,16 +34,18 @@ export default function Register() {
           lastName,
           birthdate,
           mail,
-          password
+          password,
+          gender
         );
 
-        console.log(result);
+        // console.log(result);
 
         if (result.error) {
           alert("Une erreur est survenue lors de l'inscription.");
           console.log(firstName, lastName, birthdate, mail, password);
         } else {
           console.log("Inscription réussie");
+          onLogin!(mail, password);
         }
       } catch (error) {
         console.error(error);
@@ -127,6 +131,18 @@ export default function Register() {
             maximumDate={new Date(2011, 12, 31)}
             aria-labelledby="labelBirthdate"
           />
+        </View>
+        {/* GENDER */}
+        <View>
+          <Picker
+            style={styles.picker}
+            selectedValue={gender}
+            onValueChange={(itemValue, itemIndex) => setGender(itemValue)}
+          >
+            <Picker.Item label="Homme" value="male" />
+            <Picker.Item label="Femme" value="female" />
+            <Picker.Item label="Autre" value="other" />
+          </Picker>
         </View>
         {/* MAIL */}
         <Text
