@@ -6,15 +6,15 @@ import {
   ImageBackground,
 } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { LinearGradient } from "expo-linear-gradient";
 
 import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
-import { API_URL } from "../constants/index";
+import { API_URL, localCategories } from "../constants/index";
 import { FormationType } from "../constants/types";
-
-import axios from "axios";
-import { LinearGradient } from "expo-linear-gradient";
+import { SmallCategory } from "../components/SmallCategory";
 
 export default function Search() {
   const [formations, setFormations] = useState<FormationType[]>([]);
@@ -35,34 +35,28 @@ export default function Search() {
         style={styles.container}
       >
         <View style={styles.header_container}>
-          <TouchableOpacity
-            onPress={() => console.log("pressed")}
-            style={styles.header_button}
-          >
-            <Text style={[{ color: colors.blue_primary }]}>Formations</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => console.log("pressed")}
-            style={styles.header_button}
-          >
-            <Text style={[{ color: colors.blue_primary }]}>En cours</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => console.log("pressed")}
-            style={styles.header_button}
-          >
-            <Text
-              style={[
-                {
-                  color: colors.blue_primary,
-                  fontFamily: 'fontFamily: "Montserrat-semibold"',
-                },
-              ]}
-            >
-              Terminées
-            </Text>
-          </TouchableOpacity>
+          <ScrollView horizontal={true}>
+            {localCategories.map((category) => (
+              <View
+                style={{
+                  width: 150,
+                  height: 100,
+                  borderWidth: 2,
+                  borderColor: "seagreen",
+                  margin: 2,
+                }}
+              >
+                <SmallCategory
+                  key={category.id}
+                  id={category.id}
+                  // name={category.name}
+                  image={category.image}
+                />
+              </View>
+            ))}
+          </ScrollView>
         </View>
+
         <ScrollView>
           {formations.map((formation) => (
             <TouchableOpacity
