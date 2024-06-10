@@ -1,11 +1,11 @@
 import {
   View,
   Text,
+  ScrollView,
   TouchableOpacity,
   ImageBackground,
-  FlatList,
 } from "react-native";
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
@@ -55,7 +55,7 @@ export default function Search() {
               style={[
                 {
                   color: colors.blue_primary,
-                  fontFamily: "Montserrat-semibold",
+                  fontFamily: 'fontFamily: "Montserrat-semibold"',
                 },
               ]}
             >
@@ -63,37 +63,33 @@ export default function Search() {
             </Text>
           </TouchableOpacity>
         </View>
-
-        <FlatList
-          horizontal={true}
-          data={formations}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
+        <ScrollView>
+          {formations.map((formation) => (
             <TouchableOpacity
-              onPress={() => console.log(item)}
-              style={{ borderRadius: 10, margin: 10 }}
+              key={formation.id}
+              onPress={() => console.log(formation)}
             >
               <LinearGradient
                 colors={["#370475", "#0B111A99"]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
-                style={{ borderRadius: 10 }}
+                style={{ borderRadius: 10, margin: 10 }}
               >
                 <Formation
-                  id={item.id}
-                  author={item.author}
-                  title={item.title}
-                  description={item.description}
-                  video={item.video}
-                  category={item.category}
-                  difficulty={item.difficulty}
-                  qualityRating={item.qualityRating}
-                  coverImage={item.coverImage}
+                  id={formation.id}
+                  author={formation.author}
+                  title={formation.title}
+                  description={formation.description}
+                  video={formation.video}
+                  category={formation.category}
+                  difficulty={formation.difficulty}
+                  qualityRating={formation.qualityRating}
+                  coverImage={formation.coverImage}
                 />
               </LinearGradient>
             </TouchableOpacity>
-          )}
-        />
+          ))}
+        </ScrollView>
       </ImageBackground>
     </View>
   );
