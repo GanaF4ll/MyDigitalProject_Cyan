@@ -93,6 +93,14 @@ export default StyleSheet.create({
     marginBottom: 5,
     paddingLeft: 15,
   },
+  labelView: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "white",
+    fontFamily: "Montserrat-semibold",
+    marginBottom: 5,
+    paddingLeft: 5,
+  },
   button: {
     padding: 10,
     borderRadius: 10,
