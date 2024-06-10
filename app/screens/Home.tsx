@@ -20,6 +20,16 @@ import { CategoryType } from "../constants/types";
 
 const Home = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const result = await axios.get(`${API_URL}/categories/all`);
+      setCategories(result.data);
+      console.log(result.data);
+    };
+    fetchCategories();
+  }, []);
+
   return (
     <View style={{ width: "100%", height: "100%" }}>
       <ImageBackground

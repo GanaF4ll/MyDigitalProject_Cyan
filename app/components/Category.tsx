@@ -9,8 +9,9 @@ import Gradient from "./Gradient";
 
 interface CategoryProps extends CategoryType {
   id: number;
-  title: string;
+  name: string;
   description: string;
+  image: string;
 }
 
 export default function Category() {

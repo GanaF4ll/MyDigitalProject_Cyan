@@ -56,7 +56,7 @@ export default function Settings() {
   }
 
   return (
-    <View style={{ backgroundColor: "red" }}>
+    <View style={{ backgroundColor: "lightblue" }}>
       <Text>Settings</Text>
       <Text>ROLE: {roleName}</Text>
       <Category />

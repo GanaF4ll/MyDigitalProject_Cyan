@@ -1,7 +1,8 @@
 export type CategoryType = {
   id: number;
-  title: string;
+  name: string;
   description: string;
+  image: string;
 };
 
 export type FormationType = {
