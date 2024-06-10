@@ -1,64 +1,29 @@
 export const API_URL = "https://virtual-sentinel-5db263dece23.herokuapp.com";
 
-export const FORMATIONS = [
+export const categories = [
+  // puisque les catégories ne sont qu'un id et un titre au niveau du back-end, on peut définir le reste ici
   {
     id: 1,
-    author: "Gana Fall",
-    title: "Test Formation",
-    description: "This is a test formation",
-    video: "https://example.com/test-video",
-    category: "Fondamentaux de la cybersecurite",
-    difficulty: "easy",
-    completionTime: "2023-01-01T00:00:00.000Z",
-    qualityRating: 5,
-    coverImage: require("../assets/images/mock1.jpg"),
+    description:
+      "Apprenez les bases de la cybersécurité et protégez vos données",
+    image: require("../assets/images/mock1.jpg"),
   },
   {
     id: 2,
-    author: "Gana Fall",
-    title: "Test2",
-    description: "This is a test ",
-    video: "https://assets/test-video",
-    category: "Fondamentaux de la cybersecurite",
-    difficulty: "easy",
-    completionTime: "2023-01-01T00:00:00.000Z",
-    qualityRating: 5,
-    coverImage: require("../assets/images/mock2.png"),
+    description:
+      "Apprenez à sécuriser et gérer efficacement les identités et les accès pour protéger les ressources de votre entreprise",
+    image: require("../assets/images/mock2.png"),
   },
   {
     id: 3,
-    author: "Gana Fall",
-    title: "Test3",
-    description: "This is a test formation",
-    video: "https://example.com/test-video",
-    category: "Fondamentaux de la cybersecurite",
-    difficulty: "easy",
-    completionTime: "2023-01-01T00:00:00.000Z",
-    qualityRating: 5,
-    coverImage: require("../assets/images/mock3.jpg"),
+    description:
+      "Maîtrisez les stratégies et les outils essentiels pour protéger et sécuriser les données sensibles de votre organisation.",
+    image: require("../assets/images/mock3.jpg"),
   },
   {
     id: 4,
-    author: "Gana Fall",
-    title: "Test4",
-    description: "This is a test formation",
-    video: "https://example.com/test-video",
-    category: "Fondamentaux de la cybersecurite",
-    difficulty: "easy",
-    completionTime: "2023-01-01T00:00:00.000Z",
-    qualityRating: 5,
-    coverImage: require("../assets/images/mock3.jpg"),
-  },
-  {
-    id: 5,
-    author: "Gana Fall",
-    title: "Test5",
-    description: "This is a test formation",
-    video: "https://example.com/test-video",
-    category: "Fondamentaux de la cybersecurite",
-    difficulty: "easy",
-    completionTime: "2023-01-01T00:00:00.000Z",
-    qualityRating: 5,
-    coverImage: require("../assets/images/mock1.jpg"),
+    description:
+      "Découvrez comment protéger et sécuriser les infrastructures réseau contre les menaces et les cyberattaques.",
+    image: require("../assets/images/mock1.jpg"),
   },
 ];
