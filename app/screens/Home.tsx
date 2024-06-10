@@ -14,8 +14,8 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
-import { API_URL } from "../constants/index";
-import Category from "../components/Category";
+import { API_URL, localCategories } from "../constants/index";
+import { Category } from "../components/Category";
 import { CategoryType } from "../constants/types";
 
 const Home = () => {
@@ -24,8 +24,22 @@ const Home = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       const result = await axios.get(`${API_URL}/categories/all`);
-      setCategories(result.data);
-      console.log(result.data);
+      // console.log(result.data);
+
+      const fullCategories = [];
+
+      // récupère les images et descriptions des catégories locales
+      for (let i = 0; i < result.data.length; i++) {
+        if ((localCategories[i].id = result.data[i].id)) {
+          fullCategories.push({
+            ...result.data[i],
+            image: localCategories[i].image,
+            description: localCategories[i].description,
+          });
+        }
+      }
+      // console.log(fullCategories);
+      setCategories(fullCategories);
     };
     fetchCategories();
   }, []);
@@ -39,10 +53,11 @@ const Home = () => {
         <ScrollView horizontal={true}>
           {categories.map((category) => (
             <Category
-            // key={category.id}
-            // id={category.id}
-            // title={category.title}
-            // description={category.description}
+              key={category.id}
+              id={category.id}
+              name={category.name}
+              description={category.description}
+              image={category.image}
             />
           ))}
         </ScrollView>

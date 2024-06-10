@@ -1,18 +1,18 @@
 export const API_URL = "https://virtual-sentinel-5db263dece23.herokuapp.com";
 
-export const categories = [
+export const localCategories = [
   // puisque les catégories ne sont qu'un id et un titre au niveau du back-end, on peut définir le reste ici
   {
     id: 1,
     description:
       "Apprenez les bases de la cybersécurité et protégez vos données",
-    image: require("../assets/images/mock1.jpg"),
+    image: require("../assets/images/category_1.png"),
   },
   {
     id: 2,
     description:
       "Apprenez à sécuriser et gérer efficacement les identités et les accès pour protéger les ressources de votre entreprise",
-    image: require("../assets/images/mock2.png"),
+    image: require("../assets/images/category_2.png"),
   },
   {
     id: 3,

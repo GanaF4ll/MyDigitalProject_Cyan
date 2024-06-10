@@ -13,14 +13,13 @@ interface CategoryProps extends CategoryType {
   description: string;
   image: string;
 }
-
-export default function Category() {
+export const Category: React.FC<CategoryProps> = (props) => {
   return (
     <View style={categoryStyle.container}>
       <LinearGradient
         colors={["#370475", "red"]}
         start={{ x: 0, y: 0 }}
-        end={{ x: 2, y: 1 }}
+        end={{ x: 2, y: 3 }}
         style={categoryStyle.subContainer}
       >
         {/* HEADER */}
@@ -36,17 +35,17 @@ export default function Category() {
               },
             ]}
           >
-            Fondamentaux de la cybersécurité
+            {props.name}
           </Text>
         </View>
         {/* BODY */}
         <View style={categoryStyle.body}>
           <View style={categoryStyle.bodyLeftDiv}>
             <Text style={{ color: "white", marginBottom: 10 }}>
-              Apprenez les bases de la cybersécurité et protégez vos données
+              {props.description}
             </Text>
             <View style={{ width: "80%" }}>
-              <Gradient onPress={() => console.log("yo")}>
+              <Gradient onPress={() => console.log("category_id =>", props.id)}>
                 <Text style={styles.title_white}>
                   Continuer{" "}
                   <FontAwesome name="arrow-right" size={10} color="white" />
@@ -56,7 +55,7 @@ export default function Category() {
           </View>
           <View style={categoryStyle.bodyRightDiv}>
             <Image
-              source={require("../assets/images/mock1.jpg")}
+              source={props.image}
               style={{ width: "100%", height: "100%", borderRadius: 10 }}
             />
           </View>
@@ -66,7 +65,7 @@ export default function Category() {
       </LinearGradient>
     </View>
   );
-}
+};
 
 const categoryStyle = StyleSheet.create({
   container: {
@@ -94,6 +93,7 @@ const categoryStyle = StyleSheet.create({
     width: "60%",
     height: "100%",
     flexDirection: "column",
+    justifyContent: "space-around",
   },
   bodyRightDiv: {
     width: "40%",
