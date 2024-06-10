@@ -1,3 +1,9 @@
+export type CategoryType = {
+  id: number;
+  title: string;
+  description: string;
+};
+
 export type FormationType = {
   // formations
   id: number;

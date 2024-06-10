@@ -9,6 +9,7 @@ import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
 import Loading from "./Loading";
+import Category from "../components/Category";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -55,9 +56,10 @@ export default function Settings() {
   }
 
   return (
-    <View>
+    <View style={{ backgroundColor: "red" }}>
       <Text>Settings</Text>
       <Text>ROLE: {roleName}</Text>
+      <Category />
     </View>
   );
 }

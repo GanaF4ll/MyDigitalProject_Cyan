@@ -104,7 +104,7 @@ export default StyleSheet.create({
   button: {
     padding: 10,
     borderRadius: 10,
-    width: 350,
+    width: "100%",
     alignItems: "center",
   },
   btn_logout: {
