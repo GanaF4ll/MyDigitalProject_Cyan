@@ -4,6 +4,7 @@ import {
   ScrollView,
   TouchableOpacity,
   ImageBackground,
+  StyleSheet,
 } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -28,6 +29,13 @@ export default function Search() {
     fetchFormations();
   }, []);
 
+  const fetchFormationsByCategory = async (category_id: number) => {
+    const result = await axios.get(
+      `${API_URL}/formations/category/${category_id}`
+    );
+    setFormations(result.data);
+  };
+
   return (
     <View style={{ width: "100%", height: "100%" }}>
       <ImageBackground
@@ -35,17 +43,11 @@ export default function Search() {
         style={styles.container}
       >
         <View style={styles.header_container}>
-          <ScrollView horizontal={true}>
-            {localCategories.map((category) => (
-              <View
-                style={{
-                  width: 150,
-                  height: 100,
-                  borderWidth: 2,
-                  borderColor: "seagreen",
-                  margin: 2,
-                }}
-              >
+          {localCategories.map((category) => (
+            <TouchableOpacity
+              onPress={() => fetchFormationsByCategory(category.id)}
+            >
+              <View style={SearchStyles.filter}>
                 <SmallCategory
                   key={category.id}
                   id={category.id}
@@ -53,8 +55,8 @@ export default function Search() {
                   image={category.image}
                 />
               </View>
-            ))}
-          </ScrollView>
+            </TouchableOpacity>
+          ))}
         </View>
 
         <ScrollView>
@@ -88,3 +90,15 @@ export default function Search() {
     </View>
   );
 }
+
+const SearchStyles = StyleSheet.create({
+  filter: {
+    width: 70,
+    height: 70,
+    borderWidth: 2,
+    borderColor: "seagreen",
+    borderRadius: 10,
+    margin: 2,
+    padding: 5,
+  },
+});

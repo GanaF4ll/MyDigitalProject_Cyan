@@ -9,7 +9,7 @@ interface SmallCategoryProps {
 }
 export const SmallCategory: React.FC<SmallCategoryProps> = (props) => {
   return (
-    <View style={{ height: "80%" }}>
+    <View style={{ height: "80%", borderRadius: 10 }}>
       <Image
         source={props.image}
         style={{ width: "100%", height: "100%", borderRadius: 10 }}
