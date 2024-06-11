@@ -9,11 +9,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { LinearGradient } from "expo-linear-gradient";
 
-import { Formation } from "../components/Formation";
+import { API_URL, localFormations } from "../constants/index";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
-import { API_URL } from "../constants/index";
 import { FormationType } from "../constants/types";
+import { Formation } from "../components/Formation";
 
 export default function PageFormation() {
   const [formations, setFormations] = useState<FormationType[]>([]);
@@ -21,8 +21,20 @@ export default function PageFormation() {
   useEffect(() => {
     const fetchFormations = async () => {
       const result = await axios.get(`${API_URL}/formations/all`);
-      setFormations(result.data);
-      // console.log(result.data);
+      const fullFormations = [];
+
+      for (let i = 0; i < result.data.length; i++) {
+        if (localFormations[i].id === result.data[i].id) {
+          fullFormations.push({
+            ...result.data[i],
+            image: localFormations[i].image,
+            isPro: localFormations[i].isPro,
+          });
+        }
+      }
+
+      setFormations(fullFormations);
+      console.log(fullFormations);
     };
     fetchFormations();
   }, []);
@@ -84,6 +96,8 @@ export default function PageFormation() {
                   difficulty={formation.difficulty}
                   qualityRating={formation.qualityRating}
                   coverImage={formation.coverImage}
+                  image={formation.image}
+                  // square={true}
                 />
               </LinearGradient>
             </TouchableOpacity>

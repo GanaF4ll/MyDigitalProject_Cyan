@@ -22,6 +22,7 @@ export const localCategories = [
       "Maîtrisez les stratégies et les outils essentiels pour protéger et sécuriser les données sensibles de votre organisation.",
     image: require("../assets/images/category_3.png"),
     filterName: "Données",
+    image: require("../assets/images/mock3.jpg"),
   },
   {
     id: 4,
@@ -29,5 +30,40 @@ export const localCategories = [
       "Découvrez comment protéger et sécuriser les infrastructures réseau contre les menaces et les cyberattaques.",
     image: require("../assets/images/category_4.png"),
     filterName: "Réseaux",
+    image: require("../assets/images/mock1.jpg"),
   },
 ];
+
+export const localFormations = [
+  {
+    id: 1,
+    isPro: false,
+    image: "formation_1.jpg",
+  },
+  {
+    id: 2,
+    isPro: false,
+    image: "formation_2.jpg",
+  },
+  {
+    id: 3,
+    isPro: false,
+    image: "formation_3.jpg",
+  },
+  {
+    id: 4,
+    isPro: false,
+    image: "formation_4.jpg",
+  },
+  {
+    id: 5,
+    isPro: true,
+    image: "formation_5.jpg",
+  },
+  {
+    id: 6,
+    isPro: true,
+    image: "formation_6.jpg",
+  },
+];
+

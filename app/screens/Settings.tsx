@@ -56,7 +56,7 @@ export default function Settings() {
   }
 
   return (
-    <View>
+    <View style={{ backgroundColor: "lightblue", height: "50%" }}>
       <Text>Settings</Text>
       <Text>ROLE: {roleName}</Text>
       <IconInput

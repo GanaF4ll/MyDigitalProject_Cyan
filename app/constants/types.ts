@@ -6,7 +6,8 @@ export type CategoryType = {
   filterName?: string;
 };
 
-export type FormationType = {
+
+export interface FormationType {
   // formations
   id: number;
   author: string;
@@ -21,7 +22,10 @@ export type FormationType = {
   chapters?: Chapter[];
   //   progressions
   progression?: number;
-};
+  // local
+  isPro?: boolean;
+  image?: string;
+}
 
 export type Chapter = {
   // chapters
