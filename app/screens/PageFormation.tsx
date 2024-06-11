@@ -21,7 +21,6 @@ export default function PageFormation() {
   useEffect(() => {
     const fetchFormations = async () => {
       const result = await axios.get(`${API_URL}/formations/all`);
-
       const fullFormations = [];
 
       for (let i = 0; i < result.data.length; i++) {
@@ -87,7 +86,7 @@ export default function PageFormation() {
                 end={{ x: 1, y: 1 }}
                 style={{ borderRadius: 10, margin: 10 }}
               >
-                {/* <Formation
+                <Formation
                   id={formation.id}
                   author={formation.author}
                   title={formation.title}
@@ -96,9 +95,10 @@ export default function PageFormation() {
                   category={formation.category}
                   difficulty={formation.difficulty}
                   qualityRating={formation.qualityRating}
-                  coverImage={require(formation.image)}
-                  square={true}
-                /> */}
+                  coverImage={formation.coverImage}
+                  image={formation.image}
+                  // square={true}
+                />
               </LinearGradient>
             </TouchableOpacity>
           ))}

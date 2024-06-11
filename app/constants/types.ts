@@ -24,7 +24,7 @@ export interface FormationType {
   progression?: number;
   // local
   isPro?: boolean;
-  image: string;
+  image?: string;
 }
 
 export type Chapter = {

@@ -11,6 +11,8 @@ import styles from "../constants/styles";
 import { FormationType } from "../constants/types";
 import { FontAwesome } from "@expo/vector-icons";
 
+import { imageMap } from "../constants/imageMap";
+
 interface FormationProps extends FormationType {
   id: number;
   title: string;
@@ -39,7 +41,8 @@ export const Formation: React.FC<FormationProps> = (props) => {
         <ImageBackground
           borderRadius={15}
           fadeDuration={1}
-          source={props.image}
+          // source={props.image}
+          source={imageMap[props.image]}
           style={FormaStyles.imgcontainer}
         >
           <View style={FormaStyles.header}>
@@ -66,7 +69,7 @@ export const Formation: React.FC<FormationProps> = (props) => {
     <View style={styles.formation}>
       <View style={styles.image_container}>
         <Image
-          source={image_url}
+          source={imageMap[props.image]}
           style={{ width: "100%", height: "100%", borderRadius: 10 }}
         />
       </View>

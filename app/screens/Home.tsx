@@ -38,7 +38,7 @@ const Home = () => {
           });
         }
       }
-      // console.log(fullCategories);
+      console.log(fullCategories);
       setCategories(fullCategories);
     };
     fetchCategories();

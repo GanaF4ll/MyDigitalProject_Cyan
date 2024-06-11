@@ -32,31 +32,64 @@ export const localFormations = [
   {
     id: 1,
     isPro: false,
-    image: require("../assets/images/formations/formation_1.jpg"),
+    image: "formation_1.jpg",
   },
   {
     id: 2,
     isPro: false,
-    image: require("../assets/images/formations/formation_2.jpg"),
+    image: "formation_2.jpg",
   },
   {
     id: 3,
     isPro: false,
-    image: require("../assets/images/formations/formation_3.jpg"),
+    image: "formation_3.jpg",
   },
   {
     id: 4,
     isPro: false,
-    image: require("../assets/images/formations/formation_4.jpg"),
+    image: "formation_4.jpg",
   },
   {
     id: 5,
     isPro: true,
-    image: require("../assets/images/formations/formation_5.jpg"),
+    image: "formation_5.jpg",
   },
   {
     id: 6,
     isPro: true,
-    image: require("../assets/images/formations/formation_6.jpg"),
+    image: "formation_6.jpg",
   },
 ];
+
+// export const localFormations = [
+//   {
+//     id: 1,
+//     isPro: false,
+//     image: require("../assets/images/formations/formation_1.jpg"),
+//   },
+//   {
+//     id: 2,
+//     isPro: false,
+//     image: require("../assets/images/formations/formation_2.jpg"),
+//   },
+//   {
+//     id: 3,
+//     isPro: false,
+//     image: require("../assets/images/formations/formation_3.jpg"),
+//   },
+//   {
+//     id: 4,
+//     isPro: false,
+//     image: require("../assets/images/formations/formation_4.jpg"),
+//   },
+//   {
+//     id: 5,
+//     isPro: true,
+//     image: require("../assets/images/formations/formation_5.jpg"),
+//   },
+//   {
+//     id: 6,
+//     isPro: true,
+//     image: require("../assets/images/formations/formation_6.jpg"),
+//   },
+// ];
