@@ -8,7 +8,7 @@ import axios from "axios";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 
 export default function Settings() {
   const [token, setToken] = useState("");

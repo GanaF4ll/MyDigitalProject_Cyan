@@ -16,7 +16,7 @@ import { colors } from "../constants/styles";
 import { API_URL, localCategories } from "../constants/index";
 import { CategoryType, FormationType } from "../constants/types";
 import { SmallCategory } from "../components/SmallCategory";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 
 export default function Search() {
   const [formations, setFormations] = useState<FormationType[]>([]);
