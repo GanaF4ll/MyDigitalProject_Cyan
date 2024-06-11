@@ -12,6 +12,7 @@ interface IconInputProps {
   placeholderColor?: string;
   onChangeText?: (text: string) => void;
   content?: string;
+  color?: string;
 }
 export const IconInput: React.FC<IconInputProps> = (props) => {
   return (
@@ -19,13 +20,13 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
       <FontAwesome
         name={props.iconName}
         size={20}
-        color={props.iconColor || "black"}
+        color={props.iconColor || props.color || "black"}
         style={IconInputStyles.icon}
       />
       <TextInput
         style={IconInputStyles.input}
         placeholder={props.placeholder}
-        placeholderTextColor={props.placeholderColor || "black"}
+        placeholderTextColor={props.placeholderColor || props.color || "black"}
         onChangeText={props.onChangeText}
       >
         {props.content}

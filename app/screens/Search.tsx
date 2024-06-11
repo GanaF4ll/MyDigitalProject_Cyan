@@ -141,6 +141,7 @@ export default function Search() {
             placeholder="yoooo"
             iconColor="aquamarine"
             placeholderColor="red"
+            // color="pink"
           />
           <TouchableOpacity
             onPress={() => reset()}
@@ -150,6 +151,7 @@ export default function Search() {
               width: 30,
               height: 30,
               alignItems: "center",
+              marginTop: 5,
             }}
           >
             <FontAwesome name="close" size={30} color="white" />
