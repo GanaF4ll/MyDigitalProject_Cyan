@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import React, { useEffect, useState } from "react";
+import { FontAwesome } from "@expo/vector-icons";
 
 interface SmallFormationProps {
   id: number;
@@ -13,20 +14,6 @@ interface SmallFormationProps {
 // export const SmallFormation: React.FC<SmallFormationProps> = (props) => {
 export default function SmallFormation() {
   return (
-    // <View style={styles.container}>
-    //   <ImageBackground
-    //     source={require("../assets/images/formations/formation_1.jpg")}
-    //     style={[styles.image, { opacity: 0.6 }]}
-    //   >
-    //     <View style={styles.header}>
-    //       <Text style={styles.title}>SmallFormation</Text>
-    //     </View>
-    //     <View style={styles.body}></View>
-    //     <View style={styles.footer}>
-    //       <Text style={styles.title}>easy</Text>
-    //     </View>
-    //   </ImageBackground>
-    // </View>
     <ImageBackground
       borderRadius={15}
       fadeDuration={1}
@@ -34,7 +21,13 @@ export default function SmallFormation() {
       style={styles.imgcontainer}
     >
       <View style={styles.header}>
-        <Text style={styles.title}>Titre</Text>
+        <FontAwesome
+          name="heart-o"
+          size={20}
+          onPress={() => {
+            console.log("yo");
+          }}
+        />
       </View>
       <View style={styles.body}>
         <Text style={styles.title}>Titre</Text>
@@ -79,11 +72,11 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   header: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     justifyContent: "space-between",
     alignItems: "center",
     // marginBottom: 10,
-    borderWidth: 2,
+    // borderWidth: 2,
     height: "20%",
   },
   footer: {
@@ -91,7 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     // marginBottom: 10,
-    borderWidth: 2,
+    // borderWidth: 2,
     height: "20%",
   },
   body: {
@@ -99,7 +92,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     // marginBottom: 10,
-    borderWidth: 2,
+    // borderWidth: 2,
     height: "60%",
   },
 });

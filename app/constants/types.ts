@@ -20,6 +20,8 @@ export type FormationType = {
   chapters?: Chapter[];
   //   progressions
   progression?: number;
+  // local
+  isPro?: boolean;
 };
 
 export type Chapter = {
