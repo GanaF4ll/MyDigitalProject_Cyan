@@ -25,7 +25,7 @@ export default function Search() {
     const fetchFormations = async () => {
       const result = await axios.get(`${API_URL}/formations/all`);
       setFormations(result.data);
-      console.log(result.data);
+      // console.log(result.data);
     };
     fetchFormations();
   }, []);

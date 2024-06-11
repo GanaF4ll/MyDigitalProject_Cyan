@@ -24,12 +24,12 @@ export default function Settings() {
       const token = await AsyncStorage.getItem("token");
       if (token) {
         setToken(token);
-        console.log("Token retrieved:", token);
+        // console.log("Token retrieved:", token);
         const decodedToken = jwtDecode(token);
         const { id, mail, role } = decodedToken;
 
         const result = await axios.get(`${API_URL}/users/${id}`);
-        console.log("User data:", result.data);
+        // console.log("User data:", result.data);
 
         let ROLE_NAME = "";
         if (role === 1) {
