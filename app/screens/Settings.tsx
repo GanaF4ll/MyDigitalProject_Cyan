@@ -8,7 +8,8 @@ import axios from "axios";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
+import { IconInput } from "../components/IconInput";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -24,12 +25,12 @@ export default function Settings() {
       const token = await AsyncStorage.getItem("token");
       if (token) {
         setToken(token);
-        console.log("Token retrieved:", token);
+        // console.log("Token retrieved:", token);
         const decodedToken = jwtDecode(token);
         const { id, mail, role } = decodedToken;
 
         const result = await axios.get(`${API_URL}/users/${id}`);
-        console.log("User data:", result.data);
+        // console.log("User data:", result.data);
 
         let ROLE_NAME = "";
         if (role === 1) {
@@ -58,6 +59,12 @@ export default function Settings() {
     <View style={{ backgroundColor: "lightblue", height: "50%" }}>
       <Text>Settings</Text>
       <Text>ROLE: {roleName}</Text>
+      <IconInput
+        iconName="search"
+        placeholder="yoooo"
+        iconColor="aquamarine"
+        placeholderColor="red"
+      />
     </View>
   );
 }

@@ -116,7 +116,7 @@ export default StyleSheet.create({
   },
   header_container: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     width: "100%",
     padding: 10,

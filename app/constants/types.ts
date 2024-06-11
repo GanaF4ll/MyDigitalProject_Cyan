@@ -3,7 +3,9 @@ export type CategoryType = {
   name: string;
   description: string;
   image: string;
+  filterName?: string;
 };
+
 
 export interface FormationType {
   // formations

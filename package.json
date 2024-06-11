@@ -23,7 +23,8 @@
     "expo-status-bar": "~1.12.1",
     "jwt-decode": "^4.0.0",
     "react": "18.2.0",
-    "react-native": "^0.74.1"
+    "react-native": "^0.74.1",
+    "react-native-search-bar": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -48,7 +48,7 @@ export default function Register() {
 
         if (result.error) {
           alert("Une erreur est survenue lors de l'inscription.");
-          console.log(firstName, lastName, birthdate, mail, password);
+          // console.log(firstName, lastName, birthdate, mail, password);
         } else {
           console.log("Inscription réussie");
           onLogin!(mail, password);

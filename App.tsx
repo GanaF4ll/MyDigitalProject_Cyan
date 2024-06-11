@@ -36,6 +36,7 @@ export const Layout = () => {
       {authState?.authenticated ? (
         <Tab.Navigator
           screenOptions={({ route }) => ({
+            headerTitle: null, // Cette option est déjà correctement appliquée ici
             tabBarIcon: ({ color, size }) => {
               let iconName: keyof typeof FontAwesome.glyphMap;
 
@@ -110,9 +111,21 @@ export const Layout = () => {
           />
         </Tab.Navigator>
       ) : (
-        <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Créer un compte" component={Register} />
+        <Stack.Navigator
+          screenOptions={({ route }) => ({
+            headerTitle: null,
+          })}
+        >
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{ headerTitle: null }} // Ajoutez headerTitle: null ici
+          />
+          <Stack.Screen
+            name="Créer un compte"
+            component={Register}
+            options={{ headerTitle: null }} // Et ici
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
