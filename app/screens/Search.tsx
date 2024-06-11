@@ -19,7 +19,7 @@ import { API_URL, localCategories } from "../constants/index";
 import { CategoryType, FormationType } from "../constants/types";
 import { SmallCategory } from "../components/SmallCategory";
 import Loading from "../components/Loading";
-import SearchBar from "react-native-search-bar";
+import { IconInput } from "../components/IconInput";
 
 export default function Search() {
   const [formations, setFormations] = useState<FormationType[]>([]);
@@ -132,12 +132,27 @@ export default function Search() {
             flexDirection: "row",
           }}
         >
-          <TextInput
+          {/* <TextInput
             style={{ backgroundColor: "white", width: "90%" }}
             onChangeText={(text) => fetchFormationsByTitle(text)}
-          ></TextInput>
-          <TouchableOpacity onPress={() => reset()} style={styles.btn_logout}>
-            <FontAwesome name="close" size={10} color="white" />
+          ></TextInput> */}
+          <IconInput
+            iconName="search"
+            placeholder="yoooo"
+            iconColor="aquamarine"
+            placeholderColor="red"
+          />
+          <TouchableOpacity
+            onPress={() => reset()}
+            style={{
+              borderRadius: 20,
+              backgroundColor: "red",
+              width: 30,
+              height: 30,
+              alignItems: "center",
+            }}
+          >
+            <FontAwesome name="close" size={30} color="white" />
           </TouchableOpacity>
         </View>
         <View style={styles.header_container}>

@@ -9,6 +9,7 @@ import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
 import Loading from "../components/Loading";
+import { IconInput } from "../components/IconInput";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -58,6 +59,12 @@ export default function Settings() {
     <View>
       <Text>Settings</Text>
       <Text>ROLE: {roleName}</Text>
+      <IconInput
+        iconName="search"
+        placeholder="yoooo"
+        iconColor="aquamarine"
+        placeholderColor="red"
+      />
     </View>
   );
 }
