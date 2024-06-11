@@ -16,10 +16,12 @@ import { colors } from "../constants/styles";
 import { API_URL, localCategories } from "../constants/index";
 import { CategoryType, FormationType } from "../constants/types";
 import { SmallCategory } from "../components/SmallCategory";
+import Loading from "./Loading";
 
 export default function Search() {
   const [formations, setFormations] = useState<FormationType[]>([]);
   const [categories, setCategories] = useState<CategoryType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchFormations = async () => {
@@ -47,16 +49,49 @@ export default function Search() {
         }
       }
       setCategories(fullCategories);
+      setIsLoading(false);
     };
     fetchCategories();
   }, []);
 
   const fetchFormationsByCategory = async (category_id: number) => {
+    setIsLoading(true);
+
     const result = await axios.get(
       `${API_URL}/formations/category/${category_id}`
     );
     setFormations(result.data);
+    setIsLoading(false);
   };
+
+  if (isLoading) {
+    return (
+      <View style={{ width: "100%", height: "100%" }}>
+        <ImageBackground
+          source={require("../assets/images/background.png")}
+          style={styles.container}
+        >
+          <View style={styles.header_container}>
+            {localCategories.map((category) => (
+              <TouchableOpacity
+                onPress={() => fetchFormationsByCategory(category.id)}
+              >
+                <View style={SearchStyles.filterBox}>
+                  <SmallCategory
+                    key={category.id}
+                    id={category.id}
+                    filterName={category.filterName}
+                    image={category.image}
+                  />
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
+          <Loading />
+        </ImageBackground>
+      </View>
+    );
+  }
 
   return (
     <View style={{ width: "100%", height: "100%" }}>
