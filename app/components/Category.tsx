@@ -19,7 +19,7 @@ export const Category: React.FC<CategoryProps> = (props) => {
       <LinearGradient
         colors={["#370475", "red"]}
         start={{ x: 0, y: 0 }}
-        end={{ x: 2, y: 3 }}
+        end={{ x: 2, y: 5 }}
         style={categoryStyle.subContainer}
       >
         {/* HEADER */}
