@@ -6,15 +6,14 @@ import {
   ImageBackground,
 } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { LinearGradient } from "expo-linear-gradient";
 
 import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
 import { FormationType } from "../constants/types";
-
-import axios from "axios";
-import { LinearGradient } from "expo-linear-gradient";
 
 export default function PageFormation() {
   const [formations, setFormations] = useState<FormationType[]>([]);
