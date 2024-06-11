@@ -10,6 +10,7 @@ import {
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { LinearGradient } from "expo-linear-gradient";
+import { FontAwesome } from "@expo/vector-icons";
 
 import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
@@ -77,6 +78,12 @@ export default function Search() {
     setIsLoading(false);
   };
 
+  const reset = async () => {
+    const result = await axios.get(`${API_URL}/formations/all`);
+
+    setFormations(result.data);
+  };
+
   if (isLoading) {
     return (
       <View style={{ width: "100%", height: "100%" }}>
@@ -118,11 +125,20 @@ export default function Search() {
         source={require("../assets/images/background.png")}
         style={styles.container}
       >
-        <View style={{ width: "100%", marginVertical: 10 }}>
+        <View
+          style={{
+            width: "100%",
+            marginVertical: 10,
+            flexDirection: "row",
+          }}
+        >
           <TextInput
-            style={{ backgroundColor: "white" }}
+            style={{ backgroundColor: "white", width: "90%" }}
             onChangeText={(text) => fetchFormationsByTitle(text)}
           ></TextInput>
+          <TouchableOpacity onPress={() => reset()} style={styles.btn_logout}>
+            <FontAwesome name="close" size={10} color="white" />
+          </TouchableOpacity>
         </View>
         <View style={styles.header_container}>
           {localCategories.map((category) => (
