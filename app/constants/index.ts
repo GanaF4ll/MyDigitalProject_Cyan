@@ -20,14 +20,14 @@ export const localCategories = [
     id: 3,
     description:
       "Maîtrisez les stratégies et les outils essentiels pour protéger et sécuriser les données sensibles de votre organisation.",
-    image: require("../assets/images/mock3.jpg"),
+    image: require("../assets/images/category_3.png"),
     filterName: "Données",
   },
   {
     id: 4,
     description:
       "Découvrez comment protéger et sécuriser les infrastructures réseau contre les menaces et les cyberattaques.",
-    image: require("../assets/images/mock1.jpg"),
+    image: require("../assets/images/category_4.png"),
     filterName: "Réseaux",
   },
 ];

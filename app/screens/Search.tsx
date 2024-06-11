@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   StyleSheet,
+  TextInput,
 } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -17,6 +18,7 @@ import { API_URL, localCategories } from "../constants/index";
 import { CategoryType, FormationType } from "../constants/types";
 import { SmallCategory } from "../components/SmallCategory";
 import Loading from "../components/Loading";
+import SearchBar from "react-native-search-bar";
 
 export default function Search() {
   const [formations, setFormations] = useState<FormationType[]>([]);
@@ -54,6 +56,17 @@ export default function Search() {
     fetchCategories();
   }, []);
 
+  const fetchFormationsByTitle = async (formation_title: string) => {
+    setIsLoading(true);
+
+    const result = await axios.get(
+      `${API_URL}/formations/title/${formation_title}`
+    );
+
+    setFormations(result.data);
+    setIsLoading(false);
+  };
+
   const fetchFormationsByCategory = async (category_id: number) => {
     setIsLoading(true);
 
@@ -71,6 +84,12 @@ export default function Search() {
           source={require("../assets/images/background.png")}
           style={styles.container}
         >
+          <View style={{ width: "100%", marginVertical: 10 }}>
+            <TextInput
+              style={{ backgroundColor: "white" }}
+              onChangeText={(text) => fetchFormationsByTitle(text)}
+            ></TextInput>
+          </View>
           <View style={styles.header_container}>
             {localCategories.map((category) => (
               <TouchableOpacity
@@ -99,6 +118,12 @@ export default function Search() {
         source={require("../assets/images/background.png")}
         style={styles.container}
       >
+        <View style={{ width: "100%", marginVertical: 10 }}>
+          <TextInput
+            style={{ backgroundColor: "white" }}
+            onChangeText={(text) => fetchFormationsByTitle(text)}
+          ></TextInput>
+        </View>
         <View style={styles.header_container}>
           {localCategories.map((category) => (
             <TouchableOpacity
