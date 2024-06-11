@@ -7,16 +7,15 @@ import {
   TextInput,
   StyleSheet,
 } from "react-native";
-import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import axios from "axios";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-import { createContext, useContext, useEffect, useState } from "react";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL, localCategories } from "../constants/index";
-import { Category } from "../components/Category";
 import { CategoryType } from "../constants/types";
+import { Category } from "../components/Category";
 
 const Home = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);

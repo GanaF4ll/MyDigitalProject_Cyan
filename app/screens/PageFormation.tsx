@@ -9,11 +9,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { LinearGradient } from "expo-linear-gradient";
 
-import { Formation } from "../components/Formation";
+import { API_URL, localFormations } from "../constants/index";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
-import { API_URL, localFormations } from "../constants/index";
 import { FormationType } from "../constants/types";
+import { Formation } from "../components/Formation";
 
 export default function PageFormation() {
   const [formations, setFormations] = useState<FormationType[]>([]);

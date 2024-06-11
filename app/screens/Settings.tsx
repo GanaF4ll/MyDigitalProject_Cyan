@@ -9,7 +9,6 @@ import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
 import Loading from "./Loading";
-import { SmallFormation } from "../components/SmallFormation";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -59,13 +58,6 @@ export default function Settings() {
     <View style={{ backgroundColor: "lightblue", height: "50%" }}>
       <Text>Settings</Text>
       <Text>ROLE: {roleName}</Text>
-      <SmallFormation
-        id={1}
-        title="Formation 1"
-        coverImage={require("../assets/images/formations/formation_6.jpg")}
-        difficulty="Facile"
-        completionTime={2}
-      />
     </View>
   );
 }

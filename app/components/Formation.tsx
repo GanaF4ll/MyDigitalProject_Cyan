@@ -7,10 +7,10 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
-import styles from "../constants/styles";
-import { FormationType } from "../constants/types";
 import { FontAwesome } from "@expo/vector-icons";
 
+import styles from "../constants/styles";
+import { FormationType } from "../constants/types";
 import { imageMap } from "../constants/imageMap";
 
 interface FormationProps extends FormationType {

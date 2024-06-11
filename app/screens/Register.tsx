@@ -12,9 +12,9 @@ import RNDateTimePicker from "@react-native-community/datetimepicker";
 import { Picker } from "@react-native-picker/picker";
 
 import { API_URL } from "../constants";
-import { useAuth } from "../context/AuthContext";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
+import { useAuth } from "../context/AuthContext";
 import Gradient from "../components/Gradient";
 
 export default function Register() {
