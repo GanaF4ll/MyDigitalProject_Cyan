@@ -14,11 +14,12 @@ import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL, localCategories } from "../constants/index";
-import { FormationType } from "../constants/types";
+import { CategoryType, FormationType } from "../constants/types";
 import { SmallCategory } from "../components/SmallCategory";
 
 export default function Search() {
   const [formations, setFormations] = useState<FormationType[]>([]);
+  const [categories, setCategories] = useState<CategoryType[]>([]);
 
   useEffect(() => {
     const fetchFormations = async () => {
@@ -27,6 +28,27 @@ export default function Search() {
       console.log(result.data);
     };
     fetchFormations();
+  }, []);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const result = await axios.get(`${API_URL}/categories/all`);
+
+      const fullCategories = [];
+
+      // récupère les images et descriptions des catégories locales
+      for (let i = 0; i < result.data.length; i++) {
+        if ((localCategories[i].id = result.data[i].id)) {
+          fullCategories.push({
+            ...result.data[i],
+            image: localCategories[i].image,
+            description: localCategories[i].description,
+          });
+        }
+      }
+      setCategories(fullCategories);
+    };
+    fetchCategories();
   }, []);
 
   const fetchFormationsByCategory = async (category_id: number) => {
