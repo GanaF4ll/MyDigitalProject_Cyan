@@ -1,43 +1,57 @@
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
+import { FormationType } from "../constants/types";
 
-interface SmallFormationProps {
+interface SmallFormationProps
+  extends Pick<FormationType, "id" | "title" | "coverImage" | "difficulty"> {
   id: number;
   title: string;
-  image: string;
+  coverImage: string;
   difficulty: string;
   completionTime: number;
   qualityRating: number;
   category_id: number;
 }
-// export const SmallFormation: React.FC<SmallFormationProps> = (props) => {
-export default function SmallFormation() {
+export const SmallFormation: React.FC<SmallFormationProps> = (props) => {
+  // export default function SmallFormation() {
   return (
-    <ImageBackground
-      borderRadius={15}
-      fadeDuration={1}
-      source={require("../assets/images/formations/formation_1.jpg")}
-      style={styles.imgcontainer}
+    <TouchableOpacity
+      onPress={() => {
+        console.log(props.id);
+      }}
     >
-      <View style={styles.header}>
-        <FontAwesome
-          name="heart-o"
-          size={20}
-          onPress={() => {
-            console.log("yo");
-          }}
-        />
-      </View>
-      <View style={styles.body}>
-        <Text style={styles.title}>Titre</Text>
-      </View>
-      <View style={styles.footer}>
-        <Text style={styles.title}>Difficulté</Text>
-      </View>
-    </ImageBackground>
+      <ImageBackground
+        borderRadius={15}
+        fadeDuration={1}
+        source={props.coverImage}
+        style={styles.imgcontainer}
+      >
+        <View style={styles.header}>
+          <FontAwesome
+            name="heart-o"
+            size={20}
+            onPress={() => {
+              console.log("yo");
+            }}
+          />
+        </View>
+        <View style={styles.body}>
+          <Text style={styles.title}>{props.title}</Text>
+        </View>
+        <View style={styles.footer}>
+          <Text style={styles.title}>{props.difficulty}</Text>
+        </View>
+      </ImageBackground>
+    </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   imgcontainer: {

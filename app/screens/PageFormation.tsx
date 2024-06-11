@@ -63,7 +63,7 @@ export default function PageFormation() {
             </Text>
           </TouchableOpacity>
         </View>
-        <ScrollView vertical={true}>
+        <ScrollView horizontal={false}>
           {formations.map((formation) => (
             <TouchableOpacity
               key={formation.id}

@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 export type CategoryType = {
   id: number;
   name: string;
@@ -5,7 +7,7 @@ export type CategoryType = {
   image: string;
 };
 
-export type FormationType = {
+export interface FormationType {
   // formations
   id: number;
   author: string;
@@ -22,7 +24,7 @@ export type FormationType = {
   progression?: number;
   // local
   isPro?: boolean;
-};
+}
 
 export type Chapter = {
   // chapters
