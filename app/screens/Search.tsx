@@ -132,26 +132,23 @@ export default function Search() {
             flexDirection: "row",
           }}
         >
-          {/* <TextInput
-            style={{ backgroundColor: "white", width: "90%" }}
-            onChangeText={(text) => fetchFormationsByTitle(text)}
-          ></TextInput> */}
           <IconInput
             iconName="search"
-            placeholder="yoooo"
-            iconColor="aquamarine"
-            placeholderColor="red"
-            // color="pink"
+            placeholder="Chercher une formation"
+            color={colors.blue_primary}
+            onChangeText={(text) => fetchFormationsByTitle(text)}
           />
           <TouchableOpacity
             onPress={() => reset()}
             style={{
-              borderRadius: 20,
+              borderRadius: 10,
               backgroundColor: "red",
-              width: 30,
-              height: 30,
+              width: 35,
+              height: 35,
               alignItems: "center",
               marginTop: 5,
+              // paddingLeft: 2,
+              paddingTop: 2,
             }}
           >
             <FontAwesome name="close" size={30} color="white" />
