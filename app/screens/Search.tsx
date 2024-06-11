@@ -69,11 +69,11 @@ export default function Search() {
             <TouchableOpacity
               onPress={() => fetchFormationsByCategory(category.id)}
             >
-              <View style={SearchStyles.filter}>
+              <View style={SearchStyles.filterBox}>
                 <SmallCategory
                   key={category.id}
                   id={category.id}
-                  // name={category.name}
+                  filterName={category.filterName}
                   image={category.image}
                 />
               </View>
@@ -114,11 +114,9 @@ export default function Search() {
 }
 
 const SearchStyles = StyleSheet.create({
-  filter: {
-    width: 70,
-    height: 70,
-    borderWidth: 2,
-    borderColor: "seagreen",
+  filterBox: {
+    width: 100,
+    height: 100,
     borderRadius: 10,
     margin: 2,
     padding: 5,
