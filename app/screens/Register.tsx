@@ -35,7 +35,44 @@ export default function Register() {
   const register = async () => {
     if (onRegister) {
       try {
-        // const result = { firstName, lastName, birthdate, mail, password };
+        console.log("Début de la vérification de l'utilisateur");
+
+        // On vérifie l'existence de l'utilisateur par email
+        let existingUser;
+        try {
+          existingUser = await axios.get(`${API_URL}/users/mail/${mail}`, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          console.log(
+            "Résultat de la vérification de l'utilisateur:",
+            existingUser.data
+          );
+        } catch (error) {
+          if (error.response && error.response.status === 404) {
+            console.log("L'utilisateur n'existe pas, on peut continuer.");
+          } else {
+            throw error;
+          }
+        }
+
+        if (existingUser && existingUser.data === mail) {
+          alert("L'email que vous avez entré est déjà utilisé.");
+          return;
+        }
+
+        // Validation de la force du mot de passe
+        const passwordRegex =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$%*?&])[A-Za-z\d@$%*?&]{7,}$/;
+        if (!passwordRegex.test(password)) {
+          alert(
+            "Le mot de passe doit contenir au moins 8 caractères, dont des majuscules, des minuscules, des chiffres et des symboles spéciaux."
+          );
+          return;
+        }
+
+        // Création de l'utilisateur
         const result = await onRegister!(
           firstName,
           lastName,
@@ -45,34 +82,20 @@ export default function Register() {
           gender
         );
 
-        // console.log(result);
-
         if (result.error) {
           alert("Une erreur est survenue lors de l'inscription.");
-          // console.log(firstName, lastName, birthdate, mail, password);
         } else {
           console.log("Inscription réussie");
           onLogin!(mail, password);
         }
       } catch (error) {
         console.error(error);
-        alert("Une erreur inattendue est survenue.");
+        alert(error);
       }
     } else {
       console.log("onRegister is undefined");
     }
   };
-
-  // const login = async () => {
-  //   if (onLogin) {
-  //     const result = await onLogin(mail, password);
-  //     if (result && result.error) {
-  //       alert(result.msg);
-  //     }
-  //   } else {
-  //     console.log("onLogin is undefined");
-  //   }
-  // };
 
   return (
     <ScrollView horizontal={false}>
