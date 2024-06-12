@@ -141,4 +141,12 @@ const FormaStyles = StyleSheet.create({
     // borderWidth: 2,
     height: "60%",
   },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+    height: "100%",
+  },
 });

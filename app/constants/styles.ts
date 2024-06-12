@@ -29,7 +29,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-
+    height: 135,
     minWidth: 300,
     borderRadius: 10,
     margin: 5,

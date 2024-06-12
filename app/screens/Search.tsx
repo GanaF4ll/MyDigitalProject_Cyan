@@ -15,7 +15,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
-import { API_URL, localCategories } from "../constants/index";
+import { API_URL, localCategories, localFormations } from "../constants/index";
 import { CategoryType, FormationType } from "../constants/types";
 import { SmallCategory } from "../components/SmallCategory";
 import Loading from "../components/Loading";
@@ -29,8 +29,20 @@ export default function Search() {
   useEffect(() => {
     const fetchFormations = async () => {
       const result = await axios.get(`${API_URL}/formations/all`);
-      setFormations(result.data);
-      // console.log(result.data);
+      const fullFormations = [];
+
+      for (let i = 0; i < result.data.length; i++) {
+        if (localFormations[i].id === result.data[i].id) {
+          fullFormations.push({
+            ...result.data[i],
+            image: localFormations[i].image,
+            isPro: localFormations[i].isPro,
+          });
+        }
+      }
+
+      setFormations(fullFormations);
+      console.log(fullFormations);
     };
     fetchFormations();
   }, []);
@@ -193,6 +205,7 @@ export default function Search() {
                   difficulty={formation.difficulty}
                   qualityRating={formation.qualityRating}
                   coverImage={formation.coverImage}
+                  image={formation.image}
                 />
               </LinearGradient>
             </TouchableOpacity>

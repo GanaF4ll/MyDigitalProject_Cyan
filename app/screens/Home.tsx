@@ -13,12 +13,14 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
-import { API_URL, localCategories } from "../constants/index";
-import { CategoryType } from "../constants/types";
+import { API_URL, localCategories, localFormations } from "../constants/index";
+import { CategoryType, FormationType } from "../constants/types";
 import { Category } from "../components/Category";
+import { Formation } from "../components/Formation";
 
 const Home = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
+  const [formations, setFormations] = useState<FormationType[]>([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -43,6 +45,27 @@ const Home = () => {
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    const fetchFormations = async () => {
+      const result = await axios.get(`${API_URL}/formations/all`);
+      const fullFormations = [];
+
+      for (let i = 0; i < result.data.length; i++) {
+        if (localFormations[i].id === result.data[i].id) {
+          fullFormations.push({
+            ...result.data[i],
+            image: localFormations[i].image,
+            isPro: localFormations[i].isPro,
+          });
+        }
+      }
+
+      setFormations(fullFormations);
+      console.log(fullFormations);
+    };
+    fetchFormations();
+  }, []);
+
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -63,36 +86,29 @@ const Home = () => {
             ))}
           </ScrollView>
         </View>
-        <View style={{ height: 225 }}>
+        <View style={{ height: 330 }}>
           <Text style={styles.title_white}>Formations vedettes:</Text>
           <ScrollView horizontal={true}>
-            <View
-              style={{
-                borderWidth: 2,
-                borderColor: "red",
-                width: 200,
-                height: 200,
-                marginRight: 10,
-              }}
-            ></View>
-            <View
-              style={{
-                borderWidth: 2,
-                borderColor: "red",
-                width: 200,
-                height: 200,
-                marginRight: 10,
-              }}
-            ></View>
-            <View
-              style={{
-                borderWidth: 2,
-                borderColor: "red",
-                width: 200,
-                height: 200,
-                marginRight: 10,
-              }}
-            ></View>
+            {formations.map((formation) => (
+              <TouchableOpacity
+                key={formation.id}
+                onPress={() => console.log(formation)}
+              >
+                <Formation
+                  id={formation.id}
+                  author={formation.author}
+                  title={formation.title}
+                  description={formation.description}
+                  video={formation.video}
+                  category={formation.category}
+                  difficulty={formation.difficulty}
+                  qualityRating={formation.qualityRating}
+                  coverImage={formation.coverImage}
+                  image={formation.image}
+                  square={true}
+                />
+              </TouchableOpacity>
+            ))}
           </ScrollView>
         </View>
       </ImageBackground>
