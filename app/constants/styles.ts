@@ -109,11 +109,13 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   btn_logout: {
-    backgroundColor: orange_primary,
+    // backgroundColor: orange_primary,
     padding: 10,
     borderRadius: 8,
-    width: 30,
+    width: 50,
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: green_primary,
   },
   header_container: {
     flexDirection: "row",
@@ -121,7 +123,6 @@ export default StyleSheet.create({
     alignItems: "center",
     width: "100%",
     padding: 10,
-    // backgroundColor: blue_primary,
   },
   header_button: {
     backgroundColor: "#E5E5E5",

@@ -78,7 +78,11 @@ export default function Settings() {
       >
         <View style={settingStyles.header}>
           <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
-            <FontAwesome name="home" size={10} color={colors.green_primary} />
+            <FontAwesome
+              name="sign-out"
+              size={15}
+              color={colors.green_primary}
+            />
           </TouchableOpacity>
         </View>
         <Text style={{ color: "white" }}>Settings</Text>
