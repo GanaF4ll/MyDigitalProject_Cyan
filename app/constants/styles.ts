@@ -109,7 +109,7 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   btn_logout: {
-    backgroundColor: blue_primary,
+    backgroundColor: orange_primary,
     padding: 10,
     borderRadius: 8,
     width: 30,

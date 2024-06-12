@@ -1,10 +1,19 @@
-import { View, Text, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  StatusBar,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import * as SecureStore from "expo-secure-store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { FontAwesome } from "@expo/vector-icons";
 
+import { AuthProvider, useAuth } from "../context/AuthContext";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
@@ -15,6 +24,7 @@ export default function Settings() {
   const [token, setToken] = useState("");
   const [roleName, setRoleName] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const { authState, onLogout } = useAuth();
 
   useEffect(() => {
     retrieveToken();
@@ -56,15 +66,44 @@ export default function Settings() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Settings</Text>
-      <Text>ROLE: {roleName}</Text>
-      <IconInput
-        iconName="search"
-        placeholder="yoooo"
-        iconColor="aquamarine"
-        placeholderColor="red"
-      />
+    <View
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <ImageBackground
+        source={require("../assets/images/background.png")}
+        style={settingStyles.container}
+      >
+        <View style={settingStyles.header}>
+          <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
+            <FontAwesome name="home" size={10} color={colors.green_primary} />
+          </TouchableOpacity>
+        </View>
+        <Text style={{ color: "white" }}>Settings</Text>
+        <Text style={{ color: "white" }}>ROLE: {roleName}</Text>
+        <IconInput
+          iconName="search"
+          placeholder="yoooo"
+          iconColor="aquamarine"
+          placeholderColor="red"
+        />
+      </ImageBackground>
     </View>
   );
 }
+
+const settingStyles = StyleSheet.create({
+  header: {
+    flexDirection: "row-reverse",
+    width: "100%",
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    padding: "5%",
+    paddingTop: "10%",
+    flexDirection: "column",
+  },
+});

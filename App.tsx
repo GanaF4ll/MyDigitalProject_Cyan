@@ -2,12 +2,12 @@ import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import style from "./app/constants/styles";
 import AppNavigator from "./navigation";
-import { AuthProvider, useAuth } from "./app/context/AuthContext";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome } from "@expo/vector-icons";
 
+import { AuthProvider, useAuth } from "./app/context/AuthContext";
 import Home from "./app/screens/Home";
 import Login from "./app/screens/Login";
 import PageFormation from "./app/screens/PageFormation";
