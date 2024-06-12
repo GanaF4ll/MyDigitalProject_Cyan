@@ -35,6 +35,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     margin: 5,
     padding: 15,
+    width: "95%",
   },
   test: {
     color: orange_primary,

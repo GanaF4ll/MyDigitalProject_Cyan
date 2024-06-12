@@ -146,10 +146,12 @@ export default function Search() {
           style={styles.container}
         >
           <View style={{ width: "100%", marginVertical: 10 }}>
-            <TextInput
-              style={{ backgroundColor: "white" }}
+            <IconInput
+              iconName="search"
+              placeholder="Chercher une formation"
+              color={colors.blue_primary}
               onChangeText={(text) => fetchFormationsByTitle(text)}
-            ></TextInput>
+            />
           </View>
           <View style={styles.header_container}>
             {localCategories.map((category) => (

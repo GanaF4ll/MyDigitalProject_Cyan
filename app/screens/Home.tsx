@@ -88,7 +88,7 @@ const Home = () => {
             ))}
           </ScrollView>
         </View>
-        <View style={{ height: 330 }}>
+        <View style={{ height: 250 }}>
           <Text style={styles.title_white}>Formations vedettes:</Text>
           <ScrollView horizontal={true}>
             {formations.map((formation) => (

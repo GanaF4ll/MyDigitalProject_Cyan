@@ -88,7 +88,6 @@ export const Formation: React.FC<FormationProps> = (props) => {
 const FormaStyles = StyleSheet.create({
   imgcontainer: {
     flexDirection: "column",
-    // justifyContent: "flex-end",
     height: 220,
     width: 330,
     padding: 20,
