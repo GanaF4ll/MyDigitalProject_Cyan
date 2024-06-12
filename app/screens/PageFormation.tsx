@@ -4,6 +4,7 @@ import {
   ScrollView,
   TouchableOpacity,
   ImageBackground,
+  StatusBar,
 } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -41,6 +42,8 @@ export default function PageFormation() {
 
   return (
     <View style={{ width: "100%", height: "100%" }}>
+      <StatusBar barStyle="light-content" />
+
       <ImageBackground
         source={require("../assets/images/background.png")}
         style={styles.container}

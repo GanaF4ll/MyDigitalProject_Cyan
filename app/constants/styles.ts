@@ -21,7 +21,8 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    padding: 10,
+    padding: "5%",
+    paddingTop: "10%",
   },
 
   formation: {

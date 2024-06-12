@@ -6,6 +6,7 @@ import {
   ImageBackground,
   TextInput,
   StyleSheet,
+  StatusBar,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import axios from "axios";
@@ -68,9 +69,10 @@ const Home = () => {
 
   return (
     <View style={{ flex: 1 }}>
+      <StatusBar barStyle="light-content" />
       <ImageBackground
         source={require("../assets/images/background.png")}
-        style={homestyle.container}
+        style={styles.container}
       >
         <View style={{ height: 225 }}>
           <Text style={styles.title_white}>Catégories:</Text>

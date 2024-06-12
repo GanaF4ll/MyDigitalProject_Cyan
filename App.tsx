@@ -36,6 +36,8 @@ export const Layout = () => {
       {authState?.authenticated ? (
         <Tab.Navigator
           screenOptions={({ route }) => ({
+            headerShown: false, // Ajoutez cette ligne pour cacher le header
+
             headerTitle: null, // Cette option est déjà correctement appliquée ici
             tabBarIcon: ({ color, size }) => {
               let iconName: keyof typeof FontAwesome.glyphMap;
@@ -66,11 +68,11 @@ export const Layout = () => {
             component={Home}
             options={{
               tabBarLabel: "Accueil",
-              headerRight: () => (
-                <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
-                  <FontAwesome name="home" size={10} color="white" />
-                </TouchableOpacity>
-              ),
+              // headerRight: () => (
+              //   <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
+              //     <FontAwesome name="home" size={10} color="white" />
+              //   </TouchableOpacity>
+              // ),
             }}
           />
           <Tab.Screen
@@ -90,11 +92,11 @@ export const Layout = () => {
             component={Search}
             options={{
               tabBarLabel: "Rechercher",
-              headerRight: () => (
-                <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
-                  <FontAwesome name="home" size={10} color="white" />
-                </TouchableOpacity>
-              ),
+              // headerRight: () => (
+              //   <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
+              //     <FontAwesome name="home" size={10} color="white" />
+              //   </TouchableOpacity>
+              // ),
             }}
           />
           <Tab.Screen
@@ -102,11 +104,11 @@ export const Layout = () => {
             component={Settings}
             options={{
               tabBarLabel: "Profil",
-              headerRight: () => (
-                <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
-                  <FontAwesome name="home" size={10} color="white" />
-                </TouchableOpacity>
-              ),
+              // headerRight: () => (
+              //   <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
+              //     <FontAwesome name="home" size={10} color="white" />
+              //   </TouchableOpacity>
+              // ),
             }}
           />
         </Tab.Navigator>
@@ -114,6 +116,7 @@ export const Layout = () => {
         <Stack.Navigator
           screenOptions={({ route }) => ({
             headerTitle: null,
+            headerShown: false, // Ajoutez cette ligne pour cacher le header
           })}
         >
           <Stack.Screen

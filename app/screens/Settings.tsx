@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StatusBar } from "react-native";
 import React, { useEffect, useState } from "react";
 import * as SecureStore from "expo-secure-store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -56,7 +56,7 @@ export default function Settings() {
   }
 
   return (
-    <View style={{ backgroundColor: "lightblue", height: "50%" }}>
+    <View style={styles.container}>
       <Text>Settings</Text>
       <Text>ROLE: {roleName}</Text>
       <IconInput

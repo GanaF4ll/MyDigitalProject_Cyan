@@ -4,6 +4,7 @@ import {
   ImageBackground,
   TextInput,
   ScrollView,
+  StatusBar,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
@@ -75,6 +76,8 @@ export default function Register() {
 
   return (
     <ScrollView horizontal={false}>
+      <StatusBar barStyle="light-content" />
+
       <View
         style={{
           width: "100%",
