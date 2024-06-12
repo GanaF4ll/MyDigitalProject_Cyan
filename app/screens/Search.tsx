@@ -29,110 +29,139 @@ export default function Search() {
 
   useEffect(() => {
     const fetchFormations = async () => {
-      const result = await axios.get(`${API_URL}/formations/all`);
-      const fullFormations = [];
+      try {
+        const result = await axios.get(`${API_URL}/formations/all`);
+        const fullFormations = result.data.map((formation) => {
+          const localFormation = localFormations.find(
+            (lf) => lf.id === formation.id
+          );
+          return localFormation
+            ? {
+                ...formation,
+                image: localFormation.image,
+                isPro: localFormation.isPro,
+              }
+            : formation;
+        });
 
-      for (let i = 0; i < result.data.length; i++) {
-        if (localFormations[i].id === result.data[i].id) {
-          fullFormations.push({
-            ...result.data[i],
-            image: localFormations[i].image,
-            isPro: localFormations[i].isPro,
-          });
-        }
+        setFormations(fullFormations);
+        console.log(fullFormations);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des formations:", error);
       }
-
-      setFormations(fullFormations);
-      console.log(fullFormations);
     };
     fetchFormations();
   }, []);
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const result = await axios.get(`${API_URL}/categories/all`);
+      try {
+        const result = await axios.get(`${API_URL}/categories/all`);
+        const fullCategories = result.data.map((category) => {
+          const localCategory = localCategories.find(
+            (lc) => lc.id === category.id
+          );
+          return localCategory
+            ? {
+                ...category,
+                image: localCategory.image,
+                description: localCategory.description,
+              }
+            : category;
+        });
 
-      const fullCategories = [];
-
-      // récupère les images et descriptions des catégories locales
-      for (let i = 0; i < result.data.length; i++) {
-        if ((localCategories[i].id = result.data[i].id)) {
-          fullCategories.push({
-            ...result.data[i],
-            image: localCategories[i].image,
-            description: localCategories[i].description,
-          });
-        }
+        setCategories(fullCategories);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des catégories:", error);
       }
-      setCategories(fullCategories);
-      setIsLoading(false);
     };
     fetchCategories();
   }, []);
 
-  const fetchFormationsByTitle = async (formation_title: string) => {
+  const fetchFormationsByTitle = async (formation_title) => {
     setIsLoading(true);
+    try {
+      const result = await axios.get(
+        `${API_URL}/formations/title/${formation_title}`
+      );
+      const fullFormations = result.data.map((formation) => {
+        const localFormation = localFormations.find(
+          (lf) => lf.id === formation.id
+        );
+        return localFormation
+          ? {
+              ...formation,
+              image: localFormation.image,
+              isPro: localFormation.isPro,
+            }
+          : formation;
+      });
 
-    const result = await axios.get(
-      `${API_URL}/formations/title/${formation_title}`
-    );
-
-    const fullFormations = [];
-
-    for (let i = 0; i < result.data.length; i++) {
-      if (localFormations[i].id === result.data[i].id) {
-        fullFormations.push({
-          ...result.data[i],
-          image: localFormations[i].image,
-          isPro: localFormations[i].isPro,
-        });
-      }
+      setFormations(fullFormations);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des formations par titre:",
+        error
+      );
     }
-
-    setFormations(fullFormations);
-
     setIsLoading(false);
   };
 
-  const fetchFormationsByCategory = async (category_id: number) => {
+  const fetchFormationsByCategory = async (category_id) => {
     setIsLoading(true);
-    console.log(category_id);
-    const result = await axios.get(
-      `${API_URL}/formations/category/${category_id}`
-    );
-    const fullFormations = [];
+    try {
+      const result = await axios.get(
+        `${API_URL}/formations/category/${category_id}`
+      );
+      const fullFormations = result.data.map((formation) => {
+        const localFormation = localFormations.find(
+          (lf) => lf.id === formation.id
+        );
+        return localFormation
+          ? {
+              ...formation,
+              image: localFormation.image,
+              isPro: localFormation.isPro,
+            }
+          : formation;
+      });
 
-    for (let i = 0; i < result.data.length; i++) {
-      if (localFormations[i].id === result.data[i].id) {
-        fullFormations.push({
-          ...result.data[i],
-          image: localFormations[i].image,
-          isPro: localFormations[i].isPro,
-        });
-      }
+      console.log(fullFormations);
+      setFormations(fullFormations);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des formations par catégorie:",
+        error
+      );
     }
-    console.log(fullFormations);
-    setFormations(fullFormations);
     setIsLoading(false);
   };
 
   const reset = async () => {
     setIsLoading(true);
-    const result = await axios.get(`${API_URL}/formations/all`);
-    const fullFormations = [];
+    try {
+      const result = await axios.get(`${API_URL}/formations/all`);
+      const fullFormations = result.data.map((formation) => {
+        const localFormation = localFormations.find(
+          (lf) => lf.id === formation.id
+        );
+        return localFormation
+          ? {
+              ...formation,
+              image: localFormation.image,
+              isPro: localFormation.isPro,
+            }
+          : formation;
+      });
 
-    for (let i = 0; i < result.data.length; i++) {
-      if (localFormations[i].id === result.data[i].id) {
-        fullFormations.push({
-          ...result.data[i],
-          image: localFormations[i].image,
-          isPro: localFormations[i].isPro,
-        });
-      }
+      setFormations(fullFormations);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la réinitialisation des formations:",
+        error
+      );
     }
-    setFormations(fullFormations);
-
-    setFormations(result.data);
     setIsLoading(false);
   };
 
@@ -200,16 +229,19 @@ export default function Search() {
             onPress={() => reset()}
             style={{
               borderRadius: 10,
-              backgroundColor: "red",
+              // backgroundColor: "red",
               width: 35,
               height: 35,
               alignItems: "center",
               marginTop: 5,
               // paddingLeft: 2,
-              paddingTop: 2,
+              // paddingTop: 2,
+              padding: "auto",
+              borderWidth: 1,
+              borderColor: "red",
             }}
           >
-            <FontAwesome name="close" size={30} color="white" />
+            <FontAwesome name="close" size={30} color="red" />
           </TouchableOpacity>
         </View>
         <View style={styles.header_container}>
