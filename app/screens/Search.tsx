@@ -76,24 +76,63 @@ export default function Search() {
       `${API_URL}/formations/title/${formation_title}`
     );
 
-    setFormations(result.data);
+    const fullFormations = [];
+
+    for (let i = 0; i < result.data.length; i++) {
+      if (localFormations[i].id === result.data[i].id) {
+        fullFormations.push({
+          ...result.data[i],
+          image: localFormations[i].image,
+          isPro: localFormations[i].isPro,
+        });
+      }
+    }
+
+    setFormations(fullFormations);
+
     setIsLoading(false);
   };
 
   const fetchFormationsByCategory = async (category_id: number) => {
     setIsLoading(true);
-
+    console.log(category_id);
     const result = await axios.get(
       `${API_URL}/formations/category/${category_id}`
     );
-    setFormations(result.data);
+    const fullFormations = [];
+
+    for (let i = 0; i < result.data.length; i++) {
+      if (localFormations[i].id === result.data[i].id) {
+        fullFormations.push({
+          ...result.data[i],
+          image: localFormations[i].image,
+          isPro: localFormations[i].isPro,
+        });
+      }
+    }
+    console.log(fullFormations);
+    setFormations(fullFormations);
     setIsLoading(false);
   };
 
   const reset = async () => {
+    setIsLoading(true);
     const result = await axios.get(`${API_URL}/formations/all`);
+    const fullFormations = [];
+
+    for (let i = 0; i < result.data.length; i++) {
+      if (localFormations[i].id === result.data[i].id) {
+        fullFormations.push({
+          ...result.data[i],
+          image: localFormations[i].image,
+          isPro: localFormations[i].isPro,
+        });
+      }
+    }
+    setFormations(fullFormations);
 
     setFormations(result.data);
+    setIsLoading(false);
   };
 
   if (isLoading) {
@@ -196,6 +235,7 @@ export default function Search() {
                 style={{ borderRadius: 10, margin: 10 }}
               >
                 <Formation
+                  key={formation.id}
                   id={formation.id}
                   author={formation.author}
                   title={formation.title}
