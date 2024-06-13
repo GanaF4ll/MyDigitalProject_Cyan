@@ -19,6 +19,7 @@ import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
 import Loading from "../components/Loading";
 import { IconInput } from "../components/IconInput";
+import Video from "../components/Video";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -93,6 +94,7 @@ export default function Settings() {
           iconColor="aquamarine"
           placeholderColor="red"
         />
+        <Video />
       </ImageBackground>
     </View>
   );
