@@ -1,7 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import style from "./app/constants/styles";
-import AppNavigator from "./navigation";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -16,6 +14,7 @@ import React from "react";
 import Settings from "./app/screens/Settings";
 import styles from "./app/constants/styles";
 import Register from "./app/screens/Register";
+import StartFormation from "./app/screens/child-pages/StartFormation";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,7 +22,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <AuthProvider>
-      <Layout></Layout>
+      <Layout />
     </AuthProvider>
   );
 }
@@ -36,9 +35,7 @@ export const Layout = () => {
       {authState?.authenticated ? (
         <Tab.Navigator
           screenOptions={({ route }) => ({
-            headerShown: false, // Ajoutez cette ligne pour cacher le header
-
-            headerTitle: null, // Cette option est déjà correctement appliquée ici
+            headerShown: false,
             tabBarIcon: ({ color, size }) => {
               let iconName: keyof typeof FontAwesome.glyphMap;
 
@@ -65,14 +62,14 @@ export const Layout = () => {
         >
           <Tab.Screen
             name="Accueil"
-            component={Home}
+            component={HomeStack}
             options={{
               tabBarLabel: "Accueil",
             }}
           />
           <Tab.Screen
             name="Formations"
-            component={PageFormation}
+            component={FormationStack}
             options={{
               tabBarLabel: "Formations",
               headerRight: () => (
@@ -84,14 +81,14 @@ export const Layout = () => {
           />
           <Tab.Screen
             name="Rechercher"
-            component={Search}
+            component={SearchStack}
             options={{
               tabBarLabel: "Rechercher",
             }}
           />
           <Tab.Screen
             name="Profil"
-            component={Settings}
+            component={SettingsStack}
             options={{
               tabBarLabel: "Profil",
             }}
@@ -101,21 +98,86 @@ export const Layout = () => {
         <Stack.Navigator
           screenOptions={({ route }) => ({
             headerTitle: null,
-            headerShown: false, // Ajoutez cette ligne pour cacher le header
+            headerShown: false,
           })}
         >
           <Stack.Screen
             name="Login"
             component={Login}
-            options={{ headerTitle: null }} // Ajoutez headerTitle: null ici
+            options={{ headerTitle: null }}
           />
           <Stack.Screen
             name="Créer un compte"
             component={Register}
-            options={{ headerTitle: null }} // Et ici
+            options={{ headerTitle: null }}
           />
         </Stack.Navigator>
       )}
     </NavigationContainer>
+  );
+};
+
+// Créer des Stack Navigators pour les différents onglets
+const HomeStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="StartFormation"
+        component={StartFormation}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const FormationStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="PageFormation"
+        component={PageFormation}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="StartFormation"
+        component={StartFormation}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const SearchStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="StartFormation"
+        component={StartFormation}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const SettingsStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{ headerShown: false }}
+      />
+      {/* Ajoutez d'autres écrans spécifiques à Settings ici si nécessaire */}
+    </Stack.Navigator>
   );
 };

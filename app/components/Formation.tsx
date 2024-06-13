@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "../constants/styles";
 import { FormationType } from "../constants/types";
@@ -27,17 +28,15 @@ interface FormationProps extends FormationType {
 }
 
 export const Formation: React.FC<FormationProps> = (props) => {
-  // if (props.category === 1) {
-  //   image_url = require("../assets/images/mock1.jpg");
-  // }
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate("StartFormation", { id: props.id });
+  };
 
   if (props.square === true) {
     return (
-      <TouchableOpacity
-        onPress={() => {
-          console.log(props.id);
-        }}
-      >
+      <TouchableOpacity onPress={handlePress}>
         <ImageBackground
           borderRadius={15}
           fadeDuration={1}
