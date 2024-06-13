@@ -23,7 +23,7 @@ export interface FormationProps extends FormationType {
   qualityRating: number;
   image: string;
   category?: number;
-  completionTime?: number;
+  completionTime: number;
   square?: boolean;
   author_id: number;
 }

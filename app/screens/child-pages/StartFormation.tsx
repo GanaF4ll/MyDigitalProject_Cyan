@@ -28,6 +28,8 @@ export default function StartFormation() {
   const route = useRoute<StartFormationRouteProp>();
   const { formationData } = route.params;
   const [author, setAuthor] = useState("");
+  const [completionTime, setCompletionTime] = useState("");
+  const [difficulty, setDifficulty] = useState("");
 
   useEffect(() => {
     const fetchAuthor = async () => {
@@ -37,8 +39,21 @@ export default function StartFormation() {
 
       const authorFullName = `${result.data.firstName} ${result.data.lastName}`;
 
-      console.log(authorFullName);
+      switch (formationData.difficulty) {
+        case "easy":
+          setDifficulty("Facile");
+          break;
+        case "medium":
+          setDifficulty("Moyen");
+          break;
+        case "hard":
+          setDifficulty("Difficile");
+          break;
+        default:
+          setDifficulty("X");
+      }
       setAuthor(authorFullName);
+      setCompletionTime(minutesToHour(formationData.completionTime));
     };
     fetchAuthor();
   }, []);
@@ -52,22 +67,58 @@ export default function StartFormation() {
         source={require("../../assets/images/background.png")}
       >
         <View style={SFstyles.miniBloc}>
-          <View style={SFstyles.mbHeader}>
-            <View style={SFstyles.mbDivImage}>
-              <Image
-                source={imageMap[formationData.image]}
-                style={{ width: "100%", height: "100%", borderRadius: 10 }}
-              />
-            </View>
-            <View style={SFstyles.mbDivTitle}>
-              <Text style={styles.title_white}>{formationData.title}</Text>
-            </View>
+          <View style={{ width: "100%", height: "60%" }}>
+            <LinearGradient
+              colors={["#0B111A99", "#252360"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0, y: 1 }}
+              style={SFstyles.mbHeader}
+            >
+              <View style={SFstyles.mbDivImage}>
+                <Image
+                  source={imageMap[formationData.image]}
+                  style={{ width: "100%", height: "100%", borderRadius: 10 }}
+                />
+              </View>
+              <View style={SFstyles.mbDivTitle}>
+                <Text style={styles.title_white}>{formationData.title}</Text>
+              </View>
+            </LinearGradient>
           </View>
 
-          <View style={SFstyles.mbFooter}></View>
+          <View style={SFstyles.mbFooter}>
+            <View
+              style={[
+                SFstyles.section3,
+                { borderRightWidth: 1, borderColor: "#252360" },
+              ]}
+            >
+              <Text style={{ color: "white" }}>Durée</Text>
+              <Text style={{ color: "#81A3FF" }}>{completionTime}</Text>
+            </View>
+
+            <View
+              style={[
+                SFstyles.section3,
+                {
+                  borderRightWidth: 1,
+                  borderColor: "#252360",
+                  alignItems: "center",
+                },
+              ]}
+            >
+              <Text style={{ color: "white" }}>Difficulté</Text>
+              <Text style={{ color: "#81A3FF" }}>{difficulty}</Text>
+            </View>
+            <View style={[SFstyles.section3, { alignItems: "flex-end" }]}>
+              <Text style={{ color: "white" }}>Notes</Text>
+              <Text style={{ color: "#81A3FF" }}>
+                {formationData.difficulty}
+              </Text>
+            </View>
+          </View>
         </View>
-        <Text style={{ color: "white" }}>StartFormation</Text>
-        <Text style={{ color: "white" }}>{author}</Text>
+        <Text style={{ color: "white" }}>Auteur: {author}</Text>
         <Text style={{ color: "white" }}>{formationData.description}</Text>
       </ImageBackground>
     </View>
@@ -86,18 +137,19 @@ const SFstyles = StyleSheet.create({
   miniBloc: {
     width: "100%",
     height: "24%",
-    // borderWidth: 2,
-    // borderColor: "red",
+    borderWidth: 2,
+    borderColor: "#3E3D9C",
     borderRadius: 24,
   },
   mbHeader: {
     // backgroundColor: "lime",
-    height: "50%",
+    height: "100%",
     width: "100%",
     borderTopEndRadius: 24,
     borderTopStartRadius: 24,
     padding: 5,
     flexDirection: "row",
+    borderBottomWidth: 1,
   },
   mbDivImage: {
     width: "30%",
@@ -114,11 +166,34 @@ const SFstyles = StyleSheet.create({
     justifyContent: "center",
   },
   mbFooter: {
-    // backgroundColor: "aqua",
-    height: "50%",
+    backgroundColor: "#050A13",
+    height: "40%",
     width: "100%",
     borderBottomEndRadius: 24,
     borderBottomStartRadius: 24,
     padding: 5,
+    flexDirection: "row",
+  },
+  section3: {
+    width: "33%",
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: 24,
   },
 });
+
+function minutesToHour(minutes: number): string {
+  if (typeof minutes !== "number" || minutes < 0) {
+    return "Veuillez entrer un nombre positif de minutes.";
+  }
+
+  const hours: number = Math.floor(minutes / 60);
+  const remainingMinutes: number = minutes % 60;
+
+  if (remainingMinutes === 0) {
+    return `${hours}h`;
+  } else {
+    return `${hours}h${remainingMinutes}`;
+  }
+}
