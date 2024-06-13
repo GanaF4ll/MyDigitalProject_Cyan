@@ -17,6 +17,7 @@ export interface FormationType {
   difficulty: string;
   qualityRating: number;
   coverImage: string;
+  completionTime: number;
   //   chapters
   chapters?: Chapter[];
   //   progressions

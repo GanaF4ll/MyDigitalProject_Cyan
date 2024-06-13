@@ -107,6 +107,7 @@ const Home = () => {
                   qualityRating={formation.qualityRating}
                   coverImage={formation.coverImage}
                   image={formation.image}
+                  completionTime={formation.completionTime}
                   square={true}
                 />
               </TouchableOpacity>

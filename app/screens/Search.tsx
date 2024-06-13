@@ -284,6 +284,7 @@ export default function Search() {
                   difficulty={formation.difficulty}
                   qualityRating={formation.qualityRating}
                   coverImage={formation.coverImage}
+                  completionTime={formation.completionTime}
                   image={formation.image}
                 />
               </LinearGradient>

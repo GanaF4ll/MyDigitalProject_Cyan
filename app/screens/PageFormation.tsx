@@ -96,6 +96,7 @@ export default function PageFormation() {
                 difficulty={formation.difficulty}
                 qualityRating={formation.qualityRating}
                 coverImage={formation.coverImage}
+                completionTime={formation.completionTime}
                 image={formation.image}
                 // square={true}
               />
