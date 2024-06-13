@@ -37,16 +37,19 @@ export const localFormations = [
     id: 1,
     isPro: false,
     image: "formation_1.jpg",
+    videoId: "aYkiZLdpZmE",
   },
   {
     id: 2,
     isPro: false,
     image: "formation_2.jpg",
+    videoId: "j87M-K6ZVBk",
   },
   {
     id: 3,
     isPro: false,
     image: "formation_3.jpg",
+    videoId: "pWmgcJQ0Sno",
   },
   {
     id: 4,

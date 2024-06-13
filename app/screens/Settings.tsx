@@ -12,6 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { FontAwesome } from "@expo/vector-icons";
+import YouTubePlayer from "react-native-youtube-iframe";
 
 import { AuthProvider, useAuth } from "../context/AuthContext";
 import styles from "../constants/styles";
@@ -19,6 +20,7 @@ import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
 import Loading from "../components/Loading";
 import { IconInput } from "../components/IconInput";
+import { Youtube } from "../components/Youtube";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -92,6 +94,14 @@ export default function Settings() {
           placeholder="yoooo"
           iconColor="aquamarine"
           placeholderColor="red"
+        />
+        {/* <Youtube videoId={"P28SEFYpbLg"} /> */}
+        <YouTubePlayer
+          height={500}
+          width={400}
+          play={true}
+          // videoId={props.videoId}
+          videoId={"P28SEFYpbLg"}
         />
       </ImageBackground>
     </View>
