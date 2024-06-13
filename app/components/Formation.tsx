@@ -65,7 +65,7 @@ export const Formation: React.FC<FormationProps> = (props) => {
   }
 
   return (
-    <View style={styles.formation}>
+    <TouchableOpacity onPress={handlePress} style={styles.formation}>
       <View style={styles.image_container}>
         <Image
           source={imageMap[props.image]}
@@ -80,7 +80,7 @@ export const Formation: React.FC<FormationProps> = (props) => {
         </Text>
         <Text style={{ color: "white" }}>{props.description}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

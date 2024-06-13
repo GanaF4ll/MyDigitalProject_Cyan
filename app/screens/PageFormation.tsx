@@ -79,31 +79,27 @@ export default function PageFormation() {
         </View>
         <ScrollView horizontal={false}>
           {formations.map((formation) => (
-            <TouchableOpacity
+            <LinearGradient
+              colors={["#370475", "#0B111A99"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={{ borderRadius: 10, margin: 10 }}
               key={formation.id}
-              onPress={() => console.log(formation)}
             >
-              <LinearGradient
-                colors={["#370475", "#0B111A99"]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={{ borderRadius: 10, margin: 10 }}
-              >
-                <Formation
-                  id={formation.id}
-                  author={formation.author}
-                  title={formation.title}
-                  description={formation.description}
-                  video={formation.video}
-                  category={formation.category}
-                  difficulty={formation.difficulty}
-                  qualityRating={formation.qualityRating}
-                  coverImage={formation.coverImage}
-                  image={formation.image}
-                  // square={true}
-                />
-              </LinearGradient>
-            </TouchableOpacity>
+              <Formation
+                id={formation.id}
+                author={formation.author}
+                title={formation.title}
+                description={formation.description}
+                video={formation.video}
+                category={formation.category}
+                difficulty={formation.difficulty}
+                qualityRating={formation.qualityRating}
+                coverImage={formation.coverImage}
+                image={formation.image}
+                // square={true}
+              />
+            </LinearGradient>
           ))}
         </ScrollView>
       </ImageBackground>
