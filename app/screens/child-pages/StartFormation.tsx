@@ -14,6 +14,7 @@ import styles from "../../constants/styles";
 import { FormationProps } from "../../components/Formation";
 import { API_URL } from "../../constants";
 import { imageMap } from "../../constants/imageMap";
+import { LinearGradient } from "expo-linear-gradient";
 
 type StackParamList = {
   StartFormation: {
@@ -59,7 +60,7 @@ export default function StartFormation() {
               />
             </View>
             <View style={SFstyles.mbDivTitle}>
-              <Text>Title</Text>
+              <Text style={styles.title_white}>{formationData.title}</Text>
             </View>
           </View>
 
@@ -76,7 +77,7 @@ export default function StartFormation() {
 const SFstyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start",
     padding: "5%",
@@ -85,12 +86,12 @@ const SFstyles = StyleSheet.create({
   miniBloc: {
     width: "100%",
     height: "24%",
-    borderWidth: 2,
-    borderColor: "red",
+    // borderWidth: 2,
+    // borderColor: "red",
     borderRadius: 24,
   },
   mbHeader: {
-    backgroundColor: "lime",
+    // backgroundColor: "lime",
     height: "50%",
     width: "100%",
     borderTopEndRadius: 24,
@@ -102,16 +103,18 @@ const SFstyles = StyleSheet.create({
     width: "30%",
     height: "100%",
     margin: "auto",
-    borderWidth: 2,
+    // borderWidth: 2,
   },
   mbDivTitle: {
     width: "70%",
     height: "100%",
     margin: "auto",
-    borderWidth: 2,
+    // borderWidth: 2,
+    paddingLeft: 10,
+    justifyContent: "center",
   },
   mbFooter: {
-    backgroundColor: "aqua",
+    // backgroundColor: "aqua",
     height: "50%",
     width: "100%",
     borderBottomEndRadius: 24,
