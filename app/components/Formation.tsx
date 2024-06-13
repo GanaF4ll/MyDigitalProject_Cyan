@@ -14,7 +14,7 @@ import styles from "../constants/styles";
 import { FormationType } from "../constants/types";
 import { imageMap } from "../constants/imageMap";
 
-interface FormationProps extends FormationType {
+export interface FormationProps extends FormationType {
   id: number;
   title: string;
   description: string;
@@ -25,13 +25,14 @@ interface FormationProps extends FormationType {
   category?: number;
   completionTime?: number;
   square?: boolean;
+  author_id: number;
 }
 
 export const Formation: React.FC<FormationProps> = (props) => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate("StartFormation", { id: props.id });
+    navigation.navigate("StartFormation", { formationData: props });
   };
 
   if (props.square === true) {
@@ -40,7 +41,6 @@ export const Formation: React.FC<FormationProps> = (props) => {
         <ImageBackground
           borderRadius={15}
           fadeDuration={1}
-          // source={props.image}
           source={imageMap[props.image]}
           style={FormaStyles.imgcontainer}
         >

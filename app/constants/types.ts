@@ -6,11 +6,10 @@ export type CategoryType = {
   filterName?: string;
 };
 
-
 export interface FormationType {
   // formations
   id: number;
-  author: string;
+  author_id: number;
   title: string;
   description: string;
   video: string;

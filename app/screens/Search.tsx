@@ -276,7 +276,7 @@ export default function Search() {
                 <Formation
                   key={formation.id}
                   id={formation.id}
-                  author={formation.author}
+                  author_id={formation.author_id}
                   title={formation.title}
                   description={formation.description}
                   video={formation.video}
