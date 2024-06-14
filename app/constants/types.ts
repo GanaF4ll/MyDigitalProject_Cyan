@@ -23,7 +23,7 @@ export interface FormationType {
   //   progressions
   progression?: number;
   // local
-  isPro?: boolean;
+  isPro: boolean;
   image?: string;
 }
 

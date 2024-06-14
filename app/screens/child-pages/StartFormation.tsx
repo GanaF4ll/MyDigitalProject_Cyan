@@ -5,6 +5,7 @@ import {
   StyleSheet,
   StatusBar,
   Image,
+  ScrollView,
 } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useRoute, RouteProp } from "@react-navigation/native";
@@ -18,6 +19,8 @@ import { FormationProps } from "../../components/Formation";
 import { API_URL } from "../../constants";
 import { imageMap } from "../../constants/imageMap";
 import { LinearGradient } from "expo-linear-gradient";
+import { minutesToHour } from "../../constants/shared";
+import { Chapter } from "../../components/Chapter";
 
 type StackParamList = {
   StartFormation: {
@@ -35,6 +38,7 @@ export default function StartFormation() {
   const [difficulty, setDifficulty] = useState("");
   const [token, setToken] = useState("");
   const [userName, setUserName] = useState("");
+  const [chapters, setChapters] = useState([]);
 
   useEffect(() => {
     const fetchAuthor = async () => {
@@ -60,10 +64,18 @@ export default function StartFormation() {
       setAuthor(authorFullName);
       setCompletionTime(minutesToHour(formationData.completionTime));
     };
+    const fetchChapters = async () => {
+      const result = await axios.get(
+        `${API_URL}/chapters/formation/${formationData.id}`
+      );
+
+      setChapters(result.data);
+    };
     fetchAuthor();
     retrieveToken();
+    fetchChapters();
   }, []);
-
+  console.log(formationData);
   const retrieveToken = async () => {
     try {
       const token = await AsyncStorage.getItem("token");
@@ -73,7 +85,6 @@ export default function StartFormation() {
         const { id, mail, role } = decodedToken;
 
         const result = await axios.get(`${API_URL}/users/${id}`);
-        console.log("User data:", result.data);
 
         const { firstName, lastName } = result.data;
         setUserName(`${firstName} ${lastName}`);
@@ -146,6 +157,28 @@ export default function StartFormation() {
         <Text style={{ color: "white" }}>Auteur: {author}</Text>
         <Text style={{ color: "white" }}>user: {userName}</Text>
         <Text style={{ color: "white" }}>{formationData.description}</Text>
+
+        <ScrollView>
+          {chapters.map((chapter: any) => (
+            <LinearGradient
+              colors={["#370475", "#0B111A99"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={{ borderRadius: 10, margin: 10 }}
+              key={chapter.id}
+            >
+              <Chapter
+                title={chapter.title}
+                order={chapter.order}
+                paywall={formationData.isPro}
+                completionTime={chapter.completionTime}
+                formation_id={chapter.formation_id}
+                image={formationData.image}
+                content={chapter.content}
+              />
+            </LinearGradient>
+          ))}
+        </ScrollView>
       </ImageBackground>
     </View>
   );
@@ -208,18 +241,3 @@ const SFstyles = StyleSheet.create({
     padding: 24,
   },
 });
-
-function minutesToHour(minutes: number): string {
-  if (typeof minutes !== "number" || minutes < 0) {
-    return "Veuillez entrer un nombre positif de minutes.";
-  }
-
-  const hours: number = Math.floor(minutes / 60);
-  const remainingMinutes: number = minutes % 60;
-
-  if (remainingMinutes === 0) {
-    return `${hours}h`;
-  } else {
-    return `${hours}h${remainingMinutes}`;
-  }
-}
