@@ -26,13 +26,13 @@ interface ChapterProps {
 export const Chapter: React.FC<ChapterProps> = (props) => {
   const navigation = useNavigation();
 
-  // const handlePress = () => {
-  //     navigation.navigate("PageChapter", { chapter: props });
-  //   };
+  const handlePress = () => {
+    navigation.navigate("PageChapter", { chapter: props });
+  };
 
   return (
     <TouchableOpacity
-      //   onPress={handlePress}
+      onPress={handlePress}
       key={props.order}
       style={styles.formation}
     >
