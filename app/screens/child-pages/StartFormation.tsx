@@ -9,6 +9,9 @@ import {
 import { createContext, useContext, useEffect, useState } from "react";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import axios from "axios";
+import * as SecureStore from "expo-secure-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { jwtDecode } from "jwt-decode";
 
 import styles from "../../constants/styles";
 import { FormationProps } from "../../components/Formation";
@@ -30,6 +33,8 @@ export default function StartFormation() {
   const [author, setAuthor] = useState("");
   const [completionTime, setCompletionTime] = useState("");
   const [difficulty, setDifficulty] = useState("");
+  const [token, setToken] = useState("");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const fetchAuthor = async () => {
@@ -56,7 +61,27 @@ export default function StartFormation() {
       setCompletionTime(minutesToHour(formationData.completionTime));
     };
     fetchAuthor();
+    retrieveToken();
   }, []);
+
+  const retrieveToken = async () => {
+    try {
+      const token = await AsyncStorage.getItem("token");
+      if (token) {
+        setToken(token);
+        const decodedToken = jwtDecode(token);
+        const { id, mail, role } = decodedToken;
+
+        const result = await axios.get(`${API_URL}/users/${id}`);
+        console.log("User data:", result.data);
+
+        const { firstName, lastName } = result.data;
+        setUserName(`${firstName} ${lastName}`);
+      }
+    } catch (error) {
+      console.log("Error retrieving token:", error);
+    }
+  };
 
   console.log(formationData);
 
@@ -119,6 +144,7 @@ export default function StartFormation() {
           </View>
         </View>
         <Text style={{ color: "white" }}>Auteur: {author}</Text>
+        <Text style={{ color: "white" }}>user: {userName}</Text>
         <Text style={{ color: "white" }}>{formationData.description}</Text>
       </ImageBackground>
     </View>
