@@ -58,6 +58,12 @@ export default StyleSheet.create({
     color: orange_primary,
     fontFamily: "Montserrat-semibold",
   },
+  title_purple: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#81A3FF",
+    fontFamily: "Montserrat-semibold",
+  },
   image_container: {
     height: "100%",
     width: "30%",
@@ -138,5 +144,8 @@ export default StyleSheet.create({
     borderWidth: 2,
     borderRadius: 18,
     backgroundColor: "white",
+  },
+  text: {
+    fontFamily: "Montserrat-semibold",
   },
 });

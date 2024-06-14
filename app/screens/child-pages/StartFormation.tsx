@@ -86,8 +86,8 @@ export default function StartFormation() {
 
         const result = await axios.get(`${API_URL}/users/${id}`);
 
-        const { firstName, lastName } = result.data;
-        setUserName(`${firstName} ${lastName}`);
+        const { firstName } = result.data;
+        setUserName(firstName);
       }
     } catch (error) {
       console.log("Error retrieving token:", error);
@@ -129,8 +129,10 @@ export default function StartFormation() {
                 { borderRightWidth: 1, borderColor: "#252360" },
               ]}
             >
-              <Text style={{ color: "white" }}>Durée</Text>
-              <Text style={{ color: "#81A3FF" }}>{completionTime}</Text>
+              <Text style={[styles.text, { color: "white" }]}>Durée</Text>
+              <Text style={[styles.text, { color: "#81A3FF" }]}>
+                {completionTime}
+              </Text>
             </View>
 
             <View
@@ -143,19 +145,21 @@ export default function StartFormation() {
                 },
               ]}
             >
-              <Text style={{ color: "white" }}>Difficulté</Text>
-              <Text style={{ color: "#81A3FF" }}>{difficulty}</Text>
+              <Text style={[styles.text, { color: "white" }]}>Difficulté</Text>
+              <Text style={[styles.text, { color: "#81A3FF" }]}>
+                {difficulty}
+              </Text>
             </View>
             <View style={[SFstyles.section3, { alignItems: "flex-end" }]}>
-              <Text style={{ color: "white" }}>Notes</Text>
-              <Text style={{ color: "#81A3FF" }}>
+              <Text style={[styles.text, { color: "white" }]}>Notes</Text>
+              <Text style={[styles.text, { color: "#81A3FF" }]}>
                 {formationData.difficulty}
               </Text>
             </View>
           </View>
         </View>
-        <Text style={{ color: "white" }}>Auteur: {author}</Text>
-        <Text style={{ color: "white" }}>user: {userName}</Text>
+        <Text style={[styles.text, { color: "white" }]}>Auteur: {author}</Text>
+        <Text style={styles.title_purple}>Bienvenue {userName} !</Text>
         <Text style={{ color: "white" }}>{formationData.description}</Text>
 
         <ScrollView>
