@@ -85,6 +85,7 @@ export default function StartFormation() {
       }
 
       setChapters(fullChapters);
+      console.log(fullChapters);
     };
     fetchAuthor();
     retrieveToken();
@@ -196,6 +197,10 @@ export default function StartFormation() {
                 image={formationData.image}
                 content={chapter.content}
                 video={chapter.video}
+                content1={chapter.content1}
+                content2={chapter.content2}
+                titleContent1={chapter.titleContent1}
+                titleContent2={chapter.titleContent2}
               />
             </LinearGradient>
           ))}

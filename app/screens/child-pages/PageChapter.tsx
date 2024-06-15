@@ -47,7 +47,7 @@ const PageChapter: React.FC = () => {
           height={200}
           width={"100%"}
           play={true}
-          videoId={"aYkiZLdpZmE"}
+          videoId={chapter.video}
         />
         <Text>{chapter.content}</Text>
       </ImageBackground>
