@@ -21,22 +21,31 @@ const PageChapter: React.FC = () => {
   console.log(chapter);
 
   return (
-    <View style={{ width: "100%", height: "100%" }}>
+    <View style={{ flex: 1 }}>
       <ImageBackground
         source={require("../../assets/images/background.png")}
-        style={styles.container}
+        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       >
         <Text style={styles.title_white}>{chapter.title}</Text>
         <Image
           source={imageMap[chapter.image]}
           style={{ width: "100%", height: 200 }}
         />
-        <YouTubePlayer
-          height={500}
-          width={400}
-          play={true}
-          videoId={"aYkiZLdpZmE"}
-        />
+        <View
+          style={{
+            borderColor: "red",
+            borderWidth: 1,
+            width: "100%",
+            height: 200,
+          }}
+        >
+          <YouTubePlayer
+            height={200}
+            width={"100%"}
+            play={true}
+            videoId={"aYkiZLdpZmE"}
+          />
+        </View>
         <Text>{chapter.content}</Text>
       </ImageBackground>
     </View>

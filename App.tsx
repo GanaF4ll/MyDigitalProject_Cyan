@@ -102,16 +102,8 @@ export const Layout = () => {
             headerShown: false,
           })}
         >
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{ headerTitle: null }}
-          />
-          <Stack.Screen
-            name="Créer un compte"
-            component={Register}
-            options={{ headerTitle: null }}
-          />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Créer un compte" component={Register} />
         </Stack.Navigator>
       )}
     </NavigationContainer>
