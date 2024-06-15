@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import YouTubePlayer from "react-native-youtube-iframe";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "../../constants/styles";
 import ChapterProps from "../../components/Chapter";
@@ -25,7 +26,12 @@ type StackParamList = {
 type PageChapterRouteProp = RouteProp<StackParamList, "PageChapter">;
 const PageChapter: React.FC = () => {
   const route = useRoute();
+  const navigation = useNavigation();
   const { chapter } = route.params;
+
+  const handlePress = () => {
+    navigation.navigate("Quizz");
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -58,7 +64,7 @@ const PageChapter: React.FC = () => {
               text={content.text}
             />
           ))}
-          <Gradient onPress={console.log(2)}>
+          <Gradient onPress={handlePress()}>
             <Text style={styles.title_white}>Commencer le quizz</Text>
           </Gradient>
         </ScrollView>

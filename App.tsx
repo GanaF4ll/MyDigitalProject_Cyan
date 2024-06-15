@@ -130,7 +130,7 @@ const HomeStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Quiz"
+        name="Quizz"
         component={Quizz}
         options={{ headerShown: false }}
       />
@@ -157,7 +157,7 @@ const FormationStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Quiz"
+        name="Quizz"
         component={Quizz}
         options={{ headerShown: false }}
       />
@@ -184,7 +184,7 @@ const SearchStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Quiz"
+        name="Quizz"
         component={Quizz}
         options={{ headerShown: false }}
       />
@@ -218,7 +218,7 @@ const StartFormationStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Quiz"
+        name="Quizz"
         component={Quizz}
         options={{ headerShown: false }}
       />
