@@ -30,7 +30,7 @@ const PageChapter: React.FC = () => {
   const { chapter } = route.params;
 
   const handlePress = () => {
-    navigation.navigate("Quizz");
+    navigation.navigate("Quizz", { chapter_id: chapter.id });
   };
 
   return (
@@ -64,7 +64,7 @@ const PageChapter: React.FC = () => {
               text={content.text}
             />
           ))}
-          <Gradient onPress={handlePress()}>
+          <Gradient onPress={handlePress}>
             <Text style={styles.title_white}>Commencer le quizz</Text>
           </Gradient>
         </ScrollView>
