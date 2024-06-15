@@ -75,7 +75,7 @@ export default function StartFormation() {
     retrieveToken();
     fetchChapters();
   }, []);
-  console.log(formationData);
+  // console.log(formationData);
   const retrieveToken = async () => {
     try {
       const token = await AsyncStorage.getItem("token");
@@ -94,7 +94,7 @@ export default function StartFormation() {
     }
   };
 
-  console.log(formationData);
+  // console.log(formationData);
 
   return (
     <View style={{ flex: 1 }}>

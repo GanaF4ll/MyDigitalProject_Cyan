@@ -40,7 +40,7 @@ const Home = () => {
           });
         }
       }
-      console.log(fullCategories);
+      // console.log(fullCategories);
       setCategories(fullCategories);
     };
     fetchCategories();
@@ -62,7 +62,7 @@ const Home = () => {
       }
 
       setFormations(fullFormations);
-      console.log(fullFormations);
+      // console.log(fullFormations);
     };
     fetchFormations();
   }, []);
@@ -94,7 +94,7 @@ const Home = () => {
             {formations.map((formation) => (
               <TouchableOpacity
                 key={formation.id}
-                onPress={() => console.log(formation)}
+                // onPress={() => console.log(formation)}
               >
                 <Formation
                   id={formation.id}

@@ -45,7 +45,7 @@ export default function Search() {
         });
 
         setFormations(fullFormations);
-        console.log(fullFormations);
+        // console.log(fullFormations);
       } catch (error) {
         console.error("Erreur lors de la récupération des formations:", error);
       }
@@ -127,7 +127,7 @@ export default function Search() {
           : formation;
       });
 
-      console.log(fullFormations);
+      // console.log(fullFormations);
       setFormations(fullFormations);
     } catch (error) {
       console.error(

@@ -35,9 +35,6 @@ export default function Register() {
   const register = async () => {
     if (onRegister) {
       try {
-        console.log("Début de la vérification de l'utilisateur");
-
-        // On vérifie l'existence de l'utilisateur par email
         let existingUser;
         try {
           existingUser = await axios.get(`${API_URL}/users/mail/${mail}`, {
@@ -45,10 +42,6 @@ export default function Register() {
               "Content-Type": "application/json",
             },
           });
-          console.log(
-            "Résultat de la vérification de l'utilisateur:",
-            existingUser.data
-          );
         } catch (error) {
           if (error.response && error.response.status === 404) {
             console.log("L'utilisateur n'existe pas, on peut continuer.");

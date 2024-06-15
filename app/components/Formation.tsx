@@ -45,13 +45,7 @@ export const Formation: React.FC<FormationProps> = (props) => {
           style={FormaStyles.imgcontainer}
         >
           <View style={FormaStyles.header}>
-            <FontAwesome
-              name="heart-o"
-              size={20}
-              onPress={() => {
-                console.log("yo");
-              }}
-            />
+            <FontAwesome name="heart-o" size={20} />
           </View>
           <View style={FormaStyles.body}>
             <Text style={FormaStyles.title}>{props.title}</Text>

@@ -35,7 +35,7 @@ export default function PageFormation() {
       }
 
       setFormations(fullFormations);
-      console.log(fullFormations);
+      // console.log(fullFormations);
     };
     fetchFormations();
   }, []);
@@ -49,22 +49,13 @@ export default function PageFormation() {
         style={styles.container}
       >
         <View style={styles.header_container}>
-          <TouchableOpacity
-            onPress={() => console.log("pressed")}
-            style={styles.header_button}
-          >
+          <TouchableOpacity style={styles.header_button}>
             <Text style={[{ color: colors.blue_primary }]}>Formations</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => console.log("pressed")}
-            style={styles.header_button}
-          >
+          <TouchableOpacity style={styles.header_button}>
             <Text style={[{ color: colors.blue_primary }]}>En cours</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => console.log("pressed")}
-            style={styles.header_button}
-          >
+          <TouchableOpacity style={styles.header_button}>
             <Text
               style={[
                 {
