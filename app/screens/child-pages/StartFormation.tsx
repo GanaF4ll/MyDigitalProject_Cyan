@@ -172,6 +172,7 @@ export default function StartFormation() {
               key={chapter.id}
             >
               <Chapter
+                id={chapter.id}
                 title={chapter.title}
                 order={chapter.order}
                 paywall={formationData.isPro}
@@ -179,6 +180,7 @@ export default function StartFormation() {
                 formation_id={chapter.formation_id}
                 image={formationData.image}
                 content={chapter.content}
+                video={chapter.video}
               />
             </LinearGradient>
           ))}

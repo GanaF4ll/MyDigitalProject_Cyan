@@ -7,20 +7,19 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import * as SecureStore from "expo-secure-store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { FontAwesome } from "@expo/vector-icons";
 import YouTubePlayer from "react-native-youtube-iframe";
 
-import { AuthProvider, useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { API_URL } from "../constants/index";
 import Loading from "../components/Loading";
 import { IconInput } from "../components/IconInput";
-import { Youtube } from "../components/Youtube";
+// import { Youtube } from "../components/Youtube";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -39,7 +38,7 @@ export default function Settings() {
         setToken(token);
         // console.log("Token retrieved:", token);
         const decodedToken = jwtDecode(token);
-        const { id, mail, role } = decodedToken;
+        const { id, role } = decodedToken;
 
         const result = await axios.get(`${API_URL}/users/${id}`);
         // console.log("User data:", result.data);
@@ -100,8 +99,7 @@ export default function Settings() {
           height={500}
           width={400}
           play={true}
-          // videoId={props.videoId}
-          videoId={"P28SEFYpbLg"}
+          videoId={"aYkiZLdpZmE"}
         />
       </ImageBackground>
     </View>

@@ -14,6 +14,8 @@ import styles from "../constants/styles";
 import { imageMap } from "../constants/imageMap";
 
 export interface ChapterProps {
+  // id pour faire la liaison avec la version locale des chapitres, à retirer pour la version finale
+  id: number;
   title: string;
   order: number;
   paywall: boolean;
@@ -21,6 +23,7 @@ export interface ChapterProps {
   formation_id: number;
   image: string;
   content: string;
+  video: string;
 }
 
 export const Chapter: React.FC<ChapterProps> = (props) => {

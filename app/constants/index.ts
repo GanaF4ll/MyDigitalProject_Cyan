@@ -67,3 +67,5 @@ export const localFormations = [
     image: "formation_6.jpg",
   },
 ];
+
+export const localChapters = [{ id: 1, video: "aYkiZLdpZmE" }];
