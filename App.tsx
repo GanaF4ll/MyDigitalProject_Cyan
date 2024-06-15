@@ -177,7 +177,6 @@ const SettingsStack = () => {
         component={Settings}
         options={{ headerShown: false }}
       />
-      {/* Ajoutez d'autres écrans spécifiques à Settings ici si nécessaire */}
     </Stack.Navigator>
   );
 };
