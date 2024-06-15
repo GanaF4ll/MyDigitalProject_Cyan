@@ -99,7 +99,8 @@ export default function Settings() {
           height={500}
           width={400}
           play={true}
-          videoId={"aYkiZLdpZmE"}
+          // videoId={props.videoId}
+          videoId={"P28SEFYpbLg"}
         />
       </ImageBackground>
     </View>

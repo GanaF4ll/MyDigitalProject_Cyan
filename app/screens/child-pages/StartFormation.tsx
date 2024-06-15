@@ -16,11 +16,13 @@ import { jwtDecode } from "jwt-decode";
 
 import styles from "../../constants/styles";
 import { FormationProps } from "../../components/Formation";
-import { API_URL } from "../../constants";
+import { API_URL, localChapters } from "../../constants";
 import { imageMap } from "../../constants/imageMap";
 import { LinearGradient } from "expo-linear-gradient";
 import { minutesToHour } from "../../constants/shared";
 import { Chapter } from "../../components/Chapter";
+import React from "react";
+import { ChapterType } from "../../constants/types";
 
 type StackParamList = {
   StartFormation: {
@@ -38,8 +40,7 @@ export default function StartFormation() {
   const [difficulty, setDifficulty] = useState("");
   const [token, setToken] = useState("");
   const [userName, setUserName] = useState("");
-  const [chapters, setChapters] = useState([]);
-
+  const [chapters, setChapters] = React.useState<ChapterType[]>([]);
   useEffect(() => {
     const fetchAuthor = async () => {
       const result = await axios.get(
@@ -68,8 +69,22 @@ export default function StartFormation() {
       const result = await axios.get(
         `${API_URL}/chapters/formation/${formationData.id}`
       );
+      const fullChapters = [];
 
-      setChapters(result.data);
+      for (let i = 0; i < result.data.length; i++) {
+        if (localChapters[i].id === result.data[i].id) {
+          fullChapters.push({
+            ...result.data[i],
+            video: localChapters[i].video,
+            content1: localChapters[i].content1,
+            content2: localChapters[i].content2 || "",
+            titleContent1: localChapters[i].titleContent1,
+            titleContent2: localChapters[i].titleContent2 || "",
+          });
+        }
+      }
+
+      setChapters(fullChapters);
     };
     fetchAuthor();
     retrieveToken();

@@ -19,7 +19,7 @@ export interface FormationType {
   coverImage: string;
   completionTime: number;
   //   chapters
-  chapters?: Chapter[];
+  chapters?: ChapterType[];
   //   progressions
   progression?: number;
   // local
@@ -27,7 +27,7 @@ export interface FormationType {
   image: string;
 }
 
-export type Chapter = {
+export interface ChapterType {
   // chapters
   formation_id: number;
   title: string;
@@ -35,7 +35,7 @@ export type Chapter = {
   chapter_number: number;
   // questions
   questions: Question[];
-};
+}
 
 export type Question = {
   // questions

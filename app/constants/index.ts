@@ -68,4 +68,29 @@ export const localFormations = [
   },
 ];
 
-export const localChapters = [{ id: 1, video: "aYkiZLdpZmE" }];
+export const localChapters = [
+  {
+    id: 1,
+    video: "aYkiZLdpZmE",
+    titleContent1: "La cybersécurité c'est quoi ?",
+    content1:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+    titleContent2: "Les enjeux",
+    content2:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+  },
+  {
+    id: 2,
+    video: "aYkiZLdpZmE",
+    titleContent1: "Les différentes menaces",
+    content1:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+  },
+  {
+    id: 3,
+    video: "aYkiZLdpZmE",
+    titleContent1: "Les outils de protection",
+    content1:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+  },
+];

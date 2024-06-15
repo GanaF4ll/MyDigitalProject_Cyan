@@ -23,6 +23,10 @@ export interface ChapterProps {
   formation_id: number;
   image: string;
   content: string;
+  content1: string;
+  content2: string;
+  titleContent1: string;
+  titleContent2: string;
   video: string;
 }
 
