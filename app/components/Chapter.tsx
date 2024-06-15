@@ -13,7 +13,7 @@ import { minutesToHour } from "../constants/shared";
 import styles from "../constants/styles";
 import { imageMap } from "../constants/imageMap";
 
-interface ChapterProps {
+export interface ChapterProps {
   title: string;
   order: number;
   paywall: boolean;

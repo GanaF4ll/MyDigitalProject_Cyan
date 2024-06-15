@@ -15,6 +15,7 @@ import Settings from "./app/screens/Settings";
 import styles from "./app/constants/styles";
 import Register from "./app/screens/Register";
 import StartFormation from "./app/screens/child-pages/StartFormation";
+import PageChapter from "./app/screens/child-pages/PageChapter";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -117,7 +118,6 @@ export const Layout = () => {
   );
 };
 
-// Créer des Stack Navigators pour les différents onglets
 const HomeStack = () => {
   return (
     <Stack.Navigator>
@@ -129,6 +129,11 @@ const HomeStack = () => {
       <Stack.Screen
         name="StartFormation"
         component={StartFormation}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PageChapter"
+        component={PageChapter}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -148,6 +153,11 @@ const FormationStack = () => {
         component={StartFormation}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="PageChapter"
+        component={PageChapter}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
@@ -165,16 +175,38 @@ const SearchStack = () => {
         component={StartFormation}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="PageChapter"
+        component={PageChapter}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
-
 const SettingsStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="Settings"
         component={Settings}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const StartFormationStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="StartFormation"
+        component={StartFormation}
+        options={{ headerShown: false }}
+      />
+      {/* Ajoutez cette ligne pour inclure PageChapter */}
+      <Stack.Screen
+        name="PageChapter"
+        component={PageChapter}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
