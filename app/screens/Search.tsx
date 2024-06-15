@@ -229,19 +229,16 @@ export default function Search() {
             onPress={() => reset()}
             style={{
               borderRadius: 10,
-              // backgroundColor: "red",
               width: 35,
               height: 35,
               alignItems: "center",
               marginTop: 5,
-              // paddingLeft: 2,
-              // paddingTop: 2,
-              padding: "auto",
+              justifyContent: "center",
               borderWidth: 1,
               borderColor: "red",
             }}
           >
-            <FontAwesome name="close" size={30} color="red" />
+            <FontAwesome name="close" size={20} color="red" />
           </TouchableOpacity>
         </View>
         <View style={styles.header_container}>

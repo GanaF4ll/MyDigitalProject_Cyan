@@ -16,6 +16,7 @@ import styles from "./app/constants/styles";
 import Register from "./app/screens/Register";
 import StartFormation from "./app/screens/child-pages/StartFormation";
 import PageChapter from "./app/screens/child-pages/PageChapter";
+import Quizz from "./app/screens/child-pages/Quizz";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -128,6 +129,11 @@ const HomeStack = () => {
         component={PageChapter}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="Quiz"
+        component={Quizz}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
@@ -150,6 +156,11 @@ const FormationStack = () => {
         component={PageChapter}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="Quiz"
+        component={Quizz}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
@@ -170,6 +181,11 @@ const SearchStack = () => {
       <Stack.Screen
         name="PageChapter"
         component={PageChapter}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Quiz"
+        component={Quizz}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -199,6 +215,11 @@ const StartFormationStack = () => {
       <Stack.Screen
         name="PageChapter"
         component={PageChapter}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Quiz"
+        component={Quizz}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

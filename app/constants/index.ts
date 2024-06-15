@@ -72,25 +72,58 @@ export const localChapters = [
   {
     id: 1,
     video: "aYkiZLdpZmE",
-    titleContent1: "La cybersécurité c'est quoi ?",
-    content1:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
-    titleContent2: "Les enjeux",
-    content2:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+    title: "Introduction à la cybersécurité",
+    contents: [
+      {
+        title: "La cybersécurité c'est quoi ?",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+      },
+      {
+        title: "Les enjeux",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+      },
+    ],
   },
   {
     id: 2,
     video: "PXV2POvElps",
-    titleContent1: "Les différentes menaces",
-    content1:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+    title: "Menaces en cybersécurité",
+    contents: [
+      {
+        title: "",
+        text: "À l'aube de 2024, le paysage de la cybersécurité continue d'évoluer rapidement. Les cybermenaces deviennent de plus en plus sophistiquées, exigeant des stratégies de défense toujours plus robustes. Voici un aperçu des dix principales menaces de cybersécurité auxquelles les entreprises et les particuliers doivent se préparer cette année.",
+      },
+      {
+        title: "Ransomwares",
+        text: "Les cybercriminels paralysent les entreprises en chiffrant leurs données et en exigeant des rançons.",
+      },
+      {
+        title: "Phishing",
+        text: "Les attaques de phishing ciblent les informations sensibles des utilisateurs, les incitant à divulguer leurs données personnelles.",
+      },
+      {
+        title: "Phishing",
+        text: "Les attaques de phishing ciblent les informations sensibles des utilisateurs, les incitant à divulguer leurs données personnelles.",
+      },
+      {
+        title: "Phishing",
+        text: "Les attaques de phishing ciblent les informations sensibles des utilisateurs, les incitant à divulguer leurs données personnelles.",
+      },
+      {
+        title: "Phishing",
+        text: "Les attaques de phishing ciblent les informations sensibles des utilisateurs, les incitant à divulguer leurs données personnelles.",
+      },
+    ],
   },
   {
     id: 3,
     video: "aYkiZLdpZmE",
-    titleContent1: "Les outils de protection",
-    content1:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+    title: "Outils de protection",
+    contents: [
+      {
+        title: "Les outils de protection",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+      },
+    ],
   },
 ];

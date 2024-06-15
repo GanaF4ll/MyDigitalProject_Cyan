@@ -76,10 +76,7 @@ export default function StartFormation() {
           fullChapters.push({
             ...result.data[i],
             video: localChapters[i].video,
-            content1: localChapters[i].content1,
-            content2: localChapters[i].content2 || "",
-            titleContent1: localChapters[i].titleContent1,
-            titleContent2: localChapters[i].titleContent2 || "",
+            contents: localChapters[i].contents,
           });
         }
       }
@@ -195,12 +192,8 @@ export default function StartFormation() {
                 completionTime={chapter.completionTime}
                 formation_id={chapter.formation_id}
                 image={formationData.image}
-                content={chapter.content}
+                contents={chapter.contents}
                 video={chapter.video}
-                content1={chapter.content1}
-                content2={chapter.content2}
-                titleContent1={chapter.titleContent1}
-                titleContent2={chapter.titleContent2}
               />
             </LinearGradient>
           ))}

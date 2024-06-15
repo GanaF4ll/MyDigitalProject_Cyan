@@ -13,6 +13,8 @@ import YouTubePlayer from "react-native-youtube-iframe";
 import styles from "../../constants/styles";
 import ChapterProps from "../../components/Chapter";
 import { imageMap } from "../../constants/imageMap";
+import { Paragraph } from "../../components/Paragraph";
+import Gradient from "../../components/Gradient";
 
 type StackParamList = {
   PageChapter: {
@@ -21,11 +23,9 @@ type StackParamList = {
 };
 
 type PageChapterRouteProp = RouteProp<StackParamList, "PageChapter">;
-
 const PageChapter: React.FC = () => {
-  const route = useRoute<PageChapterRouteProp>();
+  const route = useRoute();
   const { chapter } = route.params;
-  console.log(chapter);
 
   return (
     <View style={{ flex: 1 }}>
@@ -42,14 +42,26 @@ const PageChapter: React.FC = () => {
             {chapter.title}
           </Text>
         </View>
-
-        <YouTubePlayer
-          height={200}
-          width={"100%"}
-          play={true}
-          videoId={chapter.video}
-        />
-        <Text>{chapter.content}</Text>
+        <View style={{ marginBottom: 20, height: 200, width: "100%" }}>
+          <YouTubePlayer
+            height={200}
+            width={"100%"}
+            play={true}
+            videoId={chapter.video}
+          />
+        </View>
+        <ScrollView>
+          {chapter.contents.map((content, index) => (
+            <Paragraph
+              key={index}
+              title={`${index + 1} - ${content.title}`}
+              text={content.text}
+            />
+          ))}
+          <Gradient onPress={console.log(2)}>
+            <Text style={styles.title_white}>Commencer le quizz</Text>
+          </Gradient>
+        </ScrollView>
       </ImageBackground>
     </View>
   );

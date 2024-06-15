@@ -10,8 +10,9 @@ interface ParagraphProps {
 
 export const Paragraph: React.FC<ParagraphProps> = (props) => {
   return (
-    <View>
-      <Text>Paragraph</Text>
+    <View style={{ marginBottom: 15, width: "100%" }}>
+      <Text style={styles.title_orange}>{props.title}</Text>
+      <Text style={[styles.text, { color: "white" }]}>{props.text}</Text>
     </View>
   );
 };
