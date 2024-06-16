@@ -45,7 +45,6 @@ export default function Search() {
         });
 
         setFormations(fullFormations);
-        // console.log(fullFormations);
       } catch (error) {
         console.error("Erreur lors de la récupération des formations:", error);
       }
@@ -127,7 +126,6 @@ export default function Search() {
           : formation;
       });
 
-      // console.log(fullFormations);
       setFormations(fullFormations);
     } catch (error) {
       console.error(
@@ -186,10 +184,10 @@ export default function Search() {
             {localCategories.map((category) => (
               <TouchableOpacity
                 onPress={() => fetchFormationsByCategory(category.id)}
+                key={category.id}
               >
                 <View style={SearchStyles.filterBox}>
                   <SmallCategory
-                    key={category.id}
                     id={category.id}
                     filterName={category.filterName}
                     image={category.image}
@@ -245,10 +243,10 @@ export default function Search() {
           {localCategories.map((category) => (
             <TouchableOpacity
               onPress={() => fetchFormationsByCategory(category.id)}
+              key={category.id}
             >
               <View style={SearchStyles.filterBox}>
                 <SmallCategory
-                  key={category.id}
                   id={category.id}
                   filterName={category.filterName}
                   image={category.image}
@@ -271,7 +269,6 @@ export default function Search() {
                 style={{ borderRadius: 10, margin: 10 }}
               >
                 <Formation
-                  key={formation.id}
                   id={formation.id}
                   author_id={formation.author_id}
                   title={formation.title}

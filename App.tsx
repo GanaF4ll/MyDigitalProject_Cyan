@@ -76,7 +76,7 @@ export const Layout = () => {
             name="Formations"
             component={FormationStack}
             options={{
-              tabBarLabel: "Formations",
+              tabBarLabel: " Mes Formations",
               headerRight: () => (
                 <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
                   <FontAwesome name="home" size={10} color="white" />
