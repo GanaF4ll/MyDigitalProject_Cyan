@@ -84,15 +84,6 @@ export default function Settings() {
         source={require("../assets/images/background.png")}
         style={settingStyles.container}
       >
-        <View style={settingStyles.header}>
-          <TouchableOpacity onPress={onLogout} style={styles.btn_logout}>
-            <FontAwesome
-              name="sign-out"
-              size={15}
-              color={colors.green_primary}
-            />
-          </TouchableOpacity>
-        </View>
         <Text style={{ color: "white" }}>Settings</Text>
         <Text style={{ color: "white" }}>ROLE: {roleName}</Text>
 
@@ -109,7 +100,49 @@ export default function Settings() {
               </Text>
             </View>
             <View style={settingStyles.mbFooter}>
-              <Text style={[styles.label, { marginBottom: 20 }]}>
+              <View style={settingStyles.labelDiv}>
+                <Text
+                  style={[styles.text, { marginBottom: 20, color: "white" }]}
+                >
+                  Téléphone :
+                </Text>
+                <Text
+                  style={[styles.text, { marginBottom: 20, color: "white" }]}
+                >
+                  Adresse :
+                </Text>
+                <Text
+                  style={[styles.text, { marginBottom: 20, color: "white" }]}
+                >
+                  Email :
+                </Text>
+                <Text
+                  style={[styles.text, { marginBottom: 20, color: "white" }]}
+                >
+                  Rôle :
+                </Text>
+              </View>
+              <View style={settingStyles.infoDiv}>
+                <Text
+                  style={[styles.text, { marginBottom: 20, color: "white" }]}
+                >
+                  {user.id}
+                </Text>
+                <Text
+                  style={[styles.text, { marginBottom: 17, color: "white" }]}
+                >
+                  40 rue du chemin vert 75011, Paris
+                </Text>
+                <Text
+                  style={[styles.text, { marginBottom: 22, color: "white" }]}
+                >
+                  {user.mail}
+                </Text>
+                <Text style={[styles.text, { color: "white" }]}>
+                  {roleName}
+                </Text>
+              </View>
+              {/* <Text style={[styles.label, { marginBottom: 20 }]}>
                 Téléphone :{"   "}
                 <Text style={styles.text}>{user.id}</Text>
               </Text>
@@ -126,7 +159,7 @@ export default function Settings() {
               <Text style={[styles.label, { marginBottom: 20 }]}>
                 Rôle :{"   "}
                 <Text style={styles.text}>{roleName}</Text>
-              </Text>
+              </Text> */}
             </View>
           </LinearGradient>
         </View>
@@ -175,7 +208,7 @@ const settingStyles = StyleSheet.create({
     borderRadius: 24,
   },
   mbHeader: {
-    height: "40%",
+    height: "25%",
     width: "100%",
     borderTopEndRadius: 24,
     borderTopStartRadius: 24,
@@ -184,27 +217,26 @@ const settingStyles = StyleSheet.create({
     flexDirection: "row",
     borderBottomWidth: 1,
     alignItems: "center",
-  },
-  mbDivImage: {
-    width: "30%",
-    height: "100%",
-    margin: "auto",
-    // borderWidth: 2,
-  },
-  mbDivTitle: {
-    width: "70%",
-    height: "100%",
-    margin: "auto",
-    // borderWidth: 2,
-    paddingLeft: 10,
-    justifyContent: "center",
+    borderColor: "#2073BB",
   },
   mbFooter: {
-    height: "40%",
+    height: "75%",
     width: "100%",
     borderBottomEndRadius: 24,
     borderBottomStartRadius: 24,
     padding: 5,
+    flexDirection: "row",
+  },
+  labelDiv: {
+    width: "30%",
+    height: "100%",
+    // justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  infoDiv: {
+    width: "70%",
+    height: "100%",
     flexDirection: "column",
+    paddingLeft: 15,
   },
 });
