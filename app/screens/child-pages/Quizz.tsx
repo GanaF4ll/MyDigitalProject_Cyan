@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRoute } from "@react-navigation/native";
 import _ from "lodash"; // Importer lodash
+import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 
 import styles from "../../constants/styles";
 import { API_URL } from "../../constants";
@@ -16,6 +17,7 @@ import { QuestionType, AnswerType } from "../../constants/types";
 
 export default function Quizz() {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
+  const [selectedAnswers, setSelectedAnswers] = useState({});
   const route = useRoute();
 
   const { chapter_id } = route.params || {};
@@ -66,6 +68,13 @@ export default function Quizz() {
     fetchQuestions();
   }, [chapter_id]);
 
+  const handleAnswerSelect = (questionId, answerValue) => {
+    setSelectedAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [questionId]: answerValue,
+    }));
+  };
+
   return (
     <View style={{ width: "100%", height: "100%" }}>
       <ImageBackground
@@ -73,7 +82,7 @@ export default function Quizz() {
         style={Qstyles.container}
       >
         <View style={Qstyles.header}>
-          <Text style={styles.title_purple}></Text>
+          <Text style={styles.title_purple}>Quiz</Text>
         </View>
         <View style={Qstyles.body}>
           <ScrollView
@@ -85,16 +94,26 @@ export default function Quizz() {
             }}
           >
             {questions.map((question, index) => (
-              <View key={index}>
+              <View key={index} style={{ marginBottom: 20 }}>
                 <Text style={styles.title_orange}>{question.content}</Text>
-                {question.answers.map((answer, answerIndex) => (
-                  <Text
-                    key={answerIndex}
-                    style={[styles.text, { color: "white" }]}
-                  >
-                    {answer.content}
-                  </Text>
-                ))}
+                <RadioButtonGroup
+                  containerStyle={{ marginBottom: 10 }}
+                  selected={selectedAnswers[question.id]}
+                  onSelected={(value) => handleAnswerSelect(question.id, value)}
+                  radioBackground="green"
+                >
+                  {question.answers.map((answer, answerIndex) => (
+                    <RadioButtonItem
+                      key={answerIndex}
+                      value={answer.content}
+                      style={{ marginVertical: 5 }}
+                    >
+                      <Text style={[styles.text, { color: "white" }]}>
+                        {answer.content}
+                      </Text>
+                    </RadioButtonItem>
+                  ))}
+                </RadioButtonGroup>
               </View>
             ))}
           </ScrollView>
