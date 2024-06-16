@@ -17,6 +17,9 @@ Font.loadAsync({
 Font.loadAsync({
   "MuseoModerno-semibold": require("../assets/fonts/MuseoModerno-SemiBold.ttf"),
 });
+Font.loadAsync({
+  MuseoModerno: require("../assets/fonts/MuseoModerno-VariableFont_wght.ttf"),
+});
 
 export default StyleSheet.create({
   container: {
@@ -152,7 +155,10 @@ export default StyleSheet.create({
     fontFamily: "Montserrat-semibold",
   },
   title_mm: {
-    fontFamily: "MuseoModerno-semibold",
+    fontFamily: "MuseoModerno",
     fontSize: 18,
+  },
+  text_mm: {
+    fontFamily: "MuseoModerno",
   },
 });

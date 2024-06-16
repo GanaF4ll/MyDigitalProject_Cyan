@@ -84,9 +84,6 @@ export default function Settings() {
         source={require("../assets/images/background.png")}
         style={settingStyles.container}
       >
-        <Text style={{ color: "white" }}>Settings</Text>
-        <Text style={{ color: "white" }}>ROLE: {roleName}</Text>
-
         <View style={{ width: "100%", height: "60%" }}>
           <LinearGradient
             colors={["#13325B", "#2B2361"]}
@@ -142,44 +139,46 @@ export default function Settings() {
                   {roleName}
                 </Text>
               </View>
-              {/* <Text style={[styles.label, { marginBottom: 20 }]}>
-                Téléphone :{"   "}
-                <Text style={styles.text}>{user.id}</Text>
-              </Text>
-              <Text style={[styles.label, { marginBottom: 20 }]}>
-                Adresse :{"   "}
-                <Text style={styles.text}>
-                  40 rue du chemin vert 75011, Paris
-                </Text>
-              </Text>
-              <Text style={[styles.label, { marginBottom: 20 }]}>
-                Email :{"   "}
-                <Text style={styles.text}>{user.mail}</Text>
-              </Text>
-              <Text style={[styles.label, { marginBottom: 20 }]}>
-                Rôle :{"   "}
-                <Text style={styles.text}>{roleName}</Text>
-              </Text> */}
             </View>
           </LinearGradient>
         </View>
-        <View>
-          <Text style={[styles.title_mm, { color: colors.orange_primary }]}>
-            <FontAwesome name="trash" size={15} color={colors.orange_primary} />
-            {"  "}
-            Supprimer mon compte
-          </Text>
-          <TouchableOpacity onPress={onLogout}>
-            <Text style={[styles.title_mm, { color: colors.orange_primary }]}>
+        <View style={{ width: "100%" }}>
+          <TouchableOpacity>
+            <Text style={[styles.text_mm, { color: colors.orange_primary }]}>
               <FontAwesome
-                name="power-off"
+                name="lock"
                 size={15}
                 color={colors.orange_primary}
               />
               {"  "}
-              Se déconnecter
+              Modifier mes informations
             </Text>
           </TouchableOpacity>
+          <Text style={[styles.text_mm, { color: colors.orange_primary }]}>
+            <FontAwesome name="trash" size={15} color={colors.orange_primary} />
+            {"  "}
+            Supprimer mon compte
+          </Text>
+          <View
+            style={{
+              borderTopWidth: 1,
+              borderColor: "#50515E",
+              marginTop: 15,
+              paddingTop: 10,
+            }}
+          >
+            <TouchableOpacity onPress={onLogout}>
+              <Text style={[styles.text_mm, { color: colors.orange_primary }]}>
+                <FontAwesome
+                  name="power-off"
+                  size={15}
+                  color={colors.orange_primary}
+                />
+                {"  "}
+                Se déconnecter
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ImageBackground>
     </View>
