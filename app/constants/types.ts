@@ -51,5 +51,5 @@ export interface AnswerType {
   id: number;
   question_id: number;
   content: string;
-  valid: boolean;
+  valid: number;
 }

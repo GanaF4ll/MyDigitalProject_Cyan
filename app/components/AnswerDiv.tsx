@@ -1,6 +1,5 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import axios from "axios";
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 
 import styles from "../constants/styles";
@@ -9,7 +8,7 @@ export interface AnswerDivProps {
   question_id: number;
   question: string;
   chapter_id: number;
-  answers?: {
+  answers: {
     id: number;
     content: string;
     valid?: 0 | 1;
@@ -17,24 +16,23 @@ export interface AnswerDivProps {
 }
 
 export const AnswerDiv: React.FC<AnswerDivProps> = (props) => {
-  const [current, setCurrent] = useState("test");
+  const [current, setCurrent] = useState("");
 
   return (
-    <View>
+    <View style={ADstyles.container}>
       <RadioButtonGroup
         containerStyle={{ marginBottom: 10 }}
         selected={current}
         onSelected={(value) => setCurrent(value)}
         radioBackground="green"
       >
-        <RadioButtonItem
-          value={props.answers.valid}
-          label={
-            <Text style={styles.title_white}>
-              Example passing React Element
-            </Text>
-          }
-        />
+        {props.answers.map((answer) => (
+          <RadioButtonItem
+            key={answer.id}
+            value={answer.id.toString()}
+            label={<Text style={styles.title_white}>{answer.content}</Text>}
+          />
+        ))}
       </RadioButtonGroup>
     </View>
   );

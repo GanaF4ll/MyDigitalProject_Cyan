@@ -26,31 +26,38 @@ export default function Quizz() {
         const response = await axios.get(
           `${API_URL}/questions/chapter/${chapter_id}`
         );
-
-        const questionsWithAnswers: QuestionType[] = await Promise.all(
-          response.data.map(async (question: any) => {
-            const responseAnswer = await axios.get(
-              `${API_URL}/answers/question/${question.id}`
-            );
-
-            const answers: AnswerType[] = responseAnswer.data;
-
-            // const correct_answer = answers.find((answer) => answer.valid);
-
-            return {
-              id: question.id,
-              chapter_id: question.chapter_id,
-              content: question.content,
-              correct_answer: true,
-              answers: answers,
-            };
+        if (!response.data) {
+          throw new Error("Aucune question trouvée");
+        }
+        const questionsWithAnswers = await Promise.all(
+          response.data.map(async (question) => {
+            try {
+              const responseAnswer = await axios.get(
+                `${API_URL}/answers/question/${question.id}`
+              );
+              if (!responseAnswer.data) {
+                throw new Error(
+                  `Aucune réponse trouvée pour la question ${question.id}`
+                );
+              }
+              // console.log(responseAnswer.data);
+              // console.log(answers);
+              return {
+                ...question,
+                answers: responseAnswer.data,
+              };
+            } catch (error) {
+              console.error(
+                `Erreur lors de la récupération des réponses: ${error}`
+              );
+              return null; // Ou gérer autrement
+            }
           })
         );
-
-        setQuestions(questionsWithAnswers);
-        console.log("questionsWithAnswers", questionsWithAnswers);
+        const validQuestions = questionsWithAnswers.filter((q) => q !== null);
+        setQuestions(validQuestions);
       } catch (error) {
-        console.error("Erreur lors de la récupération des questions:", error);
+        console.error(`Erreur lors de la récupération des questions: ${error}`);
       }
     };
 
@@ -67,16 +74,26 @@ export default function Quizz() {
           <Text style={styles.title_purple}></Text>
         </View>
         <View style={Qstyles.body}>
-          <ScrollView>
+          <ScrollView
+            style={{
+              height: 300,
+              borderColor: "purple",
+              borderWidth: 2,
+              width: "100%",
+            }}
+          >
             {questions.map((question, index) => (
-              <AnswerDiv
-                key={question.id}
-                question_id={question.id}
-                // answers={question.answers.map((answer) => {}}={answer}
-                question={question.content}
-                chapter_id={question.chapter_id}
-                // valid={question.correct_answer}
-              />
+              <View key={index}>
+                <Text style={styles.title_orange}>{question.content}</Text>
+                {question.answers.map((answer, answerIndex) => (
+                  <Text
+                    key={answerIndex}
+                    style={[styles.text, { color: "white" }]}
+                  >
+                    {answer.content}
+                  </Text>
+                ))}
+              </View>
             ))}
           </ScrollView>
         </View>
