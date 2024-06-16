@@ -9,10 +9,10 @@ export interface AnswerDivProps {
   question_id: number;
   question: string;
   chapter_id: number;
-  answers: {
+  answers?: {
     id: number;
     content: string;
-    valid: 0 | 1;
+    valid?: 0 | 1;
   }[];
 }
 

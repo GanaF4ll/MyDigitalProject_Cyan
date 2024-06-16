@@ -1,4 +1,10 @@
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  ImageBackground,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRoute } from "@react-navigation/native";
@@ -6,19 +12,50 @@ import { useRoute } from "@react-navigation/native";
 import styles from "../../constants/styles";
 import { AnswerDiv } from "../../components/AnswerDiv";
 import { API_URL } from "../../constants";
+import { QuestionType, AnswerType } from "../../constants/types";
 
 export default function Quizz() {
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
+  const route = useRoute();
+
+  const { chapter_id } = route.params || {};
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      const route = useRoute();
-      const { chapter } = route.params;
-      console.log(chapter);
-      // const response = await axios.get("http://localhost:3000/questions");
-      // console.log(response.data);
+      try {
+        const response = await axios.get(
+          `${API_URL}/questions/chapter/${chapter_id}`
+        );
+
+        const questionsWithAnswers: QuestionType[] = await Promise.all(
+          response.data.map(async (question: any) => {
+            const responseAnswer = await axios.get(
+              `${API_URL}/answers/question/${question.id}`
+            );
+
+            const answers: AnswerType[] = responseAnswer.data;
+
+            // const correct_answer = answers.find((answer) => answer.valid);
+
+            return {
+              id: question.id,
+              chapter_id: question.chapter_id,
+              content: question.content,
+              correct_answer: true,
+              answers: answers,
+            };
+          })
+        );
+
+        setQuestions(questionsWithAnswers);
+        console.log("questionsWithAnswers", questionsWithAnswers);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des questions:", error);
+      }
     };
-  }, []);
+
+    fetchQuestions();
+  }, [chapter_id]);
 
   return (
     <View style={{ width: "100%", height: "100%" }}>
@@ -27,20 +64,21 @@ export default function Quizz() {
         style={Qstyles.container}
       >
         <View style={Qstyles.header}>
-          <Text style={styles.title_purple}>Quizz</Text>
+          <Text style={styles.title_purple}></Text>
         </View>
         <View style={Qstyles.body}>
-          <AnswerDiv
-            question_id={1}
-            question="Quelle est la couleur du ciel ?"
-            chapter_id={1}
-            answers={[
-              { id: 1, content: "Bleu", valid: 1 },
-              { id: 2, content: "Vert", valid: 0 },
-              { id: 3, content: "Rouge", valid: 0 },
-              { id: 4, content: "Jaune", valid: 0 },
-            ]}
-          />
+          <ScrollView>
+            {questions.map((question, index) => (
+              <AnswerDiv
+                key={question.id}
+                question_id={question.id}
+                // answers={question.answers.map((answer) => {}}={answer}
+                question={question.content}
+                chapter_id={question.chapter_id}
+                // valid={question.correct_answer}
+              />
+            ))}
+          </ScrollView>
         </View>
         <View style={Qstyles.footer}></View>
       </ImageBackground>

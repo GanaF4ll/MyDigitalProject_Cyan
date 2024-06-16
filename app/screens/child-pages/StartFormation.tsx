@@ -82,7 +82,7 @@ export default function StartFormation() {
       }
 
       setChapters(fullChapters);
-      console.log(fullChapters);
+      // console.log(fullChapters);
     };
     fetchAuthor();
     retrieveToken();

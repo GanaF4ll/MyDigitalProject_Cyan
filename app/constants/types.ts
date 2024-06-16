@@ -37,19 +37,19 @@ export interface ChapterType {
   questions: Question[];
 }
 
-export type Question = {
+export interface QuestionType {
   // questions
   id: number;
   chapter_id: number;
   content: string;
-  correct_answer: Answer;
-  answers: Answer[];
-};
+  correct_answer: AnswerType;
+  answers: AnswerType[];
+}
 
-export type Answer = {
+export interface AnswerType {
   // answers
   id: number;
   question_id: number;
   content: string;
   valid: boolean;
-};
+}

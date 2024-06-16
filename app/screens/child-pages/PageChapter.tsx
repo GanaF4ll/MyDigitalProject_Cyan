@@ -24,6 +24,7 @@ type StackParamList = {
 };
 
 type PageChapterRouteProp = RouteProp<StackParamList, "PageChapter">;
+
 const PageChapter: React.FC = () => {
   const route = useRoute();
   const navigation = useNavigation();
