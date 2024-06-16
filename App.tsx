@@ -12,7 +12,7 @@ import PageFormation from "./app/screens/PageFormation";
 import Search from "./app/screens/Search";
 import React from "react";
 import Settings from "./app/screens/Settings";
-import styles from "./app/constants/styles";
+import styles, { colors } from "./app/constants/styles";
 import Register from "./app/screens/Register";
 import StartFormation from "./app/screens/child-pages/StartFormation";
 import PageChapter from "./app/screens/child-pages/PageChapter";
@@ -60,6 +60,9 @@ export const Layout = () => {
 
               return <FontAwesome name={iconName} size={size} color={color} />;
             },
+            tabBarBackgroundColor: "#00040E",
+            tabBarActiveTintColor: colors.green_primary,
+            tabBarStyle: { backgroundColor: "#080B30" },
           })}
         >
           <Tab.Screen

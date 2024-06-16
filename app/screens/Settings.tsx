@@ -23,7 +23,6 @@ import Loading from "../components/Loading";
 import { IconInput } from "../components/IconInput";
 import { imageMap } from "../constants/imageMap";
 import { UserType } from "../constants/types";
-// import { Youtube } from "../components/Youtube";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -41,7 +40,6 @@ export default function Settings() {
       const token = await AsyncStorage.getItem("token");
       if (token) {
         setToken(token);
-        // console.log("Token retrieved:", token);
         const decodedToken = jwtDecode(token);
         const { id, role } = decodedToken;
 
@@ -61,7 +59,6 @@ export default function Settings() {
 
         setRoleName(ROLE_NAME);
         setUser(result.data);
-        console.log("User data:", result.data);
         setIsLoading(false);
       }
     } catch (error) {
@@ -229,7 +226,6 @@ const settingStyles = StyleSheet.create({
   labelDiv: {
     width: "30%",
     height: "100%",
-    // justifyContent: "flex-end",
     alignItems: "center",
   },
   infoDiv: {
