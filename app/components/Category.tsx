@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { FontAwesome } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "../constants/styles";
 import { CategoryType } from "../constants/types";
@@ -13,7 +14,17 @@ interface CategoryProps extends CategoryType {
   description: string;
   image: string;
 }
+
 export const Category: React.FC<CategoryProps> = (props) => {
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    const { id, name, description, image } = props; // Extraire les propriétés nécessaires
+    navigation.navigate("Search", {
+      category: { id, name, description, image },
+    });
+  };
+
   return (
     <View style={categoryStyle.container}>
       <LinearGradient
@@ -45,7 +56,7 @@ export const Category: React.FC<CategoryProps> = (props) => {
               {props.description}
             </Text>
             <View style={{ width: "80%" }}>
-              <Gradient onPress={() => console.log("category_id =>", props.id)}>
+              <Gradient onPress={handlePress}>
                 <Text style={styles.title_white}>
                   Continuer{" "}
                   <FontAwesome name="arrow-right" size={10} color="white" />

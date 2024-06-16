@@ -12,6 +12,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { LinearGradient } from "expo-linear-gradient";
 import { FontAwesome } from "@expo/vector-icons";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import { Formation } from "../components/Formation";
 import styles from "../constants/styles";
@@ -26,6 +27,8 @@ export default function Search() {
   const [formations, setFormations] = useState<FormationType[]>([]);
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const route = useRoute();
+  const { category } = route.params || {}; // Utilisation d'un objet vide par défaut
 
   useEffect(() => {
     const fetchFormations = async () => {
@@ -49,8 +52,13 @@ export default function Search() {
         console.error("Erreur lors de la récupération des formations:", error);
       }
     };
-    fetchFormations();
-  }, []);
+
+    if (category && category.id) {
+      fetchFormationsByCategory(category.id);
+    } else {
+      fetchFormations();
+    }
+  }, [category]);
 
   useEffect(() => {
     const fetchCategories = async () => {
