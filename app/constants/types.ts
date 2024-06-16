@@ -53,3 +53,12 @@ export interface AnswerType {
   content: string;
   valid: number;
 }
+
+export interface UserType {
+  // users
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role_id: number;
+}
