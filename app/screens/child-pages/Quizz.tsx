@@ -8,9 +8,9 @@ import {
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRoute } from "@react-navigation/native";
+import _ from "lodash"; // Importer lodash
 
 import styles from "../../constants/styles";
-import { AnswerDiv } from "../../components/AnswerDiv";
 import { API_URL } from "../../constants";
 import { QuestionType, AnswerType } from "../../constants/types";
 
@@ -40,11 +40,13 @@ export default function Quizz() {
                   `Aucune réponse trouvée pour la question ${question.id}`
                 );
               }
-              // console.log(responseAnswer.data);
-              // console.log(answers);
+
+              // Mélanger les réponses avant de les retourner
+              const shuffledAnswers = _.shuffle(responseAnswer.data);
+
               return {
                 ...question,
-                answers: responseAnswer.data,
+                answers: shuffledAnswers,
               };
             } catch (error) {
               console.error(
