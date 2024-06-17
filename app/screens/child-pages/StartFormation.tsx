@@ -72,18 +72,23 @@ export default function StartFormation() {
       const fullChapters = [];
 
       for (let i = 0; i < result.data.length; i++) {
-        if (localChapters[i].id === result.data[i].id) {
+        const matchingLocalChapter = localChapters.find(
+          (chapter) => chapter.id === result.data[i].id
+        );
+
+        if (matchingLocalChapter) {
           fullChapters.push({
             ...result.data[i],
-            video: localChapters[i].video,
-            contents: localChapters[i].contents,
+            video: matchingLocalChapter.video,
+            contents: matchingLocalChapter.contents,
           });
         }
       }
 
       setChapters(fullChapters);
-      // console.log(fullChapters);
+      console.log(fullChapters);
     };
+
     fetchAuthor();
     retrieveToken();
     fetchChapters();

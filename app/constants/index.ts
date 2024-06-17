@@ -76,11 +76,11 @@ export const localChapters = [
     contents: [
       {
         title: "La cybersécurité c'est quoi ?",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+        text: "La cybersécurité, ou sécurité informatique, est la pratique de protéger les systèmes, les réseaux et les programmes contre les attaques numériques. Ces attaques visent généralement à accéder à, modifier ou détruire des informations sensibles, à extorquer de l'argent aux utilisateurs ou à interrompre des processus commerciaux normaux.",
       },
       {
         title: "Les enjeux",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+        text: "Les enjeux de la cybersécurité sont cruciaux pour protéger les données personnelles, sécuriser les infrastructures critiques, prévenir les pertes économiques dues aux cyberattaques, et assurer la conformité réglementaire. Ils englobent également le maintien de la confiance des clients, la défense contre les cybermenaces étatiques, l'innovation sécurisée, et la formation des utilisateurs.",
       },
     ],
   },
@@ -123,6 +123,40 @@ export const localChapters = [
       {
         title: "Les outils de protection",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus",
+      },
+    ],
+  },
+
+  {
+    id: 15,
+    video: "ZnJbOzfj9Ec",
+    title: "Fondements de la Protection des Données Personnelles",
+    contents: [
+      {
+        title: "Fondements de la Protection des Données Personnelles",
+        text: "Les types de données personnelles et leur importance",
+      },
+    ],
+  },
+  {
+    id: 16,
+    video: "ZnJbOzfj9Ec",
+    title: "Fondements de la Protection des Données Personnelles",
+    contents: [
+      {
+        title: "Fondements de la Protection des Données Personnelles",
+        text: "Les types de données personnelles et leur importance",
+      },
+    ],
+  },
+  {
+    id: 17,
+    video: "ZnJbOzfj9Ec",
+    title: "Fondements de la Protection des Données Personnelles",
+    contents: [
+      {
+        title: "Fondements de la Protection des Données Personnelles",
+        text: "Les types de données personnelles et leur importance",
       },
     ],
   },
