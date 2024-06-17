@@ -12,3 +12,7 @@ export function minutesToHour(minutes: number): string {
     return `${hours}h${remainingMinutes}`;
   }
 }
+
+export const notReady = () => {
+  alert("Cette fonctionnalité n'est pas encore disponible.");
+};

@@ -23,6 +23,7 @@ import Loading from "../components/Loading";
 import { IconInput } from "../components/IconInput";
 import { imageMap } from "../constants/imageMap";
 import { UserType } from "../constants/types";
+import { notReady } from "../constants/shared";
 
 export default function Settings() {
   const [token, setToken] = useState("");
@@ -140,7 +141,7 @@ export default function Settings() {
           </LinearGradient>
         </View>
         <View style={{ width: "100%" }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={notReady}>
             <Text style={[styles.text_mm, { color: colors.orange_primary }]}>
               <FontAwesome
                 name="lock"
