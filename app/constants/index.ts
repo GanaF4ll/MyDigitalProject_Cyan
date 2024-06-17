@@ -86,7 +86,7 @@ export const localChapters = [
   },
   {
     id: 2,
-    video: "PXV2POvElps",
+    video: "ZnJbOzfj9Ec",
     title: "Menaces en cybersécurité",
     contents: [
       {
@@ -117,7 +117,7 @@ export const localChapters = [
   },
   {
     id: 3,
-    video: "aYkiZLdpZmE",
+    video: "ZnJbOzfj9Ec",
     title: "Outils de protection",
     contents: [
       {
