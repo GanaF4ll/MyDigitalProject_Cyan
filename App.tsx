@@ -49,7 +49,7 @@ export const Layout = () => {
                   iconName = "search";
                   break;
                 case "Formations":
-                  iconName = "book";
+                  iconName = "graduation-cap";
                   break;
                 case "Profil":
                   iconName = "user-circle";

@@ -121,7 +121,7 @@ export default function Settings() {
                 <Text
                   style={[styles.text, { marginBottom: 20, color: "white" }]}
                 >
-                  {user.id}
+                  XX XX XX XX XX
                 </Text>
                 <Text
                   style={[styles.text, { marginBottom: 17, color: "white" }]}
@@ -152,11 +152,17 @@ export default function Settings() {
               Modifier mes informations
             </Text>
           </TouchableOpacity>
-          <Text style={[styles.text_mm, { color: colors.orange_primary }]}>
-            <FontAwesome name="trash" size={15} color={colors.orange_primary} />
-            {"  "}
-            Supprimer mon compte
-          </Text>
+          <TouchableOpacity onPress={notReady}>
+            <Text style={[styles.text_mm, { color: colors.orange_primary }]}>
+              <FontAwesome
+                name="trash"
+                size={15}
+                color={colors.orange_primary}
+              />
+              {"  "}
+              Supprimer mon compte
+            </Text>
+          </TouchableOpacity>
           <View
             style={{
               borderTopWidth: 1,

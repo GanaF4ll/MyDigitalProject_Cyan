@@ -171,7 +171,6 @@ export default function StartFormation() {
             </View>
           </View>
         </View>
-        <Text style={[styles.text, { color: "white" }]}>Auteur: {author}</Text>
         <Text style={styles.title_purple}>Bienvenue {userName} !</Text>
         <Text style={{ color: "white" }}>{formationData.description}</Text>
 
@@ -198,6 +197,9 @@ export default function StartFormation() {
             </LinearGradient>
           ))}
         </ScrollView>
+        <Text style={[styles.text, { color: "white", paddingTop: 10 }]}>
+          Cette formation vous est présentée par : {author}
+        </Text>
       </ImageBackground>
     </View>
   );
