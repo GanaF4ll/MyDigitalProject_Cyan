@@ -7,6 +7,7 @@ import {
   StatusBar,
   KeyboardAvoidingView,
   Platform,
+  Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
@@ -110,6 +111,9 @@ export default function Register() {
             source={require("../assets/images/background.png")}
             style={styles.container}
           >
+            <View style={{ width: "100%", height: "30%" }}>
+              <Image source={require("../assets/images/LogoWhite.png")} />
+            </View>
             {/* PRENOM */}
             <View
               style={{
