@@ -14,6 +14,7 @@ interface IconInputProps {
   content?: string;
   color?: string;
   password?: boolean;
+  value?: string;
 }
 export const IconInput: React.FC<IconInputProps> = (props) => {
   return (
@@ -29,8 +30,9 @@ export const IconInput: React.FC<IconInputProps> = (props) => {
         placeholder={props.placeholder}
         placeholderTextColor={props.placeholderColor || props.color || "grey"}
         onChangeText={props.onChangeText}
-        secureTextEntry={props.password} // Ajout pour masquer le texte si c'est un mot de passe
-        {...(props.password ? { "aria-labelledby": "labelPassword" } : {})} // Condition pour ajouter aria-labelledby
+        secureTextEntry={props.password}
+        {...(props.password ? { "aria-labelledby": "labelPassword" } : {})}
+        value={props.value || ""}
       >
         {props.content}
       </TextInput>

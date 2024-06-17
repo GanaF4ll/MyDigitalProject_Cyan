@@ -18,6 +18,7 @@ import { useAuth } from "../context/AuthContext";
 import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import Gradient from "../components/Gradient";
+import { IconInput } from "../components/IconInput";
 
 const Login = () => {
   const [firstName, setFirstName] = useState("");
@@ -63,13 +64,20 @@ const Login = () => {
             >
               Email
             </Text>
-            <TextInput
+            {/* <TextInput
               autoCapitalize="none"
               style={[styles.input, { marginTop: 5 }]}
               placeholder="virtualsentinel@exemple.com"
               onChangeText={(text) => setMail(text)}
               value={mail}
               aria-labelledby="labelMail"
+            /> */}
+            <IconInput
+              iconName="envelope"
+              placeholder="virtualsentinel@exemple.com"
+              iconColor={colors.orange_primary}
+              onChangeText={(text) => setMail(text)}
+              value={mail}
             />
           </View>
 
@@ -87,13 +95,21 @@ const Login = () => {
             >
               Mot de passe
             </Text>
-            <TextInput
+            {/* <TextInput
               style={[styles.input, { marginTop: 5 }]}
               placeholder="**********"
               secureTextEntry={true}
               onChangeText={(text) => setPassword(text)}
               value={password}
               aria-labelledby="labelPassword"
+            /> */}
+            <IconInput
+              iconName="lock"
+              placeholder="**********"
+              iconColor={colors.orange_primary}
+              onChangeText={(text) => setPassword(text)}
+              password={true}
+              value={password}
             />
           </View>
           <Gradient onPress={login}>

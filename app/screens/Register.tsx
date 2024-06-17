@@ -30,6 +30,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("male");
   const { onRegister, onLogin } = useAuth();
+  const navigation = useNavigation();
 
   const updateBirthdate = (event, selectedDate) => {
     const currentDate = selectedDate || birthdate;
@@ -306,6 +307,16 @@ export default function Register() {
             <Gradient onPress={register}>
               <Text style={styles.title_white}>Inscription</Text>
             </Gradient>
+
+            <Text style={{ color: "white", marginTop: 10 }}>
+              Vous avez déjà un compte ?
+              <Text
+                style={{ textDecorationLine: "underline" }}
+                onPress={() => navigation.navigate({ name: "Login" })}
+              >
+                Connectez-vous
+              </Text>
+            </Text>
           </ImageBackground>
         </View>
       </ScrollView>
