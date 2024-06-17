@@ -20,6 +20,7 @@ import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { useAuth } from "../context/AuthContext";
 import Gradient from "../components/Gradient";
+import { IconInput } from "../components/IconInput";
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");
@@ -129,13 +130,19 @@ export default function Register() {
               >
                 Prénom
               </Text>
-              <TextInput
+              {/* <TextInput
                 autoCapitalize="words"
                 style={[styles.input, { marginTop: 5 }]}
                 placeholder="John"
                 onChangeText={(text) => setFirstName(text)}
                 value={firstName}
                 aria-labelledby="labelfirstName"
+              /> */}
+              <IconInput
+                iconName="user"
+                placeholder="Votre prénom"
+                iconColor={colors.orange_primary}
+                onChangeText={(text) => setFirstName(text)}
               />
             </View>
 
@@ -154,13 +161,19 @@ export default function Register() {
               >
                 Nom
               </Text>
-              <TextInput
+              {/* <TextInput
                 autoCapitalize="words"
                 style={[styles.input, { marginTop: 5 }]}
                 placeholder="Doe"
                 onChangeText={(text) => setLastName(text)}
                 value={lastName}
                 aria-labelledby="labellastName"
+              /> */}
+              <IconInput
+                iconName="user"
+                placeholder="Votre nom"
+                iconColor={colors.orange_primary}
+                onChangeText={(text) => setLastName(text)}
               />
             </View>
 
@@ -243,12 +256,18 @@ export default function Register() {
               >
                 Email
               </Text>
-              <TextInput
+              {/* <TextInput
                 style={[styles.input, { marginTop: 5 }]}
                 placeholder="virtualsentinel@exemple.com"
                 onChangeText={(text) => setMail(text)}
                 value={mail}
                 aria-labelledby="labelMail"
+              /> */}
+              <IconInput
+                iconName="envelope"
+                placeholder="Votre adresse mail"
+                iconColor={colors.orange_primary}
+                onChangeText={(text) => setMail(text)}
               />
             </View>
 
@@ -267,13 +286,20 @@ export default function Register() {
               >
                 Mot de passe
               </Text>
-              <TextInput
+              {/* <TextInput
                 style={[styles.input, { marginTop: 5, marginBottom: 15 }]}
                 placeholder="**********"
                 secureTextEntry={true}
                 onChangeText={(text) => setPassword(text)}
                 value={password}
                 aria-labelledby="labelPassword"
+              /> */}
+              <IconInput
+                iconName="lock"
+                placeholder="**********"
+                iconColor={colors.orange_primary}
+                onChangeText={(text) => setPassword(text)}
+                password={true}
               />
             </View>
 

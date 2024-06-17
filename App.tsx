@@ -61,7 +61,7 @@ export const Layout = () => {
               return <FontAwesome name={iconName} size={size} color={color} />;
             },
             tabBarBackgroundColor: "#00040E",
-            tabBarActiveTintColor: colors.green_primary,
+            tabBarActiveTintColor: colors.orange_primary,
             tabBarStyle: { backgroundColor: "#080B30" },
           })}
         >
