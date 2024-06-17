@@ -16,6 +16,7 @@ import ChapterProps from "../../components/Chapter";
 import { imageMap } from "../../constants/imageMap";
 import { Paragraph } from "../../components/Paragraph";
 import Gradient from "../../components/Gradient";
+import { notReady } from "../../constants/shared";
 
 type StackParamList = {
   PageChapter: {
@@ -65,7 +66,10 @@ const PageChapter: React.FC = () => {
               text={content.text}
             />
           ))}
-          <Gradient onPress={handlePress}>
+          <Gradient
+            onPress={notReady}
+            // onPress={handlePress}
+          >
             <Text style={styles.title_white}>Commencer le quizz</Text>
           </Gradient>
         </ScrollView>

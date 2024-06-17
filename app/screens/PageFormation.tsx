@@ -15,6 +15,7 @@ import styles from "../constants/styles";
 import { colors } from "../constants/styles";
 import { FormationType } from "../constants/types";
 import { Formation } from "../components/Formation";
+import { notReady } from "../constants/shared";
 
 export default function PageFormation() {
   const [formations, setFormations] = useState<FormationType[]>([]);
@@ -49,13 +50,13 @@ export default function PageFormation() {
         style={styles.container}
       >
         <View style={styles.header_container}>
-          <TouchableOpacity style={styles.header_button}>
+          <TouchableOpacity style={styles.header_button} onPress={notReady}>
             <Text style={[{ color: colors.blue_primary }]}>Formations</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.header_button}>
+          <TouchableOpacity style={styles.header_button} onPress={notReady}>
             <Text style={[{ color: colors.blue_primary }]}>En cours</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.header_button}>
+          <TouchableOpacity style={styles.header_button} onPress={notReady}>
             <Text
               style={[
                 {
