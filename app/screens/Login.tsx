@@ -75,7 +75,7 @@ const Login = () => {
             <IconInput
               iconName="envelope"
               placeholder="virtualsentinel@exemple.com"
-              iconColor={colors.orange_primary}
+              iconColor={colors.blue_primary}
               onChangeText={(text) => setMail(text)}
               value={mail}
             />
@@ -106,7 +106,7 @@ const Login = () => {
             <IconInput
               iconName="lock"
               placeholder="**********"
-              iconColor={colors.orange_primary}
+              iconColor={colors.blue_primary}
               onChangeText={(text) => setPassword(text)}
               password={true}
               value={password}

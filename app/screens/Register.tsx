@@ -142,7 +142,7 @@ export default function Register() {
               <IconInput
                 iconName="user"
                 placeholder="Votre prénom"
-                iconColor={colors.orange_primary}
+                iconColor={colors.blue_primary}
                 onChangeText={(text) => setFirstName(text)}
               />
             </View>
@@ -173,7 +173,7 @@ export default function Register() {
               <IconInput
                 iconName="user"
                 placeholder="Votre nom"
-                iconColor={colors.orange_primary}
+                iconColor={colors.blue_primary}
                 onChangeText={(text) => setLastName(text)}
               />
             </View>
@@ -267,7 +267,7 @@ export default function Register() {
               <IconInput
                 iconName="envelope"
                 placeholder="Votre adresse mail"
-                iconColor={colors.orange_primary}
+                iconColor={colors.blue_primary}
                 onChangeText={(text) => setMail(text)}
               />
             </View>
@@ -298,8 +298,7 @@ export default function Register() {
               <IconInput
                 iconName="lock"
                 placeholder="**********"
-                iconColor={colors.orange_primary}
-                onChangeText={(text) => setPassword(text)}
+                iconColor={colors.blue_primary}
                 password={true}
               />
             </View>
