@@ -83,6 +83,12 @@ export default function Settings() {
         style={settingStyles.container}
       >
         <View style={{ width: "100%", height: "60%" }}>
+          <View style={settingStyles.imageContainer}>
+            <Image
+              source={require("../assets/images/profileblue.png")}
+              style={settingStyles.profileImage}
+            />
+          </View>
           <LinearGradient
             colors={["#13325B", "#2B2361"]}
             start={{ x: 0, y: 0 }}
@@ -240,5 +246,19 @@ const settingStyles = StyleSheet.create({
     height: "100%",
     flexDirection: "column",
     paddingLeft: 15,
+  },
+  imageContainer: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
+  },
+
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    borderWidth: 2,
+    borderColor: "#2073BB",
   },
 });

@@ -117,7 +117,7 @@ const Login = () => {
           </Gradient>
 
           <Text style={{ color: "white", marginTop: 10 }}>
-            Pas de compte ?
+            Pas de compte ?{" "}
             <Text
               style={{ textDecorationLine: "underline" }}
               onPress={() => navigation.navigate({ name: "Créer un compte" })}

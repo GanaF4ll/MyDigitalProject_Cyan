@@ -5,18 +5,22 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome } from "@expo/vector-icons";
 
-import { AuthProvider, useAuth } from "./app/context/AuthContext";
-import Home from "./app/screens/Home";
-import Login from "./app/screens/Login";
-import PageFormation from "./app/screens/PageFormation";
-import Search from "./app/screens/Search";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import Home from "./screens/Home";
+import Login from "./screens/Login";
+import PageFormation from "./screens/PageFormation";
+import Search from "./screens/Search";
 import React from "react";
-import Settings from "./app/screens/Settings";
-import styles, { colors } from "./app/constants/styles";
-import Register from "./app/screens/Register";
-import StartFormation from "./app/screens/child-pages/StartFormation";
-import PageChapter from "./app/screens/child-pages/PageChapter";
-import Quizz from "./app/screens/child-pages/Quizz";
+import Settings from "./screens/Settings";
+import styles, { colors } from "./constants/styles";
+import Register from "./screens/Register";
+import StartFormation from "./screens/child-pages/StartFormation";
+import PageChapter from "./screens/child-pages/PageChapter";
+import Quizz from "./screens/child-pages/Quizz";
+
+/********************************************************************************
+ * APP AJOUTER DANS LE DOSSIER APP, ETAIT A LA RACINE DE L'APPLICATION VOIR SI QLQ NE MARCHE PLUS
+ *******************************************************************************/
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

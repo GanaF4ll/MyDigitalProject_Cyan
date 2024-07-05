@@ -86,7 +86,7 @@ export default function Search() {
     fetchCategories();
   }, []);
 
-  const fetchFormationsByTitle = async (formation_title) => {
+  const fetchFormationsByTitle = async (formation_title: string) => {
     setIsLoading(true);
     try {
       const result = await axios.get(
@@ -230,6 +230,7 @@ export default function Search() {
             placeholder="Chercher une formation"
             color={colors.blue_primary}
             onChangeText={(text) => fetchFormationsByTitle(text)}
+            // value="search"
           />
           <TouchableOpacity
             onPress={() => reset()}
@@ -288,6 +289,7 @@ export default function Search() {
                   coverImage={formation.coverImage}
                   completionTime={formation.completionTime}
                   image={formation.image}
+                  isPro={false}
                 />
               </LinearGradient>
             </TouchableOpacity>

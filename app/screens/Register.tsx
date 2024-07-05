@@ -144,6 +144,7 @@ export default function Register() {
                 placeholder="Votre prénom"
                 iconColor={colors.blue_primary}
                 onChangeText={(text) => setFirstName(text)}
+                value={firstName}
               />
             </View>
 
@@ -175,6 +176,7 @@ export default function Register() {
                 placeholder="Votre nom"
                 iconColor={colors.blue_primary}
                 onChangeText={(text) => setLastName(text)}
+                value={lastName}
               />
             </View>
 
@@ -269,6 +271,7 @@ export default function Register() {
                 placeholder="Votre adresse mail"
                 iconColor={colors.blue_primary}
                 onChangeText={(text) => setMail(text)}
+                value={mail}
               />
             </View>
 
@@ -300,6 +303,8 @@ export default function Register() {
                 placeholder="**********"
                 iconColor={colors.blue_primary}
                 password={true}
+                onChangeText={(text) => setPassword(text)}
+                value={password}
               />
             </View>
 
